@@ -26,24 +26,31 @@
 
 
 *******************************************************************************
-*							Set your own path directories
+*							Set your own path directories - to be removed before training
 ********************************************************************************/
 	
 	* Luiza's folders															// Add path to dynamic documentation folder
 	if "`c(username)'" == "wb501238" {
 		global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
 	}
+	* Kris' folders
 	if "`c(username)'" == "wb462869" {
 		global main_folder 	"C:\Users\wb462869\Box Sync\Training\Dynamic Documents\testoutput"
 	}	
-	
 	
 	capture confirm file 	"$main_folder\Raw\nul"
 	di _rc
 	if _rc 	mkdir 		 	"$main_folder\Raw"
 	
 	global	output		 	"$main_folder\Raw"
-
+	
+*******************************************************************************
+*							Set your own path directories - to be commented in before training
+********************************************************************************/	
+/*
+	global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
+	global output		"$main_folder\Raw"
+*/	
 	
 
 /*******************************************************************************
@@ -64,7 +71,7 @@
 	* Use life expectantcy stata data
 	sysuse 	lifeexp, clear
 	
-	*Settings importatnt for reproducible randomization
+	*Settings important for reproducible randomization
 	set seed 215320		
 	sort region country
 	
@@ -77,11 +84,11 @@
 	lab val treatment 	tmt
 	order	treatment 	,after(country)
 	
-	* Label variables
+	* Add variable labels to variables missing them
 	lab var safewater	"Safe water index"
 	lab var popgrowth	"Average annual population growth"
 	
-	*Rename the labels for region
+	*Rename the labels for the region variable
 	lab def 	region	1 "Europe and Asia" ///
 						2 "North America" ///
 						3 "South America", replace
@@ -91,6 +98,9 @@
 ********************************************************************************
 *						Exercise 1, task 1: iebaltab
 ********************************************************************************
+
+	*Clear any results alreday in memory
+	estimates 	clear
 
 	* Use iebaltab to create and export a balance table
 	iebaltab 	popgrowth lexp gnppc, 						///						// Variables to be tested
@@ -106,10 +116,13 @@
 *				Exercise 1, task 2: Tabulate categorical variable
 ********************************************************************************
 	
-	*Clear regression results in task 1 from memory
+	*Clear any results alreday in memory
 	estimates 	clear
 	
+	*Tabulate the region variable
 	estpost 	tab region
+	
+	*Use esttab to export the tabulation above to tex
 	esttab 		using 	"$output\categorical.tex", replace 					/// 
 				cells   ("b(label(Frequency)) pct(fmt(%9.2f)label(Share))")	///
 				varlabels(`e(labels)') 										///		// Uses the value labels as row names. Alternatively, you could manually specify the labels using lab def and call it here
@@ -121,16 +134,18 @@
 *					Exercise 1, task 3: Regression table
 ********************************************************************************
 	
-	*Clear regression results in task 2 from memory
+	*Clear any results alreday in memory
 	estimates 	clear
 	
-	reg 	lexp treatment gnppc, vce(cluster region)
-	eststo
-	estadd		local fe "No"	
-	reg 	lexp treatment gnppc i.region, vce(cluster region)
-	eststo
-	estadd		local fe "Yes"
+	*Run regression without fixed effects
+	eststo : reg 	lexp treatment gnppc, vce(cluster region)
+	estadd	local fe "No"
+	
+	*Run regression with fixed effects
+	eststo : reg 	lexp treatment gnppc i.region, vce(cluster region)
+	estadd	local fe "Yes"
 			
+	*Export regression results to tex using esttab 
 	esttab using 	"$output\regression_table.tex", ///
 					replace label r2 nomtitles b(%9.3f) ///
 					se(%9.3f) ///
@@ -143,18 +158,23 @@
 *			Exercise 2, task 1: Manually create graph and then export it
 ********************************************************************************
 	
+	*Generate graph
 	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || 	///
 			(kdensity lexp if treatment == 0, lcolor(gs12)), 		///
 			legend(order(1 "Treatment" 2 "Control")) 				///
 			title(Life expectancy distribution by treatment group) 	///
 			ytitle(Density) xtitle(Years)
-			
+	
+	*Export graph in file format suitable for tex
 	graph export "$output\regular_graph.png", width(5000) replace
 	
 	
 ********************************************************************************
 *				Exercise 2, task 2: Use iegraph to create figure
 ********************************************************************************	
+	
+	*Clear any results alreday in memory
+	estimates 	clear
 	
 	*Run a simple regression
 	reg 	lexp treatment
@@ -170,25 +190,27 @@
 *		Exercise 6: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************
 	
-	estimates 	clear 
-	estpost tab treatment 
-	eststo		
-	estpost	tab treatment	if region == 1
-	eststo		
-	estpost	tab treatment 	if region == 2
-	eststo		
-	estpost	tab treatment 	if region == 3
-	eststo			
+	*Clear any results alreday in memory
+	estimates 	clear
 	
+	*Tabulate treatment first for all observations, then for each region seperately
+	eststo : estpost 	tab treatment 
+	eststo : estpost	tab treatment	if region == 1
+	eststo : estpost	tab treatment 	if region == 2
+	eststo : estpost	tab treatment 	if region == 3		
+	
+	*Use estab to export the tabulation to tex
 	esttab 		using	"$output\samplesizes.tex", replace ///
 				mtitles ("Total" "Europe and Asia" "North America" "South America") ///	// Create column names
 				noobs nonotes compress nonumbers										// noobs prevents an additional line with number of observations to be added, nonotes prevents notes to be added
+	
+	*Generate the table without this code first. The exercise will ask you 
+	*to use this code to format the tex file after it has been exported
+	/*
+	filefilter 	"$output\samplesizes.tex" "$output\sample_sizes.tex", 	///				// Remove extra spacing
+				from("\n[1em]") to("") 	replace
 				
-	filefilter 	"$output\samplesizes.tex" "$output\sample_sizes.tex", ///				// Remove extra spacing
-				from("\n[1em]") to("") ///
-				replace
-				
-	filefilter 	"$output\sample_sizes.tex" "$output\samplesizes.tex", ///				// Remove extra spacing
+	filefilter 	"$output\sample_sizes.tex" "$output\samplesizes.tex", 	///				// Remove extra spacing
 				from("          &                  &                  &                  &                  \BS\BS") to ("") ///
-				replace
-					
+				replace	
+	*/
