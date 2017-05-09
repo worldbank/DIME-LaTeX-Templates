@@ -1,0 +1,76 @@
+\documentclass[12pts]{report}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{setspace}
+\usepackage{graphicx}
+\doublespacing
+
+% Title Page
+\title{DIME DYNAMIC DOCUMENTATION TRAINING }
+\author{Luiza Andrade \& Mrijan Rimal} 
+\date{\today}
+
+
+\makeatother
+
+\begin{document}
+	
+
+\makeatletter
+\begin{titlepage}
+	\begin{center}
+		\includegraphics[width=0.3\linewidth]{i2i.png}\\[10ex]
+		{\LARGE \bfseries  \@title }\\[2ex] 
+		{\Large  \@author}\\[20ex] 
+		{\large \@date}
+	\end{center}
+\end{titlepage}
+\makeatother
+
+\section*{Introduction}
+LaTeX is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. \\
+
+To complete these tasks, you should use the dataset and template provided on the DIME dynamic documentation folder. \\
+
+\textbf{Exercise Objectives:}
+\begin{enumerate}
+	\item Learn how to export tables to \LaTeX.
+	\item Learn how to export graphs.
+	\item Learn how to present tables in a \LaTeX document
+\end{enumerate}
+
+\section*{Exercise 1. Exporting Tables}
+This exercise only focuses on export tables in \LaTeX \space format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single \LaTeX \space file and export it to a pdf. \\
+
+\textbf{Task 1:}  Export a balance table to \LaTeX \space using iebaltab (install by typing ssc install ietoolkit in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region.\\
+
+\textbf{Task 2:}  Export a table with frequency and share of region variable. 
+
+\begin{center}
+	\colorbox{BurntOrange}{\emph{Tip:} esttab command has a \LaTeX\space option}
+\end{center}
+
+\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2).
+
+\section*{Exercise 2: Exporting Graphs}
+Similar to exercise 1, this exercise only exports a graph in a format that can be read in a \LaTeX\space editor. \\
+
+\textbf{Task 1:}  Create a kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. \\
+
+\textbf{Task 2:}  Use iegraph to export treatment effect graphs into .png format.
+
+\section*{Exercise 3 : Importing Tables into \LaTeX}
+Use the DIME dynamic documentation template to create a PDF with the tables and images you exported.
+
+%Add graphs as section 4.
+
+\section*{Exercise 4: Importing Graphs into \LaTeX}
+
+\section*{Exercise 5: Update \LaTeX\space file after making changes to the data}
+Change the treatment status of individuals in your dataset through a new randomization process. Rerun the codes for your tables and graphs with the same export path. Update \LaTeX file to view changes.
+
+\section*{Exercise 6: (CHALLENGE) Export a descriptive statistics table.}
+Create a table with descriptive statistics for population growth, life expectancy at birth and GNP per capita. Display the number of observations, mean, median, standard deviation, minimum and maximum values for the variables. Export it to \LaTeX. Your objective is to make the exported table look as good as possible making all the changes on the do-file (instead of the .tex file) so it is exported ready to display.
+\end{document}          
+
