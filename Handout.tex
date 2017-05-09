@@ -97,7 +97,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 	
 
 \subsection*{Add a Caption}
-
+To add a caption, you have to start a new environment i.e. begin and close a table environment. 
 \begin{multicols}{2}
 	[Depending on where you put the caption command, the label comes above or below the table.]
 	\begin{centerverbatim}
@@ -126,21 +126,29 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 			\input{/Raw/categorical.tex}
 		\end{table}
 	\end{centerverbatim}
-
+\pagebreak
 \subsection*{AdjustBox}
-%Add graphs as section 4.
-%Basic table
-%Centering
-%Adjustbox
+AdjustBox adjusts the tables you export from Stata to fit the page of your document.\\ 
+\begin{centerverbatim}
+	\begin{table}[H]
+	\centering
+	\caption{Descriptive statistics for categorical variables}
+	\begin{adjustbox}{max width=\textwidth}   
+	\subimport{Raw/}{categorical}
+	\end{adjustbox}
+	\end{table}
+\end{centerverbatim}
 
 \section*{Exercise 4: Importing Graphs into \LaTeX}
+
+\includegraphics{Raw/iegraph.png}
 
 \section*{Exercise 5: Update \LaTeX\space file after making changes to the data}
 Change the treatment status of individuals in your dataset through a new randomization process. Rerun the codes for your tables and graphs with the same export path. Update \LaTeX file to view changes.
 
 \section*{Exercise 6: (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
 
-This exercise requires more familiarity with \LaTeX than the previous. Don't worry if you can't complete it. \\
+This exercise requires more familiarity with \LaTeX \space than the previous. Don't worry if you can't complete it. \\
 
 \textbf{Task 1:} Run the initial code for exercise 6 in the training do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the \TeX\space file you created in the previous exercises. How does that look?
 

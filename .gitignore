@@ -12,7 +12,7 @@
 *.cb2
 *.pdf 
 *.png 
-Test\
+Test/
 Raw/
 
 ## Intermediate documents:
