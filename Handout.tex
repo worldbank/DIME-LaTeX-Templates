@@ -13,6 +13,7 @@
 \setlength{\columnseprule}{1pt}
 
 
+
 \newenvironment{centerverbatim}{%
 	\par
 	\centering
@@ -90,7 +91,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 
 \textbf{Task:} Import a table you have exported from Stata into this document.
 \begin{centerverbatim}
-\input{../Raw/balance_table.tex}
+\input{/Raw/balance_table.tex}
 \end{centerverbatim}
 		
 	
@@ -102,13 +103,13 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 	\begin{centerverbatim}
 		\begin{table}[H]
 			\caption{Add table title}
-			\input{../Raw/categorical.tex}
+			\input{/Raw/categorical.tex}
 		\end{table}
 	\end{centerverbatim}
 \columnbreak
 	\begin{centerverbatim}
 		\begin{table}[H]
-			\input{../Raw/categorical.tex}
+			\input{/Raw/categorical.tex}
 			\caption{Add table title}
 		\end{table}
 	\end{centerverbatim}
@@ -116,6 +117,15 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 
 
 \subsection*{Centering}
+\textbf{Task:} Now we want the tables to be centered. This can be done by:
+
+	\begin{centerverbatim}
+		\begin{table}[H]
+			\centering
+			\caption{Add table title}
+			\input{/Raw/categorical.tex}
+		\end{table}
+	\end{centerverbatim}
 
 \subsection*{AdjustBox}
 %Add graphs as section 4.
