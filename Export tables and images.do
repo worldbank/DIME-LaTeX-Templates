@@ -25,41 +25,60 @@
 	** NOTES:		This do-file requires ietoolkit to run
 
 
-********************************************************************************
-*							Load data
+*******************************************************************************
+*							Set your own path directories
 ********************************************************************************/
-	
-	* Set directories
-	* ---------------
 	
 	* Luiza's folders															// Add path to dynamic documentation folder
 	if "`c(username)'" == "wb501238" {
 		global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
 	}
+	if "`c(username)'" == "wb462869" {
+		global main_folder 	"C:\Users\wb462869\Box Sync\Training\Dynamic Documents\testoutput"
+	}	
+	
 	
 	capture confirm file 	"$main_folder\Raw\nul"
 	di _rc
 	if _rc 	mkdir 		 	"$main_folder\Raw"
 	
 	global	output		 	"$main_folder\Raw"
+
 	
-	* Load and process data
-	* ---------------------
+
+/*******************************************************************************
+*							Load and prepare data
+*			There is no need to make any changes in this section until
+*			you are ask to do so in the handout.
+*
+********************************************************************************/
+
+	* Install ietoolkit - includes ieboilstart, iebaltab and iegraph used in this code
+	* -----------------
+	*ssc install ietoolkit
+
+	*Standardizes settings and sets version number (important for randomization)
+	ieboilstart, v(12.0)
+	`r(version)'
 	
 	* Use life expectantcy stata data
 	sysuse 	lifeexp, clear
 	
-	* Create treatment variable
-	gen 	random = uniform()
-	gen 	treatment = random >.5
+	*Settings importatnt for reproducible randomization
+	set seed 215320		
+	sort region country
 	
-	* Label values
-	lab def	tmt 		1 "Treatment" ///
-						0 "Control"
+	*Randomly assign one half of the obs to treatment and the other to control
+	gen 	random 		= uniform()
+	gen 	treatment 	= random >=.5
+	drop 	random
+	lab def	tmt 		1 "Treatment" 0 "Control"
+	lab var treatment	"Treatment group"
 	lab val treatment 	tmt
+	order	treatment 	,after(country)
 	
 	* Label variables
-	lab var treatment	"Treatment group"
+	lab var safewater	"Safe water index"
 	lab var popgrowth	"Average annual population growth"
 	
 	*Rename the labels for region
@@ -69,48 +88,46 @@
 	lab val		region	region
 	
 	
-	* Install ietoolkit
-	* -----------------
-	*ssc install ietoolkit
-	
-	
 ********************************************************************************
 *						Exercise 1, task 1: iebaltab
 ********************************************************************************
 
-	* iebaltab: export balance table
-	* ------------------------------
-	iebaltab 	popgrowth lexp gnppc, ///										// Variables to be tested
-				grpvar(treatment) ///											// Treatment variable
-				fixedeffect(region) ///											// Fixed effects variable -- could also add controls using cov()
-				vce(cluster region) ///											// Cluster variable
-				rowvarlabels ////												// Use variable labels as row names
-				savetex("$output\balance_table") replace ///					// Path to where you want to save your .tex file
-				texcaption(Balance table) 										// Table title
+	* Use iebaltab to create and export a balance table
+	iebaltab 	popgrowth lexp gnppc, 						///						// Variables to be tested
+				grpvar(treatment) 							///						// Treatment variable
+				fixedeffect(region) 						///						// Fixed effects variable -- could also add controls using cov()
+				vce(cluster region) 						///						// Cluster variable
+				rowvarlabels 								///						// Use variable labels as row names
+				savetex("$output\balance_table") replace 	///						// Path to where you want to save your .tex file
+				texcaption(Balance table) 											// Table title
 				 
 
 ********************************************************************************
 *				Exercise 1, task 2: Tabulate categorical variable
 ********************************************************************************
-
+	
+	*Clear regression results in task 1 from memory
 	estimates 	clear
+	
 	estpost 	tab region
-	esttab 		using 	"$output\categorical.tex", replace /// 
-				cells   ("b(label(Frequency)) pct(fmt(%9.2f)label(Share))")  ///
-				varlabels(`e(labels)') ///											// Uses the value labels as row names. Alternatively, you could manually specify the labels using lab def and call it here
-				nomtitle nonumbers ///												// Prevents model names and numbers to be printed. Use if you're tabulating more then one variable, for example.
+	esttab 		using 	"$output\categorical.tex", replace 					/// 
+				cells   ("b(label(Frequency)) pct(fmt(%9.2f)label(Share))")	///
+				varlabels(`e(labels)') 										///		// Uses the value labels as row names. Alternatively, you could manually specify the labels using lab def and call it here
+				nomtitle nonumbers 											///		// Prevents model names and numbers to be printed. Use if you're tabulating more then one variable, for example.
 				noobs				
 	
 	
 ********************************************************************************
 *					Exercise 1, task 3: Regression table
 ********************************************************************************
-
+	
+	*Clear regression results in task 2 from memory
 	estimates 	clear
-	qui reg 	lexp treatment gnppc, vce(cluster region)
+	
+	reg 	lexp treatment gnppc, vce(cluster region)
 	eststo
 	estadd		local fe "No"	
-	qui reg 	lexp treatment gnppc i.region, vce(cluster region)
+	reg 	lexp treatment gnppc i.region, vce(cluster region)
 	eststo
 	estadd		local fe "Yes"
 			
@@ -126,22 +143,25 @@
 *			Exercise 2, task 1: Manually create graph and then export it
 ********************************************************************************
 	
-	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || ///
-			(kdensity lexp if treatment == 0, lcolor(gs12)), ///
-			legend(order(1 "Treatment" 2 "Control")) ///
-			title(Life expectancy distribution by treatment group) ///
+	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || 	///
+			(kdensity lexp if treatment == 0, lcolor(gs12)), 		///
+			legend(order(1 "Treatment" 2 "Control")) 				///
+			title(Life expectancy distribution by treatment group) 	///
 			ytitle(Density) xtitle(Years)
 			
-	gr export "$output\regular_graph.png", width(5000) replace
+	graph export "$output\regular_graph.png", width(5000) replace
 	
 	
 ********************************************************************************
 *				Exercise 2, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
-	qui reg 	lexp treatment
-	iegraph 	treatment, noconfbars ///
-				title	("Treatment effect")  ///
+	*Run a simple regression
+	reg 	lexp treatment
+	
+	*Use iegraph to make it into a graph
+	iegraph 	treatment, noconfbars 			///
+				title	("Treatment effect")  	///
 				save	("$output\iegraph.png") ///
 				yzero  grey 
 	
@@ -151,13 +171,13 @@
 ********************************************************************************
 	
 	estimates 	clear 
-	qui estpost tab treatment 
+	estpost tab treatment 
 	eststo		
-	qui estpost	tab treatment	if region == 1
+	estpost	tab treatment	if region == 1
 	eststo		
-	qui estpost	tab treatment 	if region == 2
+	estpost	tab treatment 	if region == 2
 	eststo		
-	qui estpost	tab treatment 	if region == 3
+	estpost	tab treatment 	if region == 3
 	eststo			
 	
 	esttab 		using	"$output\samplesizes.tex", replace ///
