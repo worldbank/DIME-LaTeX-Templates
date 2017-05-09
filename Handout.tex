@@ -41,22 +41,25 @@ To complete these tasks, you should use the dataset and template provided on the
 \end{enumerate}
 
 \section*{Exercise 1. Exporting Tables}
-This exercise only focuses on export tables in \LaTeX \space format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single \LaTeX \space file and export it to a pdf. \\
+This exercise only focuses on export tables in \LaTeX \space format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single \LaTeX \space file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. \\
 
-\textbf{Task 1:}  Export a balance table to \LaTeX \space using iebaltab (install by typing ssc install ietoolkit in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region.\\
+\textbf{Task 1:}  Export a balance table to \LaTeX \space using iebaltab (install by typing ssc install ietoolkit in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to \LaTeX, you'll use the \textit{savetex} option. You'll also add the caption and label to your table using stata. 
+\begin{center}
+	\colorbox{BurntOrange}{\emph{Tip:} look at \textit{iebaltab} help for more detailed information.}
+\end{center}
+
 
 \textbf{Task 2:}  Export a table with frequency and share of region variable. 
-
 \begin{center}
 	\colorbox{BurntOrange}{\emph{Tip:} esttab command has a \LaTeX\space option}
 \end{center}
 
-\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2).
+\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \textit{estadd} and \textit{scalar} options in \textit{esttab} to add a line for fixed effects.
 
 \section*{Exercise 2: Exporting Graphs}
 Similar to exercise 1, this exercise only exports a graph in a format that can be read in a \LaTeX\space editor. \\
 
-\textbf{Task 1:}  Create a kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. \\
+\textbf{Task 1:}  Create a kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \textit{graph export} option. \\
 
 \textbf{Task 2:}  Use iegraph to export treatment effect graphs into .png format.
 
