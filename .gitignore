@@ -12,7 +12,7 @@
 *.cb2
 *.pdf 
 *.png 
-
+Test\
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
