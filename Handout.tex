@@ -59,7 +59,7 @@ This exercise only focuses on export tables in \LaTeX \space format from Stata. 
 \section*{Exercise 2: Exporting Graphs}
 Similar to exercise 1, this exercise only exports a graph in a format that can be read in a \LaTeX\space editor. \\
 
-\textbf{Task 1:}  Create a kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \textit{graph export} option. \\
+\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \textit{graph export} option. 
 
 \textbf{Task 2:}  Use iegraph to export treatment effect graphs into .png format.
 
@@ -82,7 +82,17 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 \section*{Exercise 5: Update \LaTeX\space file after making changes to the data}
 Change the treatment status of individuals in your dataset through a new randomization process. Rerun the codes for your tables and graphs with the same export path. Update \LaTeX file to view changes.
 
-\section*{Exercise 6: (CHALLENGE) Export a descriptive statistics table.}
-Create a table with descriptive statistics for population growth, life expectancy at birth and GNP per capita. Display the number of observations, mean, median, standard deviation, minimum and maximum values for the variables. Export it to \LaTeX. Your objective is to make the exported table look as good as possible making all the changes on the do-file (instead of the .tex file) so it is exported ready to display.
+\section*{Exercise 6: (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
+
+This exercise requires more familiarity with \LaTeX than the previous. Don't worry if you can't complete it. \\
+
+\textbf{Task 1:} Run the initial code for exercise 6 in the training do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the \TeX\space file you created in the previous exercises. How does that look?
+
+\textbf{Task 2:} Open the fragmented .tex file created by Stata. Can you identify the source of the extra spacing?
+
+\textbf{Task 3:} Use \textit{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.
+
+\textbf{Task 4:} Repeat task 3 if necessary.
+
 \end{document}          
 
