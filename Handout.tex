@@ -5,6 +5,24 @@
 \usepackage{setspace}
 \usepackage{graphicx}
 \doublespacing
+\usepackage{fancyvrb}
+\usepackage{varwidth}
+\usepackage{verbatim}
+\usepackage{multicol}
+
+\setlength{\columnseprule}{1pt}
+
+
+\newenvironment{centerverbatim}{%
+	\par
+	\centering
+	\varwidth{\linewidth}%
+	\verbatim
+}{%
+	\endverbatim
+	\endvarwidth
+	\par
+}
 
 % Title Page
 \title{DIME DYNAMIC DOCUMENTATION TRAINING }
@@ -13,6 +31,7 @@
 
 
 \makeatother
+
 
 \begin{document}
 	
@@ -68,6 +87,33 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 
 %Add graphs as section 4.
 \subsection*{Basic Table}
+
+\textbf{Task:} Import a table you have exported from Stata into this document.
+\begin{centerverbatim}
+\input{../Raw/balance_table.tex}
+\end{centerverbatim}
+		
+	
+
+\subsection*{Add a Caption}
+
+\begin{multicols}{2}
+	[Depending on where you put the caption command, the label comes above or below the table.]
+	\begin{centerverbatim}
+		\begin{table}[H]
+			\caption{Add table title}
+			\input{../Raw/categorical.tex}
+		\end{table}
+	\end{centerverbatim}
+\columnbreak
+	\begin{centerverbatim}
+		\begin{table}[H]
+			\input{../Raw/categorical.tex}
+			\caption{Add table title}
+		\end{table}
+	\end{centerverbatim}
+\end{multicols}
+
 
 \subsection*{Centering}
 

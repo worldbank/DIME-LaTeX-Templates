@@ -13,6 +13,8 @@
 *.pdf 
 *.png 
 Test\
+Raw/
+
 ## Intermediate documents:
 *.dvi
 *-converted-to.*
