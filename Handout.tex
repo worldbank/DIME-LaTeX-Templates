@@ -9,22 +9,10 @@
 \usepackage{varwidth}
 \usepackage{verbatim}
 \usepackage{multicol}
+\usepackage{hyperref}
 
 \setlength{\parindent}{0pt}
 \setlength{\columnseprule}{1pt}
-
-
-
-\newenvironment{centerverbatim}{%
-	\par
-	\centering
-	\varwidth{\linewidth}%
-	\verbatim
-}{%
-	\endverbatim
-	\endvarwidth
-	\par
-}
 
 % Title Page
 \title{DIME DYNAMIC DOCUMENTATION TRAINING }
@@ -50,21 +38,24 @@
 \makeatother
 
 \section*{Introduction}
-\LaTeX\space is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. \\
+{\LaTeX} is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. \\
 
-To complete these tasks, you should use the dataset and template provided on the DIME dynamic documentation folder. \\
+To complete these tasks, you should use the dataset, do-file and {\LaTeX} template provided on the DIME dynamic documentation folder. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. \\
+
+The templates in the folder should allow you to do all you are asked in these exercises, but if you want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
+}{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer.
 
 \textbf{Exercise Objectives:}
 \begin{enumerate}
-	\item Learn how to export tables to \LaTeX.
+	\item Learn how to export tables to {\LaTeX}.
 	\item Learn how to export graphs.
-	\item Learn how to present tables in a \LaTeX document
+	\item Learn how to present tables in a {\LaTeX} document
 \end{enumerate}
 
 \section*{Exercise 1. Exporting Tables}
-This exercise only focuses on export tables in \LaTeX \space format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single \LaTeX \space file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. \\
+This exercise only focuses on exporting tables in {\LaTeX} format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single {\LaTeX} file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. We've prepared the do-file for you as this is an exercise in {\LaTeX} and not in Stata. So if you are not using a different dataset, no changes are needed in the do-file except to set your file path in the beggining. \\
 
-\textbf{Task 1:}  Export a balance table to \LaTeX \space using \texttt{iebaltab} (install by typing \texttt{ssc install ietoolkit} in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to \LaTeX, you'll use the \texttt{savetex} option. You'll also add the caption and label to your table using stata. 
+\textbf{Task 1:}  Export a balance table to {\LaTeX} using \texttt{iebaltab} (install by typing \texttt{ssc install ietoolkit} in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to {\LaTeX}, you'll use the \texttt{savetex} option. You'll also add the caption and label to your table using stata. 
 \begin{center}
 	\textcolor{BurntOrange}{\emph{Tip:} type \texttt{help iebaltab} in Stata for more detailed information.}
 \end{center}
@@ -72,19 +63,19 @@ This exercise only focuses on export tables in \LaTeX \space format from Stata. 
 
 \textbf{Task 2:}  Export a table with frequency and share of region variable. 
 \begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} \texttt{esttab} command has a \LaTeX\space option}
+	\textcolor{BurntOrange}{\emph{Tip:} \texttt{esttab} command has a {\LaTeX} option}
 \end{center}
 
-\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \texttt{estadd} and \texttt{scalar} options in \texttt{esttab} to add a line for fixed effects.
+\textbf{Task 3:} Export a regression table to {\LaTeX}. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \texttt{estadd} and \texttt{scalar} options in \texttt{esttab} to add a line for fixed effects.
 
-\section*{Exercise 2: Exporting Graphs}
-Similar to exercise 1, this exercise only exports a graph in a format that can be read in a \LaTeX\space editor. \\
+\section*{Exercise 2. Exporting Graphs}
+Similar to exercise 1, this exercise only exports a graph in a format that can be read in a {\LaTeX} editor. \\
 
-\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \texttt{graph export} option. 
+\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \texttt{graph export} option. \\
 
 \textbf{Task 2:}  Use \texttt{iegraph} to export treatment effect graphs into .png format.
 
-\section*{Exercise 3 : Importing Tables into \LaTeX}
+\section*{Exercise 3. Importing Tables into \LaTeX}
 Use the DIME dynamic documentation template to create a PDF with the tables and images you exported.\\
 
 \textbf{Task 1: Import a table.} Use Template 1 to import the balance table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file
@@ -98,7 +89,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 	\textcolor{BurntOrange}{\emph{Tip:} remember {\LaTeX} uses relative paths. That is, the path must start in the folder where your .tex document is saved.}
 \end{center}
 		
-\textbf{Task 2: Import another table.} Use Template 2 to import the frequency table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file:
+\textbf{Task 2: Import another table.} Use Template 1 to import the frequency table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file:
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
@@ -108,12 +99,14 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 	\end{Verbatim}
 \end{center}
 
-\textbf{Task 3: Add a Caption.} To add a caption, you have to start a new environment i.e. begin and close a table environment. 
+\textbf{Task 3: Adding a caption and a label.} To add a caption, you have to start a new environment i.e. begin and close a table environment. The caption specifies the title of your table. If you want to reference this table in your text later, you should also add a label. This way, when you add other tables, their numbers are updated in your references. \\
+
 \begin{multicols}{2}
-	[Depending on where you put the caption command, the label comes above or below the table.]
+	[Depending on where you put the caption command, the title comes above or below the table.]
 	\begin{Verbatim}[commandchars=+\(\)]
   \begin{table}[H]
   	+color(CornflowerBlue)(\caption{Add table title})
+  	+color(CornflowerBlue)(\label{tab:add_label})
   	\input{/Raw/categorical.tex}
   \end{table}
 	\end{Verbatim}
@@ -122,9 +115,14 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
   \begin{table}[H]
   	\input{/Raw/categorical.tex}
   	+color(CornflowerBlue)(\caption{Add table title})
+  	+color(CornflowerBlue)(\label{tab:add_label})
   \end{table}
 	\end{Verbatim}
 \end{multicols}
+
+\begin{center}
+	\textcolor{BurntOrange}{\emph{Tip:} labels must always come after captions, otherwise you will get a compiling error. Label names must not include spaces between words.}
+\end{center}
 
 \textbf{Task 4: Centering.} Now we want the tables to be centered. This can be done by:
 
@@ -136,18 +134,22 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 		\end{table}
 	\end{Verbatim}
 
-\textbf{Task 5: Adjust table size.} \verb|\AdjustBox| adjusts the tables you export from Stata to fit the page of your document.
+\textbf{Task 5: Adjust table size.} \verb|\AdjustBox| command allows you to make changes to the size of your tables. 
 \begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
 		\centering
 		\caption{Descriptive statistics for categorical variables}
 		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
-			\subimport{Raw/}{categorical}
+			\input{Raw/categorical.tex}
 		+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
 \end{Verbatim}
 
-\section*{Exercise 4: Importing Graphs into \LaTeX}
+\begin{center}
+	\color{BurntOrange}{\emph{Tip:} \verb|\textwidth| option adjusts the table's size to fit the margins of the document, but there are other options you can explore.}
+\end{center}
+
+\section*{Exercise 4. Importing Graphs into \LaTeX}
 
 \textbf{Task 1:} Use the code in Template 2 to import one of the figures you created. You should be able to do this by just changing the path on \verb|\includegraphics{}|:
 \begin{center}
@@ -180,18 +182,22 @@ How does it look? \\
 	\end{Verbatim}
 \end{center}
 
-\section*{Exercise 5: Update \LaTeX\space file after making changes to the data}
-Change the treatment status of individuals in your dataset through a new randomization process. Rerun the codes for your tables and graphs with the same export path. Update \LaTeX file to view changes.
+\section*{Exercise 5. Update {\LaTeX} file after making changes to the data}
+Change the treatment status of individuals in your dataset by setting a different seed before the randomization. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
 
-\section*{Exercise 6: (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
+\begin{center}
+	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
+\end{center}
 
-This exercise requires more familiarity with \LaTeX \space than the previous. Don't worry if you can't complete it. \\
+\section*{Exercise 6. (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
 
-\textbf{Task 1:} Run the initial code for exercise 6 in the training do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the \TeX\space file you created in the previous exercises. How does that look?
+This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. \\
 
-\textbf{Task 2:} Open the fragmented .tex file created by Stata. Can you identify the source of the extra spacing?
+\textbf{Task 1:} Run the initial code for exercise 6 in the training do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?\\
 
-\textbf{Task 3:} Use \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.
+\textbf{Task 2:} Open the fragmented .tex file created by Stata. Can you identify the source of the extra spacing?\\
+
+\textbf{Task 3:} Use the \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.\\
 
 \textbf{Task 4:} Repeat task 3 if necessary.
 
