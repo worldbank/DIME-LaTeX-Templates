@@ -2,6 +2,7 @@
 
 This repository contains all the information on how to export tables using Stata and create a TeX document which automatically updates all the tables everytime a do-file is run again. 
 
+# Workshop-11thMay Folder
 ## Handout 
 The Handout.tex file has all the exercise that will be followed in the Dynamic Documentation Workshop.
 
