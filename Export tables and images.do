@@ -25,36 +25,18 @@
 	** NOTES:		This do-file requires ietoolkit to run
 
 
+
 *******************************************************************************
-*							Set your own path directories - to be removed before training
-********************************************************************************/
-	
-	* Luiza's folders															// Add path to dynamic documentation folder
-	if "`c(username)'" == "wb501238" {
-		global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
-	}
-	* Kris' folders
-	if "`c(username)'" == "wb462869" {
-		global main_folder 	"C:\Users\wb462869\Box Sync\Training\Dynamic Documents\testoutput"
-	}	
-	
-	capture confirm file 	"$main_folder\Raw\nul"
-	di _rc
-	if _rc 	mkdir 		 	"$main_folder\Raw"
-	
-	global	output		 	"$main_folder\Raw"
-	
-*******************************************************************************
-*							Set your own path directories - to be commented in before training
+*						Set your own path directories 
 ********************************************************************************/	
-/*
+
 	global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
 	global output		"$main_folder\Raw"
-*/	
 	
 
 /*******************************************************************************
 *							Load and prepare data
+*
 *			There is no need to make any changes in this section until
 *			you are ask to do so in the handout.
 *
@@ -62,9 +44,9 @@
 
 	* Install ietoolkit - includes ieboilstart, iebaltab and iegraph used in this code
 	* -----------------
-	*ssc install ietoolkit
+	ssc install ietoolkit
 
-	*Standardizes settings and sets version number (important for randomization)
+	* Standardizes settings and sets version number (important for randomization)
 	ieboilstart, v(12.0)
 	`r(version)'
 	
@@ -72,8 +54,8 @@
 	sysuse 	lifeexp, clear
 	
 	*Settings important for reproducible randomization
-	set seed 215320		
-	sort region country
+	set 	seed 215320		
+	sort 	region country
 	
 	*Randomly assign one half of the obs to treatment and the other to control
 	gen 	random 		= uniform()
@@ -99,7 +81,7 @@
 *						Exercise 1, task 1: iebaltab
 ********************************************************************************
 
-	*Clear any results alreday in memory
+	* Clear any results alreday in memory
 	estimates 	clear
 
 	* Use iebaltab to create and export a balance table
@@ -116,13 +98,13 @@
 *				Exercise 1, task 2: Tabulate categorical variable
 ********************************************************************************
 	
-	*Clear any results alreday in memory
+	* Clear any results alreday in memory
 	estimates 	clear
 	
-	*Tabulate the region variable
+	* Tabulate the region variable
 	estpost 	tab region
 	
-	*Use esttab to export the tabulation above to tex
+	* Use esttab to export the tabulation above to tex
 	esttab 		using 	"$output\categorical.tex", replace 					/// 
 				cells   ("b(label(Frequency)) pct(fmt(%9.2f)label(Share))")	///
 				varlabels(`e(labels)') 										///		// Uses the value labels as row names. Alternatively, you could manually specify the labels using lab def and call it here
@@ -134,18 +116,18 @@
 *					Exercise 1, task 3: Regression table
 ********************************************************************************
 	
-	*Clear any results alreday in memory
+	* Clear any results already in memory
 	estimates 	clear
 	
-	*Run regression without fixed effects
+	* Run regression without fixed effects
 	eststo : reg 	lexp treatment gnppc, vce(cluster region)
 	estadd	local fe "No"
 	
-	*Run regression with fixed effects
+	* Run regression with fixed effects
 	eststo : reg 	lexp treatment gnppc i.region, vce(cluster region)
 	estadd	local fe "Yes"
 			
-	*Export regression results to tex using esttab 
+	* Export regression results to tex using esttab 
 	esttab using 	"$output\regression_table.tex", ///
 					replace label r2 nomtitles b(%9.3f) ///
 					se(%9.3f) ///
@@ -158,14 +140,14 @@
 *			Exercise 2, task 1: Manually create graph and then export it
 ********************************************************************************
 	
-	*Generate graph
+	* Generate graph
 	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || 	///
 			(kdensity lexp if treatment == 0, lcolor(gs12)), 		///
 			legend(order(1 "Treatment" 2 "Control")) 				///
 			title(Life expectancy distribution by treatment group) 	///
 			ytitle(Density) xtitle(Years)
 	
-	*Export graph in file format suitable for tex
+	* Export graph in file format suitable for tex
 	graph export "$output\regular_graph.png", width(5000) replace
 	
 	
@@ -173,13 +155,13 @@
 *				Exercise 2, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
-	*Clear any results alreday in memory
+	* Clear any results alreday in memory
 	estimates 	clear
 	
-	*Run a simple regression
+	* Run a simple regression
 	reg 	lexp treatment
 	
-	*Use iegraph to make it into a graph
+	* Use iegraph to make it into a graph
 	iegraph 	treatment, noconfbars 			///
 				title	("Treatment effect")  	///
 				save	("$output\iegraph.png") ///
@@ -190,16 +172,16 @@
 *		Exercise 6: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************
 	
-	*Clear any results alreday in memory
+	* Clear any results alreday in memory
 	estimates 	clear
 	
-	*Tabulate treatment first for all observations, then for each region seperately
+	* Tabulate treatment first for all observations, then for each region seperately
 	eststo : estpost 	tab treatment 
 	eststo : estpost	tab treatment	if region == 1
 	eststo : estpost	tab treatment 	if region == 2
 	eststo : estpost	tab treatment 	if region == 3		
 	
-	*Use estab to export the tabulation to tex
+	* Use estab to export the tabulation to tex
 	esttab 		using	"$output\samplesizes.tex", replace ///
 				mtitles ("Total" "Europe and Asia" "North America" "South America") ///	// Create column names
 				noobs nonotes compress nonumbers										// noobs prevents an additional line with number of observations to be added, nonotes prevents notes to be added
