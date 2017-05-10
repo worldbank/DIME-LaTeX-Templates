@@ -18,5 +18,5 @@ This is an advanced template that teaches how to do the following:
 * Manually create tables in LaTeX
 * Create sub-figures i.e. side-by-side figures.
 
-# Do File
+## Do File
 * The do file has the code to export tables from iebaltab, summary statistics, and regressions in LaTeX format. 
