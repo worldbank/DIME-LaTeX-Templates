@@ -37,7 +37,7 @@ Raw/
 *.synctex(busy)
 *.synctex.gz
 *.synctex.gz(busy)
-*.pdfsync
+#*.pdfsync
 
 ## Auxiliary and intermediate files from other packages:
 # algorithms
@@ -150,7 +150,7 @@ _minted*
 *.pax
 
 # pdfpcnotes
-*.pdfpc
+#*.pdfpc
 
 # sagetex
 *.sagetex.sage
