@@ -63,85 +63,121 @@ To complete these tasks, you should use the dataset and template provided on the
 \section*{Exercise 1. Exporting Tables}
 This exercise only focuses on export tables in \LaTeX \space format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single \LaTeX \space file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. \\
 
-\textbf{Task 1:}  Export a balance table to \LaTeX \space using iebaltab (install by typing ssc install ietoolkit in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to \LaTeX, you'll use the \textit{savetex} option. You'll also add the caption and label to your table using stata. 
+\textbf{Task 1:}  Export a balance table to \LaTeX \space using \texttt{iebaltab} (install by typing \texttt{ssc install ietoolkit} in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to \LaTeX, you'll use the \texttt{savetex} option. You'll also add the caption and label to your table using stata. 
 \begin{center}
-	\colorbox{BurntOrange}{\emph{Tip:} look at \textit{iebaltab} help for more detailed information.}
+	\textcolor{BurntOrange}{\emph{Tip:} type \texttt{help iebaltab} in Stata for more detailed information.}
 \end{center}
 
 
 \textbf{Task 2:}  Export a table with frequency and share of region variable. 
 \begin{center}
-	\colorbox{BurntOrange}{\emph{Tip:} esttab command has a \LaTeX\space option}
+	\textcolor{BurntOrange}{\emph{Tip:} \texttt{esttab} command has a \LaTeX\space option}
 \end{center}
 
-\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \textit{estadd} and \textit{scalar} options in \textit{esttab} to add a line for fixed effects.
+\textbf{Task 3:} Export a regression table to \LaTeX. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \texttt{estadd} and \texttt{scalar} options in \texttt{esttab} to add a line for fixed effects.
 
 \section*{Exercise 2: Exporting Graphs}
 Similar to exercise 1, this exercise only exports a graph in a format that can be read in a \LaTeX\space editor. \\
 
-\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \textit{graph export} option. 
+\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \texttt{graph export} option. 
 
-\textbf{Task 2:}  Use iegraph to export treatment effect graphs into .png format.
+\textbf{Task 2:}  Use \texttt{iegraph} to export treatment effect graphs into .png format.
 
 \section*{Exercise 3 : Importing Tables into \LaTeX}
-Use the DIME dynamic documentation template to create a PDF with the tables and images you exported.
+Use the DIME dynamic documentation template to create a PDF with the tables and images you exported.\\
 
-%Add graphs as section 4.
-\subsection*{Basic Table}
+\textbf{Task 1: Import a table.} Use Template 1 to import the balance table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file
+\begin{center}
+\begin{Verbatim}[commandchars=+\(\)]
+	\input+color(CornflowerBlue)({/Raw/balance_table.tex})
+\end{Verbatim}
+\end{center}
 
-\textbf{Task:} Import a table you have exported from Stata into this document.
-\begin{centerverbatim}
-\input{/Raw/balance_table.tex}
-\end{centerverbatim}
+\begin{center}
+	\textcolor{BurntOrange}{\emph{Tip:} remember {\LaTeX} uses relative paths. That is, the path must start in the folder where your .tex document is saved.}
+\end{center}
 		
-	
+\textbf{Task 2: Import another table.} Use Template 2 to import the frequency table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{table}[H]
+	\caption{Add table title}
+		\input+color(CornflowerBlue)({/Raw/categorical.tex})
+	\end{table}
+	\end{Verbatim}
+\end{center}
 
-\subsection*{Add a Caption}
-To add a caption, you have to start a new environment i.e. begin and close a table environment. 
+\textbf{Task 3: Add a Caption.} To add a caption, you have to start a new environment i.e. begin and close a table environment. 
 \begin{multicols}{2}
 	[Depending on where you put the caption command, the label comes above or below the table.]
-	\begin{centerverbatim}
-		\begin{table}[H]
-			\caption{Add table title}
-			\input{/Raw/categorical.tex}
-		\end{table}
-	\end{centerverbatim}
-\columnbreak
-	\begin{centerverbatim}
-		\begin{table}[H]
-			\input{/Raw/categorical.tex}
-			\caption{Add table title}
-		\end{table}
-	\end{centerverbatim}
+	\begin{Verbatim}[commandchars=+\(\)]
+  \begin{table}[H]
+  	+color(CornflowerBlue)(\caption{Add table title})
+  	\input{/Raw/categorical.tex}
+  \end{table}
+	\end{Verbatim}
+
+	\begin{Verbatim}[commandchars=+\(\)]
+  \begin{table}[H]
+  	\input{/Raw/categorical.tex}
+  	+color(CornflowerBlue)(\caption{Add table title})
+  \end{table}
+	\end{Verbatim}
 \end{multicols}
 
+\textbf{Task 4: Centering.} Now we want the tables to be centered. This can be done by:
 
-\subsection*{Centering}
-\textbf{Task:} Now we want the tables to be centered. This can be done by:
-
-	\begin{centerverbatim}
+	\begin{Verbatim}[commandchars=+\(\)]
 		\begin{table}[H]
-			\centering
+			+color(CornflowerBlue)(\centering)
 			\caption{Add table title}
 			\input{/Raw/categorical.tex}
 		\end{table}
-	\end{centerverbatim}
-\pagebreak
-\subsection*{AdjustBox}
-AdjustBox adjusts the tables you export from Stata to fit the page of your document.\\ 
-\begin{centerverbatim}
+	\end{Verbatim}
+
+\textbf{Task 5: Adjust table size.} \verb|\AdjustBox| adjusts the tables you export from Stata to fit the page of your document.
+\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-	\centering
-	\caption{Descriptive statistics for categorical variables}
-	\begin{adjustbox}{max width=\textwidth}   
-	\subimport{Raw/}{categorical}
-	\end{adjustbox}
+		\centering
+		\caption{Descriptive statistics for categorical variables}
+		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
+			\subimport{Raw/}{categorical}
+		+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
-\end{centerverbatim}
+\end{Verbatim}
 
 \section*{Exercise 4: Importing Graphs into \LaTeX}
 
-\includegraphics{Raw/iegraph.png}
+\textbf{Task 1:} Use the code in Template 2 to import one of the figures you created. You should be able to do this by just changing the path on \verb|\includegraphics{}|:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+		\includegraphics+color(CornflowerBlue)({Raw/iegraph.png})
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+How does it look? \\
+
+\textbf{Task 2:} Adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+		\includegraphics+color(CornflowerBlue)([width=\textwidth])+color(black)({Raw/iegraph.png})
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+\textbf{Task 3:} Center your figure and add a caption to it:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+	+color(CornflowerBlue)(\centering)
+		\includegraphics[width=\textwidth]{Raw/iegraph.png}
+	+color(CornflowerBlue)(\caption{+textit(Add_a caption)})
+	\end{figure}
+	\end{Verbatim}
+\end{center}
 
 \section*{Exercise 5: Update \LaTeX\space file after making changes to the data}
 Change the treatment status of individuals in your dataset through a new randomization process. Rerun the codes for your tables and graphs with the same export path. Update \LaTeX file to view changes.
@@ -154,7 +190,7 @@ This exercise requires more familiarity with \LaTeX \space than the previous. Do
 
 \textbf{Task 2:} Open the fragmented .tex file created by Stata. Can you identify the source of the extra spacing?
 
-\textbf{Task 3:} Use \textit{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.
+\textbf{Task 3:} Use \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.
 
 \textbf{Task 4:} Repeat task 3 if necessary.
 
