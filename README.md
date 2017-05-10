@@ -22,5 +22,5 @@ This is an advanced template that teaches how to do the following:
 ## Do File
 * The do file has the code to export tables from iebaltab, summary statistics, and regressions in LaTeX format. 
 
-## Hello World 
+## Hello-world.tex
 * The Hello World file is the TeX file to check if TeX is properly installed on your Bank network. 
