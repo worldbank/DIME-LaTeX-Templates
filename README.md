@@ -1,5 +1,6 @@
-# Dynamic-Documentation
-Dynamic Documentation Workshop (LaTeX and Stata)
+# Dynamic Documentation 
+
+This repository contains all the information on how to export tables using Stata and create a TeX document which automatically updates all the tables everytime a do-file is run again. 
 
 ## Handout 
 The Handout.tex file has all the exercise that will be followed in the Dynamic Documentation Workshop.
