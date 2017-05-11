@@ -1,4 +1,4 @@
-This repository contains resources that will help you make your research more reproducable. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared excercises that will make it easy for you to start using these resources.
+This repository contains resources that will help you make your research more reproducible. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared excercises that will make it easy for you to start using these resources.
 
 # How to get started
 ## Step 1. Download the material
