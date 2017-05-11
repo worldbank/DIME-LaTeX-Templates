@@ -40,17 +40,14 @@
 \section*{Introduction}
 {\LaTeX} is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. \\
 
-To complete these tasks, you should use the dataset, do-file and {\LaTeX} template provided on the DIME dynamic documentation folder. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. \\
+To complete these tasks, you should use the \textcolor{red}{Add path and name of do-file} do-file and \textcolor{red}{Add path and name of template} {\LaTeX} template provided on the DIME dynamic documentation folder. There's no need to download any datasets. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. \\
 
 The templates in the folder should allow you to do all you are asked in these exercises, but if you want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
 }{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer.
 
-\textbf{Exercise Objectives:}
-\begin{enumerate}
-	\item Learn how to export tables to {\LaTeX}.
-	\item Learn how to export graphs.
-	\item Learn how to present tables in a {\LaTeX} document
-\end{enumerate}
+\textbf{Exercise Objectives:} Learn how to present tables and graphs in a {\LaTeX} document.
+
+\section*{Exercise 1. Set up folders}
 
 \section*{Exercise 1. Exporting Tables}
 This exercise only focuses on exporting tables in {\LaTeX} format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single {\LaTeX} file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. We've prepared the do-file for you as this is an exercise in {\LaTeX} and not in Stata. So if you are not using a different dataset, no changes are needed in the do-file except to set your file path in the beggining. \\
@@ -81,7 +78,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 \textbf{Task 1: Import a table.} Use Template 1 to import the balance table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file
 \begin{center}
 \begin{Verbatim}[commandchars=+\(\)]
-	\input+color(CornflowerBlue)({/Raw/balance_table.tex})
+	\input+color(CornflowerBlue)({/Raw/regression_table.tex})
 \end{Verbatim}
 \end{center}
 
@@ -94,7 +91,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
 	\caption{Add table title}
-		\input+color(CornflowerBlue)({/Raw/categorical.tex})
+		\input+color(CornflowerBlue)({/Raw/regression_table.tex})
 	\end{table}
 	\end{Verbatim}
 \end{center}
@@ -102,18 +99,18 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 \textbf{Task 3: Adding a caption and a label.} To add a caption, you have to start a new environment i.e. begin and close a table environment. The caption specifies the title of your table. If you want to reference this table in your text later, you should also add a label. This way, when you add other tables, their numbers are updated in your references. \\
 
 \begin{multicols}{2}
-	[Depending on where you put the caption command, the title comes above or below the table.]
+	[Depending on where you put the caption command in relation to the input command, the title comes above or below your table or image.]
 	\begin{Verbatim}[commandchars=+\(\)]
   \begin{table}[H]
   	+color(CornflowerBlue)(\caption{Add table title})
   	+color(CornflowerBlue)(\label{tab:add_label})
-  	\input{/Raw/categorical.tex}
+  	\input{/Raw/regression_table.tex}
   \end{table}
 	\end{Verbatim}
 
 	\begin{Verbatim}[commandchars=+\(\)]
   \begin{table}[H]
-  	\input{/Raw/categorical.tex}
+  	\input{/Raw/regression_table.tex}
   	+color(CornflowerBlue)(\caption{Add table title})
   	+color(CornflowerBlue)(\label{tab:add_label})
   \end{table}
@@ -130,7 +127,7 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 		\begin{table}[H]
 			+color(CornflowerBlue)(\centering)
 			\caption{Add table title}
-			\input{/Raw/categorical.tex}
+			\input{/Raw/regression_table.tex}
 		\end{table}
 	\end{Verbatim}
 
@@ -140,13 +137,14 @@ Use the DIME dynamic documentation template to create a PDF with the tables and 
 		\centering
 		\caption{Descriptive statistics for categorical variables}
 		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
-			\input{Raw/categorical.tex}
+			\input{Raw/regression_table.tex}
 		+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
 \end{Verbatim}
 
 \begin{center}
-	\color{BurntOrange}{\emph{Tip:} \verb|\textwidth| option adjusts the table's size to fit the margins of the document, but there are other options you can explore.}
+	\color{BurntOrange}{\emph{Tip:} \verb|\textwidth| option adjusts the table's size to fit the margins of the document, but there are other options you can explore. You can check them on the \href{https://en.wikibooks.org/wiki/LaTeX
+		}{{\LaTeX} Wikibook}.}
 \end{center}
 
 \section*{Exercise 4. Importing Graphs into \LaTeX}
@@ -183,7 +181,7 @@ How does it look? \\
 \end{center}
 
 \section*{Exercise 5. Update {\LaTeX} file after making changes to the data}
-Change the treatment status of individuals in your dataset by setting a different seed before the randomization. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
+Change your dataset by dropping all observation of Latin American countries. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
 
 \begin{center}
 	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
@@ -193,9 +191,9 @@ Change the treatment status of individuals in your dataset by setting a differen
 
 This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. \\
 
-\textbf{Task 1:} Run the initial code for exercise 6 in the training do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?\\
+\textbf{Task 1:} Run the initial code for exercise 6 in the \textcolor{red}{Add path and name of do-file} do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?\\
 
-\textbf{Task 2:} Open the fragmented .tex file created by Stata. Can you identify the source of the extra spacing?\\
+\textbf{Task 2:} Open the \textcolor{red}{Add path and name of tex file} .tex file created by Stata. Can you identify the source of the extra spacing?\\
 
 \textbf{Task 3:} Use the \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.\\
 
