@@ -10,14 +10,22 @@ If you already have a LaTeX editor on your computer and you know that is working
 ## Step 3. Do Exercises 
 In the *Exercises* folder there are subfolders for each excercise. In each fodler you will find a handout file. That file explains how to get started. We receommend that you start with Exercise 1.
 
+## Step 4. Use the templates in your own reserch 
+In the *Exercises* folder there are subfolders for each excercise. In each fodler you will find a handout file. That file explains how to get started. We receommend that you start with Exercise 1.
+
+## List of Exercises 
+
 **Excercise 1 - Basic Appendix**
 This exercise covers the basics of LaTeX and show you how to create a simple appendix of tables and graphs that automatically updates each time you re-run your code in, for example, Stata and R. At DIME, the Research Assistant create these appendices when producing output for the Economists. When writing the paper or report, these tables and graphs can be kept in the appendix or be moved into the text.
 
 **Excercise 2 - Advanced Appendix (Not created yet)**
 This excercise introduces some more advanced techniques to create the appendix, and it also discuss how you can format your tables after they have been exported by a command in, for example, Stata or R.
 
-**Excercise 2 - Full Document  (Not created yet)**
+**Excercise 3 - Full Document  (Not created yet)**
 This excercise introduces the topics you need to know to write a full paper or report in LaTeX that dynamically updates when you re-run your code in, for example, Stata and R.
+
+**Excercise Stata - How to export tables and graph from Stata to LaTeX**
+This exercise covers how you can use Stata to export tables and grpahs that can be read by LaTeX.
 
 ---
 Remove everythign below when moved elsewhere
