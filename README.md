@@ -28,7 +28,7 @@ This exercise introduces the topics you need to know to write a full paper or re
 This exercise covers how you can use Stata to export tables and graphs that can be read by LaTeX.
 
 ---
-Remove everythign below when moved elsewhere
+Remove everything below when moved elsewhere
 
 Kristoffer: Mrijan, move this to the instructions for setting up TeXstudio, but I am keeping it here so it is not deleted
 ## Hello-world.tex
