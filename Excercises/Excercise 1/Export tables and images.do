@@ -81,23 +81,6 @@
 						3 "South America", replace
 	lab val		region	region
 	
-	
-********************************************************************************
-*						Exercise 1, task 1: iebaltab
-********************************************************************************
-
-	* Clear any results alreday in memory
-	estimates 	clear
-
-	* Use iebaltab to create and export a balance table
-	iebaltab 	popgrowth lexp gnppc, 						///						// Variables to be tested
-				grpvar(treatment) 							///						// Treatment variable
-				fixedeffect(region) 						///						// Fixed effects variable -- could also add controls using cov()
-				vce(cluster region) 						///						// Cluster variable
-				rowvarlabels 								///						// Use variable labels as row names
-				savetex("$output\balance_table") replace 	///						// Path to where you want to save your .tex file
-				texcaption(Balance table) 											// Table title
-				 
 
 ********************************************************************************
 *				Exercise 1, task 2: Tabulate categorical variable
