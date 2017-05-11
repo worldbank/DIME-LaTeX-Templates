@@ -11,7 +11,7 @@ If you already have a LaTeX editor on your computer and you know that is working
 In the *Exercises* folder there are subfolders for each excercise. In each fodler you will find a handout file. That file explains how to get started. We receommend that you start with Exercise 1. See a list of all exercises below.
 
 ## Step 4. Use the templates in your own reserch 
-Feel free to use any of the LaTeX templates in the *DIME Templates* folder for any purpose of your own choice. Please feel free to submit any feedback you might have on how these templates can be improved.
+Feel free to use any of the LaTeX templates in the *DIME Templates* folder you downloaded in Step 1 for any purpose of your own choice. Please feel free to submit any feedback you might have on how these templates can be improved.
 
 ## List of Exercises 
 
