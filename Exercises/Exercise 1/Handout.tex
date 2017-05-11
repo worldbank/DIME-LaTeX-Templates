@@ -41,21 +41,17 @@
 \makeatother
 
 \section*{Introduction}
-{\LaTeX} is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. 
+This exercise is an introduction to the concepts needed to create a docuement with tables and figures outputted in {\LaTeX} from, for example, Stata or R. After this excercise you will be able to create a document that is automatically updated each time the code in Stata or R is updated and run again. The document this exercise generates is meant to be either an appendix of tables and graphs, or a document with initial results that updates instantly.
 
-To complete these tasks, you should use the \textcolor{red}{Add path and name of do-file} do-file and \textcolor{red}{Add path and name of template} {\LaTeX} template provided on the DIME dynamic documentation folder. There's no need to download any datasets. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. 
+For this first exercise, all the outputed tables and graphs that you need to create the docuement are provided for you. In later exercises you will produce this yourself.
 
-The templates in the folder should allow you to do all you are asked in these exercises, but if you want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
-}{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer.
-
-\textbf{Exercise Objectives:} Learn how to present tables and graphs in a {\LaTeX} document.
+If you already know want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
+}{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer. However, the exercises following this one will show introduce you to more functionalities in {\LaTeX}.
 
 \section*{Exercise 1. Set up folders}
 
-\section*{Exercise 2. Exporting Tables}
-Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises. If you want to take a step back and review how to export tables and images from Stata, the a look at the folder called "Excercise Stata - How to export tables and graph from Stata to LaTeX".
 
-\section*{Exercise 3. Using TeXstudio interface to import an image into \LaTeX}
+\section*{Exercise 2. Using TeXstudio interface to import an image into \LaTeX}
 Open Exercise 1.tex. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. You will add lines between \verb|\begin{document}| and \verb|end{document}| to create your document content.
 
 
@@ -76,7 +72,7 @@ Open the Raw folder where your tables and figures were saved, then click iegraph
 
 The path to your "Raw" folder is what appears inside the curly braces after \verb|\includegraphics|. In this example, it is just \color{red}{\verb|Raw/|}\color{black}{.}
 
-\section*{Exercise 4. Manually importing graphs into \LaTeX}
+\section*{Exercise 3. Manually importing graphs into \LaTeX}
 
 Now we want to manually import a figure to that same .tex file, just so we can understand what is being done by the lines of code that TeXstudio created.
 
@@ -167,14 +163,14 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 	\end{Verbatim}
 	\end{center}
 
-\section*{Exercise 5. Update {\LaTeX} file after making changes to the data}
+\section*{Exercise 4. Update {\LaTeX} file after making changes to the data}
 Change your dataset by dropping all observation of Latin American countries. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
 
 \begin{center}
 	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
 \end{center}
 
-\section*{Exercise 6. Add a title to your document}
+\section*{Exercise 5. Add a title to your document}
 You can set your document's title, as well as authors and date, in the preamble. Look for
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -183,20 +179,10 @@ You can set your document's title, as well as authors and date, in the preamble.
 	\end{center}
 and make changes to the lines below it. Then add a line saying \verb|\maketitle| below \verb|\begin{document}|.
 
-\section*{Exercise 7. Add a list of tables and a list of figures to your document}
+\section*{Exercise 6. Add a list of tables and a list of figures to your document}
 You can print a list of tables by typing \verb|\listoftables| wherever you want it to be displayed. The same goes for \verb|listoffigures|. These are hyperlinked lists with shortcuts to your tables and figures. The titles shown in these lists are those defined by \verb|\caption|
 
-\section*{Exercise 8. (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
 
-This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. \\
-
-\textbf{Task 1:} Run the initial code for exercise 6 in the \textcolor{red}{Add path and name of do-file} do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?\\
-
-\textbf{Task 2:} Open the \textcolor{red}{Add path and name of tex file} .tex file created by Stata. Can you identify the source of the extra spacing?\\
-
-\textbf{Task 3:} Use the \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.\\
-
-\textbf{Task 4:} Repeat task 3 if necessary.
 
 \end{document}          
 
