@@ -25,7 +25,7 @@ This excercise introduces some more advanced techniques to create the appendix, 
 This excercise introduces the topics you need to know to write a full paper or report in LaTeX that dynamically updates when you re-run your code in, for example, Stata and R.
 
 **Excercise Stata - How to export tables and graph from Stata to LaTeX**
-This exercise covers how you can use Stata to export tables and grpahs that can be read by LaTeX.
+This exercise covers how you can use Stata to export tables and graphs that can be read by LaTeX.
 
 ---
 Remove everythign below when moved elsewhere
