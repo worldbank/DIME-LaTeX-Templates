@@ -2,7 +2,7 @@ This repository contains resources that will help you make your research more re
 
 # How to get started
 ## Step 1. Download the material
-Click the green ***Clone or Download*** button on this page, then click ***Download ZIP***, and save all the content of this repository to your computer. Then follow the instructions in the handout.
+Click the green ***Clone or Download*** button on this page, then click ***Download ZIP***, and save all the content of this repository to your computer.
 
 ## Step 2. Set up a LaTeX environemnt 
 If you already have a LaTeX editor on your computer and you know that is working, skip this step. Otherwise, open the ***How to set up TeXstudio.pdf*** file in the *Set up LaTeX on your computer* folder in the material you downloaded in Step 1. When you have followed those instructions and tested that your set up works correctly, then go the Step 3.
