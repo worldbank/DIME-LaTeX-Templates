@@ -1,16 +1,16 @@
 This repository contains resources that will help you make your research more reproducible. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared excercises that will make it easy for you to start using these resources.
 
-# How to get started
-## Step 1. Download the material
+## How to get started
+### Step 1. Download the material
 Click the green ***Clone or Download*** button on this page, then click ***Download ZIP***, and save all the content of this repository to your computer.
 
-## Step 2. Set up a LaTeX environemnt 
+### Step 2. Set up a LaTeX environemnt 
 If you already have a LaTeX editor on your computer and you know that is working, skip this step. Otherwise, open the ***How to set up TeXstudio.pdf*** file in the *Set up LaTeX on your computer* folder in the material you downloaded in Step 1. When you have followed those instructions and tested that your set up works correctly, then go the Step 3.
 
-## Step 3. Do Exercises 
+### Step 3. Do Exercises 
 In the *Exercises* folder there are subfolders for each excercise. In each fodler you will find a handout file. That file explains how to get started. We receommend that you start with Exercise 1. See a list of all exercises below.
 
-## Step 4. Use the templates in your own reserch 
+### Step 4. Use the templates in your own reserch 
 Feel free to use any of the LaTeX templates in the *DIME Templates* folder you downloaded in Step 1 for any purpose of your own choice. Please feel free to submit any feedback you might have on how these templates can be improved.
 
 ## List of Exercises 
