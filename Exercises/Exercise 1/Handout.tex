@@ -48,40 +48,45 @@ For this first exercise, all the outputed tables and graphs that you need to cre
 If you already know want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
 }{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer. However, the exercises following this one will show introduce you to more functionalities in {\LaTeX}.
 
-\section*{Exercise 1. Set up folders}
+\section*{Exercise 1. Folders and relative file paths}
+{\LaTeX} uses what is called relative file paths. We will here explain what this means and while it is not complex, it is important to understand well when working in {\LaTeX}. Start by looking in the folder there you found this handout. 
 
+In this folder you see a file called \emph{Exercise 1.tex}. This is the file you will be working in. We will call it the main document and in this file you will import the tables and graphs we have provided for you. You will also find a folder called \emph{Raw}. In this folder you will find the tables and graphs you will use in this exercise and that we have provided for you. The relative file path from the \emph{Exercise 1.tex} to, for example, \emph{iegraph.png} you can find in the \emph{Raw} folder is therefore \verb|{Raw/iegraph.png}|. Note that to a relative file path it does not matter where on the computer the file is stored (for example, on C drive, My Documents, the Drop-Box folder, Desktop etc.) it only matters where a file is saved in relation to the starting point. The starting point in {\LaTeX} is the folder where the main document is saved. In the case for this exercise that is the folder where \emph{Exercise 1.tex} is saved.
+
+So this path \verb|{Raw/iegraph.png}| means that there is a folder called \emph{Raw} in the same folder as the main document is saved, and in that folder there is a file called \emph{iegraph.png} that we want to access. The file path \verb|{iegraph.png}| on the other hand means that the graph would be saved directly in the same folder as the main document. This is usually bad practice as when your document grows it will reference a lot of files and storing all those files in a sub-folder is much cleaner way to organize the files. Relative file paths can be multiple folders deep, for example \verb|{Raw/baseline/income_chapter/iegraph.png}|. 
+
+If \emph{iegraph.png} would be saved in the parent folder to the main document, then the relative file path would look like this \verb|{../iegraph.png}|. \verb|{..}| means one folder up. This can also be extended to \verb|{../Raw/iegraph.png}| which means that in the parent folder to the folder where the main document is saved, there is a folder called \emph{Raw} and in this folder there is a file called \emph{iegraph.png}.
+
+Relative file paths are very simple as long as the files referenced are stored in close relation to the main document, but this is soon obvious to you unless it already is.
 
 \section*{Exercise 2. Using TeXstudio interface to import an image into \LaTeX}
-Open Exercise 1.tex. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. You will add lines between \verb|\begin{document}| and \verb|end{document}| to create your document content.
+Now it is time to start importing some files into our document. Open Exercise 1.tex in TeXstudio. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. The preamble at the top of the document loads different functionality that we will be using, but you do not have to worry about this yet. For now, you will only add lines of code between \verb|\begin{document}| and \verb|end{document}| to create your document content.
 
-
-The first thing we want to do is to figure out the path to the files we want to import. {\LaTeX} uses relative paths, which means they must start in the very same folder as the .tex file you are editing is, which can be a little tricky if you're not used to it. So we'll use a shortcut to find out what it is.
-
-Open the Raw folder where your tables and figures were saved, then click iegraph.png and drag it to Exercise 1.tex, placing it just below the line that says "This is a blank document". Then click "OK". This will create something similar to
+We first want to show you a short cut that you can use to import files to your document that you can use until you are fully confident in relative file paths. While you keep \emph{Exercise 1.tex} open in TeXstudio, open the \emph{Raw} folder where your tables and figures are saved. Now click iegraph.png and drag it to the part of \emph{Exercise 1.tex} that says "This is a blank document". Then click "OK" in the window that pops up. This will create something that should look similar to:
 
 \begin{center}
-\begin{Verbatim}[commandchars=+\(\)]
+	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}
-		\centering
-		\includegraphics[width=0.7\linewidth]{Raw/iegraph}
-		\caption{}
-		\label{fig:i2i}
+	\centering
+	\includegraphics[width=0.7\linewidth]{Raw/iegraph}
+	\caption{}
+	\label{fig:iegraph}
 	\end{figure}
-\end{Verbatim}
+	\end{Verbatim}
 \end{center}
 
-The path to your "Raw" folder is what appears inside the curly braces after \verb|\includegraphics|. In this example, it is just \color{red}{\verb|Raw/|}\color{black}{.}
+Note that the relative file path to your \emph{Raw} folder was created in end of this line: \verb|includegraphics[width=0.7\linewidth]{Raw/iegraph}|. In this example, it is \verb|{Raw/iegraph}|. Note that the file extension is needed. You will see \verb|\begin{}| and \verb|\end{}| a lot in {\LaTeX}. The define where one object start and end, and the lines of code in between \verb|\begin{}| and \verb|\end{}| is called an environment. In the example above it is a figure environment. This tells {\LaTeX} that you are importing a figure and any other code in that environment in addition to the line with the relative path to the figure is a setting or provide some meta information to that figure. You will learn what \verb|\centering|, \verb|\caption{}| and \verb|\label{fig:iegraph}| means below. 
 
 \section*{Exercise 3. Manually importing graphs into \LaTeX}
 
-Now we want to manually import a figure to that same .tex file, just so we can understand what is being done by the lines of code that TeXstudio created.
+While click-and-drag is helpful to get started, you need to learn how to import figures and tables manually to {\LaTeX}. So now we want to manually import a second figure to your document. This will help us understand the function of the other lines of code that TeXstudio created for us in the click-and-drag example.
 
-\textbf{Task 1:} Create a figure environment and import regular\_graph.png into it. This can be done by typing the following lines below your iegraph:
+\textbf{Task 1:} Below the figure you already imported, but before \verb|\end{document}|, create a figure environment and import regular\_graph.png into it. This can be done by typing the following lines below your iegraph:
 
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
-		\includegraphics{+color(red)Raw/+color(black)regular_graph.png}
+		\includegraphics{Raw/regular_graph.png}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
@@ -119,7 +124,7 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 	\end{Verbatim}
 \end{center}
 
-\section*{Exercise 5. Importing Tables into \LaTeX}
+\section*{Exercise 5. Importing tables into \LaTeX}
 \textbf{Task 1:} Create a table environment and import regression\_table.tex into it. This can be done by typing the following lines below your regular\_graph:
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
