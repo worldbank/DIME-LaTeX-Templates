@@ -30,6 +30,7 @@
 *						Set your own path directories 
 ********************************************************************************/	
 
+	* Change these file paths to match yours
 	global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
 	global output		"$main_folder\Raw"
 	
@@ -44,11 +45,11 @@
 
 	* Install ietoolkit - includes ieboilstart, iebaltab and iegraph used in this code
 	* -----------------
-	ssc install ietoolkit
+	ssc install ietoolkit, replace
 	
 	* Install estout - includes commands for export results and estimates
 	* -----------------	
-	ssc install estout
+	ssc install estout, replace
 
 	* Standardizes settings and sets version number (important for randomization)
 	ieboilstart, v(11.0)
