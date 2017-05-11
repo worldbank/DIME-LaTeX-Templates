@@ -11,6 +11,9 @@
 \usepackage{multicol}
 \usepackage{hyperref}
 
+\usepackage{parskip}                    % This packages sets the spacing between two paragraphs
+\setlength{\parskip}{.5\baselineskip}   % Define spacing between two paragraphs
+
 \setlength{\parindent}{0pt}
 \setlength{\columnseprule}{1pt}
 
@@ -38,9 +41,9 @@
 \makeatother
 
 \section*{Introduction}
-{\LaTeX} is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. \\
+{\LaTeX} is a very useful tool to display descriptive statistics and analysis results. It allows us to create a document once and every time a do-file is run, the tables are automatically updated in our LaTeX document. 
 
-To complete these tasks, you should use the \textcolor{red}{Add path and name of do-file} do-file and \textcolor{red}{Add path and name of template} {\LaTeX} template provided on the DIME dynamic documentation folder. There's no need to download any datasets. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. \\
+To complete these tasks, you should use the \textcolor{red}{Add path and name of do-file} do-file and \textcolor{red}{Add path and name of template} {\LaTeX} template provided on the DIME dynamic documentation folder. There's no need to download any datasets. If you prefer, you can also use your own dataset, but in that case the do-file should also be adapted. 
 
 The templates in the folder should allow you to do all you are asked in these exercises, but if you want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
 }{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer.
@@ -49,136 +52,120 @@ The templates in the folder should allow you to do all you are asked in these ex
 
 \section*{Exercise 1. Set up folders}
 
-\section*{Exercise 1. Exporting Tables}
-This exercise only focuses on exporting tables in {\LaTeX} format from Stata. Exercise 3 below will show how you import the LaTeX outputs into a single {\LaTeX} file and export it to a PDF. As you'll see, this first part of the exercise is very similar to what you have already been doing when you export tables to excel or word: the only change is that now you'll save them to .tex format. We've prepared the do-file for you as this is an exercise in {\LaTeX} and not in Stata. So if you are not using a different dataset, no changes are needed in the do-file except to set your file path in the beggining. \\
+\section*{Exercise 2. Exporting Tables}
+Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises. If you want to take a step back and review how to export tables and images from Stata, the a look at the folder called "Excercise Stata - How to export tables and graph from Stata to LaTeX".
 
-\textbf{Task 1:}  Export a balance table to {\LaTeX} using \texttt{iebaltab} (install by typing \texttt{ssc install ietoolkit} in Stata). Test balance of average annual population growth, life expectancy at birth and GNP per capita across treatment and control groups, using region fixed effects and clustering by region. To save the table to {\LaTeX}, you'll use the \texttt{savetex} option. You'll also add the caption and label to your table using stata. 
-\begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} type \texttt{help iebaltab} in Stata for more detailed information.}
-\end{center}
+\section*{Exercise 3. Using TeXstudio interface to import an image into \LaTeX}
+Open Exercise 1.tex. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. You will add lines between \verb|\begin{document}| and \verb|end{document}| to create your document content.
 
 
-\textbf{Task 2:}  Export a table with frequency and share of region variable. 
-\begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} \texttt{esttab} command has a {\LaTeX} option}
-\end{center}
+The first thing we want to do is to figure out the path to the files we want to import. {\LaTeX} uses relative paths, which means they must start in the very same folder as the .tex file you are editing is, which can be a little tricky if you're not used to it. So we'll use a shortcut to find out what it is.
 
-\textbf{Task 3:} Export a regression table to {\LaTeX}. Run a treatment effect regression on life expectancy at birth controlling for GNP per capita. Display results without fixed effects on column (1) and results with fixed effects on column (2). You can use \texttt{estadd} and \texttt{scalar} options in \texttt{esttab} to add a line for fixed effects.
+Open the Raw folder where your tables and figures were saved, then click iegraph.png and drag it to Exercise 1.tex, placing it just below the line that says "This is a blank document". Then click "OK". This will create something similar to
 
-\section*{Exercise 2. Exporting Graphs}
-Similar to exercise 1, this exercise only exports a graph in a format that can be read in a {\LaTeX} editor. \\
-
-\textbf{Task 1:}  Create a twoway kernel density plot of life expectancy at birth across treatment groups and export it to .png or .pdf format. To do this, you'll create the graph as usual, but instead of saving it in Stata format, you will export it using the \texttt{graph export} option. \\
-
-\textbf{Task 2:}  Use \texttt{iegraph} to export treatment effect graphs into .png format.
-
-\section*{Exercise 3. Importing Tables into \LaTeX}
-Use the DIME dynamic documentation template to create a PDF with the tables and images you exported.\\
-
-\textbf{Task 1: Import a table.} Use Template 1 to import the balance table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file
 \begin{center}
 \begin{Verbatim}[commandchars=+\(\)]
-	\input+color(CornflowerBlue)({/Raw/regression_table.tex})
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Raw/iegraph}
+		\caption{}
+		\label{fig:i2i}
+	\end{figure}
 \end{Verbatim}
 \end{center}
 
+The path to your "Raw" folder is what appears inside the curly braces after \verb|\includegraphics|. In this example, it is just \color{red}{\verb|Raw/|}\color{black}{.}
+
+\section*{Exercise 4. Manually importing graphs into \LaTeX}
+
+Now we want to manually import a figure to that same .tex file, just so we can understand what is being done by the lines of code that TeXstudio created.
+
+\textbf{Task 1:} Create a figure environment and import regular\_graph.png into it. This can be done by typing the following lines below your iegraph:
+
 \begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} remember {\LaTeX} uses relative paths. That is, the path must start in the folder where your .tex document is saved.}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+		\includegraphics{+color(red)Raw/+color(black)regular_graph.png}
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to your "Raw" folder. How does it look? 
+
+\textbf{Task 2:} Adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this by typing the context in blue:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+		\includegraphics+color(CornflowerBlue)([width=\textwidth])+color(black)({Raw/regular_graph.png})
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+
+\textbf{Task 3:} Center your figure by adding the line in blue:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+	+color(CornflowerBlue)(\centering)
+		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+\textbf{Task 4:} Add a title to your figure using the \verb|\caption| command:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+	\centering
+		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
+		+color(CornflowerBlue)\caption{Add figure title here}
+	\end{figure}
+	\end{Verbatim}
+\end{center}
+
+\section*{Exercise 5. Importing Tables into \LaTeX}
+\textbf{Task 1:} Create a table environment and import regression\_table.tex into it. This can be done by typing the following lines below your regular\_graph:
+\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{table}[H]
+		\input{+color(red)Raw/+color(black)regression_table.tex}
+	\end{table}
+	\end{Verbatim}
+\end{center}
+
+\begin{center}
+	\textcolor{BurntOrange}{\emph{Tip:} don't forget to substitute the path to your Raw folder.}
 \end{center}
 		
-\textbf{Task 2: Import another table.} Use Template 1 to import the frequency table you have exported from Stata into a {\LaTeX} document. You should be able to do that by just editing the path to your file:
-\begin{center}
+\textbf{Task 2:} Use \verb|\AdjustBox| to adjust table size. You can do this by adding the lines in blue: 
+	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-	\caption{Add table title}
-		\input+color(CornflowerBlue)({/Raw/regression_table.tex})
+	+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
+		\input{Raw/regression_table.tex}
+	+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
 	\end{Verbatim}
-\end{center}
-
-\textbf{Task 3: Adding a caption and a label.} To add a caption, you have to start a new environment i.e. begin and close a table environment. The caption specifies the title of your table. If you want to reference this table in your text later, you should also add a label. This way, when you add other tables, their numbers are updated in your references. \\
-
-\begin{multicols}{2}
-	[Depending on where you put the caption command in relation to the input command, the title comes above or below your table or image.]
-	\begin{Verbatim}[commandchars=+\(\)]
-  \begin{table}[H]
-  	+color(CornflowerBlue)(\caption{Add table title})
-  	+color(CornflowerBlue)(\label{tab:add_label})
-  	\input{/Raw/regression_table.tex}
-  \end{table}
-	\end{Verbatim}
-
-	\begin{Verbatim}[commandchars=+\(\)]
-  \begin{table}[H]
-  	\input{/Raw/regression_table.tex}
-  	+color(CornflowerBlue)(\caption{Add table title})
-  	+color(CornflowerBlue)(\label{tab:add_label})
-  \end{table}
-	\end{Verbatim}
-\end{multicols}
-
-\begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} labels must always come after captions, otherwise you will get a compiling error. Label names must not include spaces between words.}
-\end{center}
-
-\textbf{Task 4: Centering.} Now we want the tables to be centered. This can be done by:
-
-	\begin{Verbatim}[commandchars=+\(\)]
-		\begin{table}[H]
-			+color(CornflowerBlue)(\centering)
-			\caption{Add table title}
-			\input{/Raw/regression_table.tex}
-		\end{table}
-	\end{Verbatim}
-
-\textbf{Task 5: Adjust table size.} \verb|\AdjustBox| command allows you to make changes to the size of your tables. 
-\begin{Verbatim}[commandchars=+\(\)]
-	\begin{table}[H]
-		\centering
-		\caption{Descriptive statistics for categorical variables}
-		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
-			\input{Raw/regression_table.tex}
-		+color(CornflowerBlue)(\end{adjustbox})
-	\end{table}
-\end{Verbatim}
+	\end{center}
 
 \begin{center}
 	\color{BurntOrange}{\emph{Tip:} \verb|\textwidth| option adjusts the table's size to fit the margins of the document, but there are other options you can explore. You can check them on the \href{https://en.wikibooks.org/wiki/LaTeX
 		}{{\LaTeX} Wikibook}.}
 \end{center}
 
-\section*{Exercise 4. Importing Graphs into \LaTeX}
+\textbf{Task 3:} Add a caption and center your table to the page. This is done by adding the same lines as for figures.
 
-\textbf{Task 1:} Use the code in Template 2 to import one of the figures you created. You should be able to do this by just changing the path on \verb|\includegraphics{}|:
-\begin{center}
+	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
-	\begin{figure}[H]
-		\includegraphics+color(CornflowerBlue)({Raw/iegraph.png})
-	\end{figure}
+	\begin{table}[H]
+	+color(CornflowerBlue)\centering
+	+color(CornflowerBlue)\caption{Add a title to this table}
+	\begin{adjustbox}{max width=\textwidth}
+		\input{Raw/regression_table.tex}
+	\end{adjustbox}
+	\end{table}
 	\end{Verbatim}
-\end{center}
-
-How does it look? \\
-
-\textbf{Task 2:} Adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this:
-\begin{center}
-	\begin{Verbatim}[commandchars=+\(\)]
-	\begin{figure}[H]
-		\includegraphics+color(CornflowerBlue)([width=\textwidth])+color(black)({Raw/iegraph.png})
-	\end{figure}
-	\end{Verbatim}
-\end{center}
-
-\textbf{Task 3:} Center your figure and add a caption to it:
-\begin{center}
-	\begin{Verbatim}[commandchars=+\(\)]
-	\begin{figure}[H]
-	+color(CornflowerBlue)(\centering)
-		\includegraphics[width=\textwidth]{Raw/iegraph.png}
-	+color(CornflowerBlue)(\caption{+textit(Add_a caption)})
-	\end{figure}
-	\end{Verbatim}
-\end{center}
+	\end{center}
 
 \section*{Exercise 5. Update {\LaTeX} file after making changes to the data}
 Change your dataset by dropping all observation of Latin American countries. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
@@ -187,7 +174,19 @@ Change your dataset by dropping all observation of Latin American countries. Rer
 	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
 \end{center}
 
-\section*{Exercise 6. (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
+\section*{Exercise 6. Add a title to your document}
+You can set your document's title, as well as authors and date, in the preamble. Look for
+	\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+		+color(Gray)% ADD YOUR PROJECT INFO HERE 
+	\end{Verbatim}
+	\end{center}
+and make changes to the lines below it. Then add a line saying \verb|\maketitle| below \verb|\begin{document}|.
+
+\section*{Exercise 7. Add a list of tables and a list of figures to your document}
+You can print a list of tables by typing \verb|\listoftables| wherever you want it to be displayed. The same goes for \verb|listoffigures|. These are hyperlinked lists with shortcuts to your tables and figures. The titles shown in these lists are those defined by \verb|\caption|
+
+\section*{Exercise 8. (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
 
 This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. \\
 
