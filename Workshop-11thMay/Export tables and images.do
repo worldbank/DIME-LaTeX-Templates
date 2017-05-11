@@ -45,9 +45,13 @@
 	* Install ietoolkit - includes ieboilstart, iebaltab and iegraph used in this code
 	* -----------------
 	ssc install ietoolkit
+	
+	* Install estout - includes commands for export results and estimates
+	* -----------------	
+	ssc install estout
 
 	* Standardizes settings and sets version number (important for randomization)
-	ieboilstart, v(12.0)
+	ieboilstart, v(11.0)
 	`r(version)'
 	
 	* Use life expectantcy stata data
