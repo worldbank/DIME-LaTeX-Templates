@@ -1,4 +1,4 @@
-This repository contains resources that will help you make your research more reproducible. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared exercise that will make it easy for you to start using these resources.
+This repository contains resources that will help you make your research more reproducible. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared exercises that will make it easy for you to start using these resources.
 
 ## How to get started
 ### Step 1. Download the material
@@ -8,7 +8,7 @@ Click the green ***Clone or Download*** button on this page, then click ***Downl
 If you already have a LaTeX editor on your computer and you know that is working, skip this step. Otherwise, open the ***How to set up TeXstudio.pdf*** file in the *Set up LaTeX on your computer* folder in the material you downloaded in Step 1. When you have followed those instructions and tested that your set up works correctly, then go the Step 3.
 
 ### Step 3. Do Exercises 
-In the *Exercises* folder there are subfolders for each exercise. In each fodler you will find a handout file. That file explains how to get started. We receommend that you start with Exercise 1. See a list of all exercises below.
+In the *Exercises* folder, there are subfolders for each exercise. In each folder you will find a handout file. That file explains how to get started. We recommend that you start with Exercise 1. See a list of all exercises below.
 
 ### Step 4. Use the templates in your own reserch 
 Feel free to use any of the LaTeX templates in the *DIME Templates* folder you downloaded in Step 1 for any purpose of your own choice. Please feel free to submit any feedback you might have on how these templates can be improved.
@@ -27,9 +27,3 @@ This exercise introduces the topics you need to know to write a full paper or re
 **Exercise Stata - How to export tables and graph from Stata to LaTeX**
 This exercise covers how you can use Stata to export tables and graphs that can be read by LaTeX.
 
----
-Remove everything below when moved elsewhere
-
-Kristoffer: Mrijan, move this to the instructions for setting up TeXstudio, but I am keeping it here so it is not deleted
-## Hello-world.tex
-The Hello World file is a .tex file that can be used to check if TeXstudio is properly installed on your computer. To test it, open the file in TeXstudio and click ***Build and View*** in the ***Tools*** menu at the top. If you do not get any error messages (however, you might be asked to install multiple packages the first time you try) and you can see a compiled pdf, then TeXstudio is properly set up for the material in this repository. 
