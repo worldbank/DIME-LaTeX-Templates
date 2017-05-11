@@ -31,8 +31,8 @@
 ********************************************************************************/	
 
 	* Change these file paths to match yours
-	global main_folder 	"C:\Users\wb501238\Box Sync\DIME dynamic documentation"
-	global output		"$main_folder\Raw"
+	global main_folder 	"<<<ENTER YOUR FOLDER PATH HERE>>>"
+	global output		"$main_folder/Raw"
 	
 
 /*******************************************************************************
@@ -93,7 +93,7 @@
 	estpost 	tab region
 	
 	* Use esttab to export the tabulation above to tex
-	esttab 		using 	"$output\categorical.tex", replace 					/// 
+	esttab 		using 	"$output/categorical.tex", replace 					/// 
 				cells   ("b(label(Frequency)) pct(fmt(%9.2f)label(Share))")	///
 				varlabels(`e(labels)') 										///		// Uses the value labels as row names. Alternatively, you could manually specify the labels using lab def and call it here
 				nomtitle nonumbers 											///		// Prevents model names and numbers to be printed. Use if you're tabulating more then one variable, for example.
@@ -116,7 +116,7 @@
 	estadd	local fe "Yes"
 			
 	* Export regression results to tex using esttab 
-	esttab using 	"$output\regression_table.tex", ///
+	esttab using 	"$output/regression_table.tex", ///
 					replace label r2 nomtitles b(%9.3f) ///
 					se(%9.3f) ///
 					keep(treatment gnppc _cons) ///
@@ -136,7 +136,7 @@
 			ytitle(Density) xtitle(Years)
 	
 	* Export graph in file format suitable for tex
-	graph export "$output\regular_graph.png", width(5000) replace
+	graph export "$output/regular_graph.png", width(5000) replace
 	
 	
 ********************************************************************************
@@ -152,7 +152,7 @@
 	* Use iegraph to make it into a graph
 	iegraph 	treatment, noconfbars 			///
 				title	("Treatment effect")  	///
-				save	("$output\iegraph.png") ///
+				save	("$output/iegraph.png") ///
 				yzero  grey 
 	
 
@@ -170,17 +170,17 @@
 	eststo : estpost	tab treatment 	if region == 3		
 	
 	* Use estab to export the tabulation to tex
-	esttab 		using	"$output\samplesizes.tex", replace ///
+	esttab 		using	"$output/samplesizes.tex", replace ///
 				mtitles ("Total" "Europe and Asia" "North America" "South America") ///	// Create column names
 				noobs nonotes compress nonumbers										// noobs prevents an additional line with number of observations to be added, nonotes prevents notes to be added
 	
 	*Generate the table without this code first. The exercise will ask you 
 	*to use this code to format the tex file after it has been exported
 	/*
-	filefilter 	"$output\samplesizes.tex" "$output\sample_sizes.tex", 	///				// Remove extra spacing
+	filefilter 	"$output/samplesizes.tex" "$output\sample_sizes.tex", 	///				// Remove extra spacing
 				from("\n[1em]") to("") 	replace
 				
-	filefilter 	"$output\sample_sizes.tex" "$output\samplesizes.tex", 	///				// Remove extra spacing
+	filefilter 	"$output/sample_sizes.tex" "$output\samplesizes.tex", 	///				// Remove extra spacing
 				from("          &                  &                  &                  &                  \BS\BS") to ("") ///
 				replace	
 	*/
