@@ -12,7 +12,6 @@
 *.cb2
 *.png 
 Test/
-Raw/
 
 ## Intermediate documents:
 *.dvi
