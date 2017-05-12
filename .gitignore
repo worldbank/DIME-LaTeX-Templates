@@ -10,8 +10,8 @@
 *.fot
 *.cb
 *.cb2
-*.png 
 Test/
+Exercises/Exercise 1/*.png
 
 ## Intermediate documents:
 *.dvi
