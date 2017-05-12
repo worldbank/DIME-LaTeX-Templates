@@ -114,63 +114,49 @@ Remember to include \color{CornflowerBlue}{\verb|Raw/|}\color{black}{} as this i
 
 The property \color{CornflowerBlue}{\verb|=\textwidth|}\color{black}{} means that the figure will no wider than the margins of the text in your document. There are more properties that can be used with \verb|\width|, and you will learn more about these in later exercises, but for now, you can keep using only \verb|=\textwidth| for all gfugires and tables where it is necessary.
 
-\textbf{Task 3:} Now we want to make sure that the figure is centerd on the page in our document. Center your figure by adding the line in blue:
-\begin{center}
-	\begin{Verbatim}[commandchars=+\(\)]
-	\begin{figure}[H]
-		+color(CornflowerBlue)(\centering)
-		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
-	\end{figure}
-	\end{Verbatim}
-\end{center}
+\textbf{Task 3:} Add a title to your figure using the \verb|\caption| command:
 
-\textbf{Task 4:} Add a title to your figure using the \verb|\caption| command:
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
-		\centering
 		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
 		+color(CornflowerBlue)\caption{Add figure title here}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
 
+Change the caption from \verb|{Add figure title here}| to anything of your choice and compile the document again.
+
 \section*{Part 5. Importing tables into \LaTeX}
-\textbf{Task 1:} Create a table environment and import regression\_table.tex into it. This can be done by typing the following lines below your regular\_graph:
+\textbf{Task 1:} Create a table environment by using \verb|\begin{}| and \verb|\end{}| underneath the two figures you already imported. Instead of writing \verb|figure| in \verb|\begin{}| and \verb|\end{}| as you did above, write \verb|table|. This tells {\LaTeX} to expect a table instead if a figure. Import \emph{regression\_table.tex} into the table environment using the \verb|\input{}| . This can be done by typing the following lines:
+
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-		\input{+color(red)Raw/+color(black)regression_table.tex}
+		\input{Raw/regression_table.tex}
 	\end{table}
 	\end{Verbatim}
 \end{center}
 
-\begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} don't forget to substitute the path to your Raw folder.}
-\end{center}
-		
-\textbf{Task 2:} Use \verb|\AdjustBox| to adjust table size. You can do this by adding the lines in blue: 
+Compile the document and look at the table. 
+
+\textbf{Task 2:} We need to adjust the size of the table. When we are using \verb|\input{}| we have to do that slightly differently. Use \verb|\AdjustBox| to adjust table size. Everything added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|. See the code in blue below:
+
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
 		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
-		\input{Raw/regression_table.tex}
+			\input{Raw/regression_table.tex}
 		+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
 	\end{Verbatim}
 	\end{center}
 
-\begin{center}
-	\color{BurntOrange}{\emph{Tip:} \verb|\textwidth| option adjusts the table's size to fit the margins of the document, but there are other options you can explore. You can check them on the \href{https://en.wikibooks.org/wiki/LaTeX
-		}{{\LaTeX} Wikibook}.}
-\end{center}
-
-\textbf{Task 3:} Add a caption and center your table to the page. This is done by adding the same lines as for figures.
+\textbf{Task 3:} Similarly to figures, you can add a caption to your table. This is done by adding the same lines as for figures.
 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-		+color(CornflowerBlue)\centering
 		+color(CornflowerBlue)\caption{Add a title to this table}
 		\begin{adjustbox}{max width=\textwidth}
 			\input{Raw/regression_table.tex}
@@ -179,26 +165,37 @@ The property \color{CornflowerBlue}{\verb|=\textwidth|}\color{black}{} means tha
 	\end{Verbatim}
 	\end{center}
 
-\section*{Part 6. Update {\LaTeX} file after making changes to the data}
-Change your dataset by dropping all observation of Latin American countries. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
+Update the text in \verb|\caption{Add figure title here}| and compile the document. See that the title of the table is above the table. When we used \verb|\caption{}| for the figure earlier the title was below the table. That has nothing to do with tables and figures, it all depends if you enter the line with \verb|\caption{}| before or after the line when you are importing a file to your document. To test this, move the line with the caption to after \verb|\end{adjustbox}| and before \verb|\end{table}|, and compile the document again.
 
-\begin{center}
-	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
-\end{center}
+\section*{Part 6. Add part with small table that needs to be centered.}
 
 \section*{Part 7. Add a title to your document}
-You can set your document's title, as well as authors and date, in the preamble. Look for
+We are almost done with this document now but so far we only have tables and figures. In this part we want to add a title to the docuemnt and in the next part we will add a list of tables and a list of figures. All of these are very easy to set up.
+
+To add a title tile to your document, add \verb|\maketitle| on a new line immedeatly below \verb|\begin{document}|. Compile the document. You can see the information we already added. Update this information with a title of your own and with you name in the preamble. Look for this section and update the text that is blue below.
+
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
-		+color(Gray)% ADD YOUR PROJECT INFO HERE 
+	+color(Gray)% ADD YOUR PROJECT INFO HERE 
+	\title{+color(CornflowerBlue)DIME template for \LaTeX \\ Importing tables+color(black)}    +color(Gray)% Double backslash starts a new line in \LaTeX
+	\author{+color(CornflowerBlue)Luiza Andrade \& Mrijan Rimal+color(black)}
+	\date{}                                                +color(Gray)% Updates and prints date automatically
 	\end{Verbatim}
 	\end{center}
-and make changes to the lines below it. Then add a line saying \verb|\maketitle| below \verb|\begin{document}|.
 
 \section*{Part 8. Add a list of tables and a list of figures to your document}
-You can print a list of tables by typing \verb|\listoftables| wherever you want it to be displayed. The same goes for \verb|listoffigures|. These are hyperlinked lists with shortcuts to your tables and figures. The titles shown in these lists are those defined by \verb|\caption|
+Finally we want to create a list of tables and figures that is automatically updated if you were to add or remove tables and figures. Immedeatly after the where you added \verb|\maketitle|, on a new line add \verb|\listoftables| and on a second new line add \verb|\listoffigures|. Like this:
 
+	\begin{center}
+	\begin{Verbatim}[commandchars=+\(\)]
+	\begin{document}
+		\maketitle
+		\listoftables
+		\listoffigures
+	\end{Verbatim}
+\end{center}
 
+compile your docuemnt. The titles shown in these lists are those defined by \verb|\caption|. Go to any of your figures or tables and change the caption and compile the document again. See how tghe list of tables and figures is updated. While it is common practice, you do not need to add \verb|\maketitle| and \verb|\listoftables| in teh beginning of the docuemnt. You can add them anywhere.
 
 \end{document}          
 
