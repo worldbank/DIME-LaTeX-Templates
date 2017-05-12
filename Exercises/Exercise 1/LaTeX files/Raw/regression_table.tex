@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{8}{c}}
+\hline\hline
+                    &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}\\
+                    
+\hline
+Post        &      -0.304\sym{*}  &      -0.632\sym{***}&       0.003         &       0.217\sym{**} &      -0.059         &      -0.012         &       0.136         &       0.333         \\
+                    &     (0.141)         &     (0.026)         &     (0.130)         &     (0.072)         &     (0.082)         &     (0.029)         &     (0.365)         &     (0.265)         \\
+[1em]
+Treatment     &      -0.055         &       0.267\sym{***}&      -0.133\sym{*}  &       0.096         &      -0.210\sym{*}  &      -0.035         &      -0.117         &      -0.033\sym{***}\\
+                    &     (0.152)         &     (0.000)         &     (0.064)         &     (0.105)         &     (0.098)         &     (0.078)         &     (0.133)         &     (0.000)         \\
+[1em]
+Post * treatment &               &               &       0.065         &      -0.254\sym{*}  &       0.111         &      -0.000         &       0.284         &      -0.585         \\
+                    &                 &                &     (0.159)         &     (0.116)         &     (0.086)         &     (0.033)         &     (0.378)         &     (0.296)         \\
+[1em]
+Constant            &       0.581\sym{***}&       0.333\sym{***}&       0.378\sym{***}&       0.175         &       0.276\sym{**} &       0.039         &       0.364\sym{**} &       0.000         \\
+                    &     (0.131)         &     (0.000)         &     (0.055)         &     (0.105)         &     (0.095)         &     (0.081)         &     (0.115)         &     (0.000)         \\
+\hline
+Observations        &         354         &         354         &        1897         &        1897         &        1652         &        1652         &         348         &         348         \\
+Fixed-effects  &          No         &         Yes         &          No         &         Yes         &          No         &         Yes         &          No         &         Yes         \\
+
+\(R^{2}\)           &       0.033         &       0.595         &       0.014         &       0.287         &       0.043         &       0.386         &       0.076         &       0.535         \\
+
+\hline\hline
+\multicolumn{9}{l}{\footnotesize Standard errors clustered at user level are in parentheses. \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}
