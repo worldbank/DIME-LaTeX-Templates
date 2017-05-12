@@ -48,7 +48,7 @@ For this first exercise, all the outputed tables and graphs that you need to cre
 If you already know want to have a more broad understanding of {\LaTeX} or explore other functionalities, this \href{https://en.wikibooks.org/wiki/LaTeX
 }{{\LaTeX} Wikibook} is a great source. For more specific questions about how to perform a task or solve an error, Google usually has the answer. However, the exercises following this one will show introduce you to more functionalities in {\LaTeX}.
 
-\section*{Exercise 1. Folders and relative file paths}
+\section*{Part 1. Folders and relative file paths}
 {\LaTeX} uses what is called relative file paths. We will here explain what this means and while it is not complex, it is important to understand well when working in {\LaTeX}. Start by looking in the folder there you found this handout. 
 
 In this folder you see a file called \emph{Exercise 1.tex}. This is the file you will be working in. We will call it the main document and in this file you will import the tables and graphs we have provided for you. You will also find a folder called \emph{Raw}. In this folder you will find the tables and graphs you will use in this exercise and that we have provided for you. The relative file path from the \emph{Exercise 1.tex} to, for example, \emph{iegraph.png} you can find in the \emph{Raw} folder is therefore \verb|{Raw/iegraph.png}|. Note that to a relative file path it does not matter where on the computer the file is stored (for example, on C drive, My Documents, the Drop-Box folder, Desktop etc.) it only matters where a file is saved in relation to the starting point. The starting point in {\LaTeX} is the folder where the main document is saved. In the case for this exercise that is the folder where \emph{Exercise 1.tex} is saved.
@@ -59,41 +59,51 @@ If \emph{iegraph.png} would be saved in the parent folder to the main document, 
 
 Relative file paths are very simple as long as the files referenced are stored in close relation to the main document, but this is soon obvious to you unless it already is.
 
-\section*{Exercise 2. Using TeXstudio interface to import an image into \LaTeX}
-Now it is time to start importing some files into our document. Open Exercise 1.tex in TeXstudio. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. The preamble at the top of the document loads different functionality that we will be using, but you do not have to worry about this yet. For now, you will only add lines of code between \verb|\begin{document}| and \verb|end{document}| to create your document content.
+\section*{Part 2. Compiling a pdf file from  {\LaTeX} code}
+Compiling means in {\LaTeX} that you run your code to create and save a pdf version of your document. It is similar to running a do-file in Stata or an R-script in R but it creates a pdf instead of running computations. Open in TeXstudio the file \emph{Exercise 1.tex} that you find in the folder for this exercise. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. The preamble at the top of the document loads different functionalities that we will be using, but you do not have to worry about this until later exercises.
 
-We first want to show you a short cut that you can use to import files to your document that you can use until you are fully confident in relative file paths. While you keep \emph{Exercise 1.tex} open in TeXstudio, open the \emph{Raw} folder where your tables and figures are saved. Now click iegraph.png and drag it to the part of \emph{Exercise 1.tex} that says "This is a blank document". Then click "OK" in the window that pops up. This will create something that should look similar to:
+To compile the document go to \emph{Tools} in the top drop-down menu in TeXstudio when you have the code in \emph{Exercise 1.tex} open. Then click \emph{Compile}, but you want to see anything happening. Instead, click \emph{Build \& View} in the \emph{Tools} menu. This should open a new window in TeXstudio where you see the text \emph{This is a blank document}. Both \emph{Compile} and \emph{Build \& View} creates a pdf and saves it to desk, but only \emph{Build \& View} opens up a window where you can see your document directly. 
+
+The pdf file was saved in the same folder as where the file \emph{Exercise 1.tex} is saved. {\LaTeX} exports a lot of auxiliary files as well here. You do not need these files. It is possible to have these files saved elsewhere, but do not worry about that now, and most {\LaTeX} users never bother to change where those files are saved.
+
+If you open the \emph{Tools} menu again you can see short cuts for next time you want to compile your document. You can click \emph{F5} to \emph{Build \& View} and \emph{F6} to \emph{Compile}. You also see two icons that look like green play-buttons. You can find the same icons in the bar underneath the drop-down menus. Most {\LaTeX} users use either of those two short cuts.
+
+\section*{Part 3. Using TeXstudio interface to import an image into \LaTeX}
+Now it is time to start importing some files into our document. Make surew that you still have \emph{Exercise 1.tex} open. Again, do not worry about the preamble, for the rest of this exercise, you will only add lines of code between \verb|\begin{document}| and \verb|end{document}| to create your document content.
+
+We first want to show you a short cut that you can use to import files to your document that you can use until you feel confident in using relative file paths. While you keep \emph{Exercise 1.tex} open in TeXstudio, open the \emph{Raw} folder in regular Explorer (Windows) or Finder (Mac) wondow. Now click \emph{iegraph.png} and drag it to the part of \emph{Exercise 1.tex} that says "This is a blank document". Then click "OK" in the window that pops up. This will create a section of code that should look similar to the code below. Now, compile your document using \emph{Build \& View}.
 
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{Raw/iegraph}
-	\caption{}
-	\label{fig:iegraph}
+		\centering
+		\includegraphics[width=0.7\linewidth]{Raw/iegraph}
+		\caption{}
+		\label{fig:iegraph}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
 
 Note that the relative file path to your \emph{Raw} folder was created in end of this line: \verb|includegraphics[width=0.7\linewidth]{Raw/iegraph}|. In this example, it is \verb|{Raw/iegraph}|. Note that the file extension is needed. You will see \verb|\begin{}| and \verb|\end{}| a lot in {\LaTeX}. The define where one object start and end, and the lines of code in between \verb|\begin{}| and \verb|\end{}| is called an environment. In the example above it is a figure environment. This tells {\LaTeX} that you are importing a figure and any other code in that environment in addition to the line with the relative path to the figure is a setting or provide some meta information to that figure. You will learn what \verb|\centering|, \verb|\caption{}| and \verb|\label{fig:iegraph}| means below. 
 
-\section*{Exercise 3. Manually importing graphs into \LaTeX}
+\section*{Part 4. Manually importing graphs into \LaTeX}
 
-While click-and-drag is helpful to get started, you need to learn how to import figures and tables manually to {\LaTeX}. So now we want to manually import a second figure to your document. This will help us understand the function of the other lines of code that TeXstudio created for us in the click-and-drag example.
+While click-and-drag is helpful to get started, you need to learn how to import figures and tables manually to {\LaTeX}. So now we want to manually import a second figure to your document. This will help us understand the functions of the other lines of code that TeXstudio created for us in the click-and-drag example.
 
-\textbf{Task 1:} Below the figure you already imported, but before \verb|\end{document}|, create a figure environment and import regular\_graph.png into it. This can be done by typing the following lines below your iegraph:
+\textbf{Task 1:} Below the code that was genreated when you imported the first figure (but before \verb|\end{document}|), create a figure environment and import \emph{regular\_graph.png} into it. You will find that graph in the \emph{Raw} folder. You import that figure by typing the following lines of code:
 
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
-		\includegraphics{Raw/regular_graph.png}
+		\includegraphics{+color(CornflowerBlue)Raw/+color(black)regular_graph.png}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
 
-Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to your "Raw" folder. How does it look? 
+Remember to include \color{CornflowerBlue}{\verb|Raw/|}\color{black}{} as this is the relative path to the \emph{Raw} folder where \emph{regular\_graph.png} is saved. Compile your docuemnt. How does it look? 
 
-\textbf{Task 2:} Adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this by typing the context in blue:
+\textbf{Task 2:} We need to adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this by typing the context in blue:
+
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
@@ -102,12 +112,13 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 	\end{Verbatim}
 \end{center}
 
+The property \color{CornflowerBlue}{\verb|=\textwidth|}\color{black}{} means that the figure will no wider than the margins of the text in your document. There are more properties that can be used with \verb|\width|, and you will learn more about these in later exercises, but for now, you can keep using only \verb|=\textwidth| for all gfugires and tables where it is necessary.
 
-\textbf{Task 3:} Center your figure by adding the line in blue:
+\textbf{Task 3:} Now we want to make sure that the figure is centerd on the page in our document. Center your figure by adding the line in blue:
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
-	+color(CornflowerBlue)(\centering)
+		+color(CornflowerBlue)(\centering)
 		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
 	\end{figure}
 	\end{Verbatim}
@@ -117,14 +128,14 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
-	\centering
+		\centering
 		\includegraphics[width=\textwidth]{Raw/regular_graph.png}
 		+color(CornflowerBlue)\caption{Add figure title here}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
 
-\section*{Exercise 5. Importing tables into \LaTeX}
+\section*{Part 5. Importing tables into \LaTeX}
 \textbf{Task 1:} Create a table environment and import regression\_table.tex into it. This can be done by typing the following lines below your regular\_graph:
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -142,9 +153,9 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-	+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
+		+color(CornflowerBlue)(\begin{adjustbox}{max width=\textwidth})  
 		\input{Raw/regression_table.tex}
-	+color(CornflowerBlue)(\end{adjustbox})
+		+color(CornflowerBlue)(\end{adjustbox})
 	\end{table}
 	\end{Verbatim}
 	\end{center}
@@ -159,23 +170,23 @@ Remember to replace \color{red}{\verb|Raw/|}\color{black}{} by the file path to 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-	+color(CornflowerBlue)\centering
-	+color(CornflowerBlue)\caption{Add a title to this table}
-	\begin{adjustbox}{max width=\textwidth}
-		\input{Raw/regression_table.tex}
-	\end{adjustbox}
+		+color(CornflowerBlue)\centering
+		+color(CornflowerBlue)\caption{Add a title to this table}
+		\begin{adjustbox}{max width=\textwidth}
+			\input{Raw/regression_table.tex}
+		\end{adjustbox}
 	\end{table}
 	\end{Verbatim}
 	\end{center}
 
-\section*{Exercise 4. Update {\LaTeX} file after making changes to the data}
+\section*{Part 6. Update {\LaTeX} file after making changes to the data}
 Change your dataset by dropping all observation of Latin American countries. Rerun the codes for your tables and graphs with the same export path. Update {\LaTeX} file to view changes.
 
 \begin{center}
 	\textcolor{BurntOrange}{\emph{Tip:} before compiling the {\LaTeX} file with your updated tables and graphs, you should change the name of the PDF document with the old ones. Otherwise it will just save the new version over it when you compile.}
 \end{center}
 
-\section*{Exercise 5. Add a title to your document}
+\section*{Part 7. Add a title to your document}
 You can set your document's title, as well as authors and date, in the preamble. Look for
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -184,7 +195,7 @@ You can set your document's title, as well as authors and date, in the preamble.
 	\end{center}
 and make changes to the lines below it. Then add a line saying \verb|\maketitle| below \verb|\begin{document}|.
 
-\section*{Exercise 6. Add a list of tables and a list of figures to your document}
+\section*{Part 8. Add a list of tables and a list of figures to your document}
 You can print a list of tables by typing \verb|\listoftables| wherever you want it to be displayed. The same goes for \verb|listoffigures|. These are hyperlinked lists with shortcuts to your tables and figures. The titles shown in these lists are those defined by \verb|\caption|
 
 
