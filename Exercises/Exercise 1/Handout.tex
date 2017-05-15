@@ -88,7 +88,7 @@ We first want to show you a short cut that you can use to import files to your d
 		\centering
 		\includegraphics[width=0.7\linewidth]{Raw/take_up}
 		\caption{}
-		\label{fig:iegraph}
+		\label{fig:take_up}
 	\end{figure}
 	\end{Verbatim}
 \end{center}
@@ -96,11 +96,11 @@ We first want to show you a short cut that you can use to import files to your d
 Note that the relative file path to your \emph{Raw} folder was created in end of this line:
 
 \begin{Verbatim}
-		\includegraphics[width=0.7\linewidth]{Raw/iegraph}
+		\includegraphics[width=0.7\linewidth]{Raw/take_up}
 \end{Verbatim}
 
- In this example, it is \verb|{Raw/iegraph}|
- Note that the file extension is needed. You will see \verb|\begin{}| and \verb|\end{}| a lot in {\LaTeX}. The define where one object start and end, and the lines of code in between \verb|\begin{}| and \verb|\end{}| is called an environment. In the example above it is a figure environment. This tells {\LaTeX} that you are importing a figure and any other code in that environment in addition to the line with the relative path to the figure is a setting or provide some meta information to that figure. You will learn what \verb|\centering| and \verb|\caption{}| below. \verb|\label{fig:iegraph}| is a slightly more advanced option and we will explore it on \emph{Exercise 2}. 
+ In this example, the relative file path is \verb|{Raw/take_up}|
+ Note that the file extension is needed. You will see \verb|\begin{}| and \verb|\end{}| a lot in {\LaTeX}. The define where one object start and end, and the lines of code in between \verb|\begin{}| and \verb|\end{}| is called an environment. In the example above it is a figure environment. This tells {\LaTeX} that you are importing a figure and any other code in that environment in addition to the line with the relative path to the figure is a setting or provide some meta information to that figure. You will learn what \verb|\centering| and \verb|\caption{}| below. \verb|\label{fig:take_up}| is a slightly more advanced option and we will explore it on \emph{Exercise 2}. 
 
 \section*{Part 4. Manually importing graphs into \LaTeX}
 
@@ -116,7 +116,7 @@ While click-and-drag is helpful to get started, you need to learn how to import 
 	\end{Verbatim}
 \end{center}
 
-Remember to include \color{CornflowerBlue}{\verb|Raw/|}\color{black}{} as this is the relative path to the \emph{Raw} folder where \emph{regular\_graph.png} is saved. Compile your docuemnt. How does it look? 
+Remember to include \color{CornflowerBlue}{\verb|Raw/|}\color{black}{} as this is the relative path to the \emph{Raw} folder where \emph{regular\_graph.png} is saved. Compile your document. How does it look? 
 
 \textbf{Task 2:} We need to adjust the size of your figure so it fits into the page. Use the \verb|\width| option of \verb|\includegraphics{}| to do this by typing the context in blue:
 
@@ -141,7 +141,7 @@ The property \color{CornflowerBlue}{\verb|=\textwidth|}\color{black}{} means tha
 	\end{Verbatim}
 \end{center}
 
-Change the caption from \verb|{Add figure title here}| to anything of your choice and compile the document again.
+Change the caption from \verb|{Add figure title here}| to any title of your choice and compile the document again.
 
 \section*{Part 5. Importing tables into \LaTeX}
 \textbf{Task 1:} Create a table environment by using \verb|\begin{}| and \verb|\end{}| underneath the two figures you already imported. Instead of writing \verb|figure| in \verb|\begin{}| and \verb|\end{}| as you did above, write \verb|table|. This tells {\LaTeX} to expect a table instead if a figure. Import \emph{regression\_table.tex} into the table environment using \verb|\input{}|. This can be done by typing the following lines:
@@ -156,7 +156,7 @@ Change the caption from \verb|{Add figure title here}| to anything of your choic
 
 Compile the document and look at the table. 
 
-\textbf{Task 2:} We need to adjust the size of the table. When we are using \verb|\input{}|, we have to do that slightly differently. Use \verb|\AdjustBox| to adjust table size. Everything added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|. See the code in blue below:
+\textbf{Task 2:} We need to adjust the size of the table. When we are using \verb|\input{}|, we have to do that slightly differently to how we did it for \emph{iegraph.png} above. Use \verb|\adjustBox| to adjust table size. Everything added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|. See the code in blue below:
 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -200,7 +200,7 @@ As you can see, this table is not yet centered, but we can fix that by adding on
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
-	\centering
+		+color(CornflowerBlue)\centering
 	\caption{Add a title to this table}
 		\input{Raw/sample_sizes.tex}
 	\end{table}
@@ -237,7 +237,7 @@ Finally we want to create a list of tables and figures that is automatically upd
 	\end{Verbatim}
 \end{center}
 
-Compile your document. The titles shown in these lists are those defined by \verb|\caption|. Go to any of your figures or tables and change the caption and compile the document again. See how the list of tables and figures is updated. While it is common practice, you do not need to add \verb|\maketitle| and \verb|\listoftables| in the beginning of the document. You can add them anywhere.
+Compile your document. The titles shown in these lists are those defined by the \verb|\caption| you added to each table and figure. Go to any of your figures or tables and change the caption and compile the document again. See how the list of tables and figures is updated. While it is common practice, you do not need to add \verb|\maketitle| and \verb|\listoftables| in the beginning of the document. You can add them anywhere.
 
 \end{document}          
 
