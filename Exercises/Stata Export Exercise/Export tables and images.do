@@ -55,14 +55,14 @@
 	ieboilstart, v(11.0)
 	`r(version)'
 	
-	* Use life expectantcy stata data
+	* Use life expectancy stata data
 	sysuse 	lifeexp, clear
 	
 	*Settings important for reproducible randomization
 	set 	seed 215320		
 	sort 	region country
 	
-	*Randomly assign one half of the obs to treatment and the other to control
+	*Randomly assign one half of the observations to treatment and the other to control
 	gen 	random 		= uniform()
 	gen 	treatment 	= random >=.5
 	drop 	random
@@ -86,7 +86,7 @@
 *				Exercise 1, task 2: Tabulate categorical variable
 ********************************************************************************
 	
-	* Clear any results alreday in memory
+	* Clear any results already in memory
 	estimates 	clear
 	
 	* Tabulate the region variable
@@ -143,7 +143,7 @@
 *				Exercise 2, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
-	* Clear any results alreday in memory
+	* Clear any results already in memory
 	estimates 	clear
 	
 	* Run a simple regression
@@ -163,7 +163,7 @@
 	* Clear any results alreday in memory
 	estimates 	clear
 	
-	* Tabulate treatment first for all observations, then for each region seperately
+	* Tabulate treatment first for all observations, then for each region separately
 	eststo : estpost 	tab treatment 
 	eststo : estpost	tab treatment	if region == 1
 	eststo : estpost	tab treatment 	if region == 2
