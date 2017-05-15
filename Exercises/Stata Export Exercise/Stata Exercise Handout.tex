@@ -34,22 +34,31 @@
 	\end{center}
 \end{titlepage}
 \makeatother
-\section*{Read First}
-The main things to consider while writing you do-file for dynamic documentation are as follows: 
 
-\begin{itemize}
-	\item The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
-		\subitem The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
-	
-	\item Exported tables and files should be in a folder that is accessible to {\LaTeX}. This means that extra care should be put in the first time you are typing out the path of the directory where the files are put. 
- \end{itemize}
+\section*{Introduction}
+This exercise introduces you to how to export files from Stata that can be read in {\LaTeX}. See exercise 1 and 2 for instructions on how to import file into {\LaTeX}. After this exercise and exercise 1, you will have a document that is automtically updated each time you run your Stata and your {\LaTeX} code.
+
+We have provided you with a do-file that has code that creates file that you can import in a {\LaTeX} document. We will go through these examples and then we will ask you to create some tables and graphs of your own using your own data. Note that this is not an exercise on Stata, only on exporting in {\LaTeX} format from Stata, so this exercise assumes knowledge of some intermediate level Stata commands.
+
+Start by opening the do-file \texttt{Export tables and images.do}, then move on with the exercise.
+
+
 \section*{Setting your own path directories}
+
+%Mrijan, add some text in the pragraph on organizing a folder neatly and to export to a single folder with descreptive names for it to not be too confusing when importing to LaTeX. For example, they should not export to the same folder where the do-file is. They should have an output folder with a fodler called raw, etc.
+
+Exported tables and files should be in a folder that is accessible to {\LaTeX}. This means that extra care should be put in the first time you are typing out the path of the directory where the files are put. 
+
 
 \textbf{Path} refers to location of the directory where the files are saved. \\
 
 Before beginning the Stata exercises, we need to set our own paths to the global \texttt{main\_folder} and global \texttt{output} at the start of the do-file. This ensures that the graphs and figures are all saved in a directory {\LaTeX} can access. 
 
 \subsection*{Finding Path on a Windows Computer}
+
+%Mriajn, maybe we can also explain that if they use the command cd, or any other command with a file reference they get a path.
+
+
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=1\linewidth]{pathwin}
@@ -71,6 +80,13 @@ global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 \end{verbatim} 
 
 \subsection*{Finding Path on a Mac}
+
+
+\section*{File formats}
+The main things to consider while writing you do-file for dynamic documentation are as follows: 
+
+The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
+The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
 
 \section*{Task 1: Manually Create a Graph and then Export it}
 
