@@ -52,7 +52,7 @@ Before beginning the Stata exercises, we need to set our own paths to the global
 \subsection*{Finding Path on a Windows Computer}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{pathwin}
+	\includegraphics[width=1\linewidth]{pathwin}
 	\caption{Finding Path on a Windows Computer}
 	\label{fig:pathwin}
 \end{figure}
@@ -61,7 +61,7 @@ As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at 
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.7\linewidth]{pathwin2}
+	\includegraphics[width=1\linewidth]{pathwin2}
 	\caption{Path shown on a Windows Computer}
 	\label{fig:pathwin2}
 \end{figure}
@@ -72,9 +72,15 @@ global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 
 \subsection*{Finding Path on a Mac}
 
+\section*{Task 1: Manually Create a Graph and then Export it}
+
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "\$output/regular\_graph.png", width(5000) replace| 
+exports the graph in png format which {\LaTeX} can read. 
 \section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
 
-This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
+This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
+
+Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
 
 \section*{}
 	
