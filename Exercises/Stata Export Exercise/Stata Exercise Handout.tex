@@ -1,0 +1,77 @@
+\documentclass[]{article}
+
+%Packages
+\usepackage{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+
+\usepackage{graphicx}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{setspace}
+\usepackage{float}
+
+%Package Settings
+\onehalfspacing
+\setlength\parindent{0pt}
+
+
+%opening
+\title{DIME Dynamic Documentation Training \\ Stata Exercise}
+\author{Luiza Andrade \& Mrijan Rimal}
+\date{\today}
+
+\makeatother
+
+\begin{document}
+
+\makeatletter
+\begin{titlepage}
+	\begin{center}
+		\includegraphics[width=0.3\linewidth]{i2i.png}\\[10ex]
+		{\LARGE \bfseries  \@title }\\[2ex] 
+		{\Large  \@author}\\[20ex] 
+		{\large \@date}
+	\end{center}
+\end{titlepage}
+\makeatother
+\section{Read First}
+The main things to consider while writing you do-file for dynamic documentation are as follows: 
+
+\begin{itemize}
+	\item The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
+		\subitem The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
+	
+	\item Exported tables and files should be in a folder that is accessible to {\LaTeX}. This means that extra care should be put in the first time you are typing out the path of the directory where the files are put. 
+ \end{itemize}
+\section*{Setting your own path directories}
+
+\textbf{Path} refers to location of the directory where the files are saved. \\
+
+Before beginning the Stata exercises, we need to set our own paths to the global \texttt{main\_folder} and global \texttt{output} at the start of the do-file. This ensures that the graphs and figures are all saved in a directory {\LaTeX} can access. 
+
+\subsection*{Finding Path on a Windows Computer}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pathwin}
+	\caption{Finding Path on a Windows Computer}
+	\label{fig:pathwin}
+\end{figure}
+
+As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at the top of the \texttt{File Explorer} windows where our files are saved shows us the complete path to the files in a Windows computer. \\
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{pathwin2}
+	\caption{Path shown on a Windows Computer}
+	\label{fig:pathwin2}
+\end{figure}
+
+We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file. 
+
+\section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
+
+This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
+
+\section*{}
+	
+\end{document}
