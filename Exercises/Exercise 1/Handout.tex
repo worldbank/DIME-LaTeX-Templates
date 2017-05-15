@@ -41,7 +41,7 @@
 \makeatother
 
 \section*{Introduction}
-This exercise is an introduction to the concepts needed to create a docuement with tables and figures outputted in {\LaTeX} from, for example, Stata or R. After this excercise you will be able to create a document that is automatically updated each time the code in Stata or R is updated and run again. The document this exercise generates is meant to be either an appendix of tables and graphs, or a document with initial results that updates instantly.
+This exercise is an introduction to the concepts needed to create a docuement with tables and figures outputted in {\LaTeX} from, for example, Stata or R. After this exercise you will be able to create a document that is automatically updated each time the code in Stata or R is updated and run again. The document this exercise generates is meant to be either an appendix of tables and graphs, or a document with initial results that updates instantly.
 
 For this first exercise, all the outputed tables and graphs that you need to create the document are provided for you. In later exercises you will produce them yourself.
 
@@ -50,15 +50,15 @@ If you want to have a more broad understanding of {\LaTeX} or explore other func
 
 Exercise overview:
 \begin{itemize}
-	\item Part 1 and 2 explains concepts often confusing to somone new to {\LaTeX}
-	\item Part 3 to 6 imports figures and tables and introduce some basic formatting
-	\item Part 7 and 8 introduce document titels and list of tables and figures
+	\item Part 1 and 2 explains concepts often confusing to someone new to {\LaTeX}.
+	\item Part 3 to 6 imports figures and tables and introduces some basic formatting.
+	\item Part 7 and 8 introduces document titles and list of tables and figures.
 \end{itemize}
 
 \section*{Part 1. Folders and relative file paths}
-{\LaTeX} uses what is called relative file paths. We will explain what this means and while it is not complex, it is important to understand well when working in {\LaTeX}. Start by looking in the folder where you found this handout. 
+{\LaTeX} uses what is called relative file paths. We will explain what this means and while it is not complex, it is important to understand it well when working in {\LaTeX}. Start by looking in the folder where you found this handout. 
 
-In this folder you see a file called \emph{Exercise 1.tex}. This is the file you will be working in. We will call it the main document and in this file you will import the tables and graphs we have provided for you. You will also find a folder called \emph{Raw}. In this folder you will find the tables and graphs you will use in this exercise and that we have provided for you. The relative file path from the \emph{Exercise 1.tex} to, for example, \emph{iegraph.png} you can find in the \emph{Raw} folder is therefore \verb|{Raw/iegraph.png}|. Note that to a relative file path it does not matter where on the computer the file is stored (for example, on C drive, My Documents, the Drop-Box folder, Desktop etc.) it only matters where a file is saved in relation to the starting point. The starting point in {\LaTeX} is the folder where the main document is saved. In the case of this exercise that is the folder where \emph{Exercise 1.tex} is saved.
+In this folder, you see a file called \emph{Exercise 1.tex}. This is the file you will be working in. We will call it the main document and you will import the tables and graphs we have provided for you to this main document file. You will also find a folder called \emph{Raw}. In this folder you will find the tables and graphs you will use in this exercise and that we have provided for you. The relative file path from the \emph{Exercise 1.tex} to, for example, \emph{iegraph.png} you can find in the \emph{Raw} folder is therefore \verb|{Raw/iegraph.png}|. Note that to a relative file path it does not matter where the file is stored on the computer(for example, on C drive, My Documents, the Drop-Box folder, Desktop etc). It only matters where a file is saved in relation to the starting point. The starting point in {\LaTeX} is the folder where the main document is saved. In the case of this exercise that is the folder where \emph{Exercise 1.tex} is saved.
 
 So this path \verb|{Raw/iegraph.png}| means that there is a folder called \emph{Raw} in the same folder as the main document is saved, and in that folder there is a file called \emph{iegraph.png} that we want to access. The file path \verb|{iegraph.png}| on the other hand means that the graph would be saved directly in the same folder as the main document. This is usually bad practice as when your document grows it will reference a lot of files and storing all those files in a sub-folder is much cleaner way to organize the files. Relative file paths can be multiple folders deep, for example \verb|{Raw/baseline/income_chapter/iegraph.png}|. 
 
@@ -67,11 +67,11 @@ If \emph{iegraph.png} would be saved in the parent folder to the main document, 
 Relative file paths are very simple as long as the files referenced are stored in close relation to the main document, but this is soon obvious to you unless it already is.
 
 \section*{Part 2. Compiling a pdf file from  {\LaTeX} code}
-Compiling means in {\LaTeX} that you run your code to create and save a pdf version of your document. It is similar to running a do-file in Stata or an R-script in R but it creates a pdf instead of running computations. 
+In {\LaTeX}, compiling means that you run your code to create and save a pdf version of your document. It is similar to running a do-file in Stata or an R-script in R but it creates a pdf instead of running computations. 
 
-Open in TeXstudio the file \emph{Exercise 1.tex} that you find in the folder for this exercise. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. The preamble at the top of the document loads different functionalities that we will be using, but you do not have to worry about this until later exercises.
+In TeXstudio, open the file \emph{Exercise 1.tex} that you find in the folder for this exercise. This is a very basic {\LaTeX} document and consists on the initial settings we will build on. The preamble at the top of the document loads different functionalities that we will be using, but you do not have to worry about this until later exercises.
 
-To compile the document go to \emph{Tools} in the top drop-down menu in TeXstudio when you have the code in \emph{Exercise 1.tex} open. Then click \emph{Compile}, but you wont to see anything happening. Instead, click \emph{Build \& View} in the \emph{Tools} menu. This should open a new window in TeXstudio where you see the text \emph{This is a blank document}. Both \emph{Compile} and \emph{Build \& View} creates a pdf and saves it to desk, but only \emph{Build \& View} opens up a window where you can see your document directly. 
+To compile the document go to \emph{Tools} in the top drop-down menu in TeXstudio when you have the code in \emph{Exercise 1.tex} open. Then click \emph{Compile}, but you wont to see anything happening. Instead, click \emph{Build \& View} in the \emph{Tools} menu. This should open a new window in TeXstudio where you see the text \emph{This is a blank document}. Both \emph{Compile} and \emph{Build \& View} creates a pdf and saves it to disk, but only \emph{Build \& View} opens up a window where you can see your document directly. 
 
 The pdf file was saved in the same folder as where the file \emph{Exercise 1.tex} is saved. {\LaTeX} exports a lot of auxiliary files as well here. You do not need these files. It is possible to have these files saved elsewhere, but do not worry about that now, and most {\LaTeX} users never bother to change where those files are saved.
 
@@ -80,7 +80,7 @@ If you open the \emph{Tools} menu again you can see short cuts for next time you
 \section*{Part 3. Using TeXstudio interface to import an image into \LaTeX}
 Now it is time to start importing some files into our document. Make sure that you still have \emph{Exercise 1.tex} open. Again, do not worry about the preamble, for the rest of this exercise, you will only add lines of code between \verb|\begin{document}| and \verb|end{document}| to create your document content.
 
-We first want to show you a short cut that you can use to import files to your document that you can use until you feel confident in using relative file paths. While you keep \emph{Exercise 1.tex} open in TeXstudio, open the \emph{Raw} folder in regular Explorer (Windows) or Finder (Mac) wondow. Now click \emph{take\_up.png} and drag it to the part of \emph{Exercise 1.tex} that says ``This is a blank document". Then click ``OK" in the window that pops up. This will create a section of code that should look similar to the code below. Now, compile your document using \emph{Build \& View}.
+We first want to show you a short cut that you can use to import files to your document that you can use until you feel confident in using relative file paths. While you keep \emph{Exercise 1.tex} open in TeXstudio, open the \emph{Raw} folder in regular Explorer (Windows) or Finder (Mac) window. Now click \emph{take\_up.png} and drag it to the part of \emph{Exercise 1.tex} that says ``This is a blank document". Then click ``OK" in the window that pops up. This will create a section of code that should look similar to the code below. Now, compile your document using \emph{Build \& View}.
 
 \begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -156,7 +156,7 @@ Change the caption from \verb|{Add figure title here}| to anything of your choic
 
 Compile the document and look at the table. 
 
-\textbf{Task 2:} We need to adjust the size of the table. When we are using \verb|\input{}| we have to do that slightly differently. Use \verb|\AdjustBox| to adjust table size. Everything added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|. See the code in blue below:
+\textbf{Task 2:} We need to adjust the size of the table. When we are using \verb|\input{}|, we have to do that slightly differently. Use \verb|\AdjustBox| to adjust table size. Everything added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|. See the code in blue below:
 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
@@ -168,7 +168,7 @@ Compile the document and look at the table.
 	\end{Verbatim}
 	\end{center}
 
-\textbf{Task 3:} Similarly to figures, you can add a caption to your table. This is done by adding the same lines as for figures.
+\textbf{Task 3:} Similar to figures, you can add a caption to your table. This is done by adding the same lines as for figures.
 
 	\begin{center}
 	\begin{Verbatim}[commandchars=+\(\)]
