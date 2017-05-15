@@ -34,7 +34,7 @@
 	\end{center}
 \end{titlepage}
 \makeatother
-\section{Read First}
+\section*{Read First}
 The main things to consider while writing you do-file for dynamic documentation are as follows: 
 
 \begin{itemize}
@@ -66,7 +66,11 @@ As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at 
 	\label{fig:pathwin2}
 \end{figure}
 
-We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file. 
+We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file and change the path where it says \begin{verbatim}
+global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
+\end{verbatim} 
+
+\subsection*{Finding Path on a Mac}
 
 \section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
 
