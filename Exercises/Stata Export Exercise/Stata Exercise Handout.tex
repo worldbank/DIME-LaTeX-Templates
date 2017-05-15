@@ -56,8 +56,41 @@ Before beginning the Stata exercises, we need to set our own paths to the global
 
 \subsection*{Finding Path on a Windows Computer}
 
-%Mriajn, maybe we can also explain that if they use the command cd, or any other command with a file reference they get a path.
+Path to a file can be found by selecting a file and pressing {\color{red}SHIFT on your keyboard and RIGHT CLICKING your mouse and then clicking COPY AS PATH in the resulting drop down menu} as shown in Figure \ref{fig:pathwin3}.
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.9\linewidth]{pathwin3}
+	\caption{Finding path on a Windows Computer - Solution 1}
+	\label{fig:pathwin3}
+\end{figure}
+
+We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file and change the path where it says \begin{verbatim}
+global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
+\end{verbatim} 
+
+Another solution to finding the path on a Windows computer is shown in Annex 1.
+	
+\subsection*{Finding Path on a Mac}
+
+
+\section*{File formats}
+The main things to consider while writing you do-file for dynamic documentation are as follows: 
+
+The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
+The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
+
+\section*{Task 1: Manually Create a Graph and then Export it}
+
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$output/regular_graph.png", width(5000) replace| 
+exports the graph in png format which {\LaTeX} can read. 
+\section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
+
+This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
+
+Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
+
+\section*{Annex 1} {\label{annex1}}
 
 \begin{figure}[H]
 	\centering
@@ -75,29 +108,8 @@ As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at 
 	\label{fig:pathwin2}
 \end{figure}
 
-We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file and change the path where it says \begin{verbatim}
+We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then paste this path when setting the path in our Stata do-file and changing the path where it says \begin{verbatim}
 global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 \end{verbatim} 
-
-\subsection*{Finding Path on a Mac}
-
-
-\section*{File formats}
-The main things to consider while writing you do-file for dynamic documentation are as follows: 
-
-The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
-The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
-
-\section*{Task 1: Manually Create a Graph and then Export it}
-
-This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "\$output/regular\_graph.png", width(5000) replace| 
-exports the graph in png format which {\LaTeX} can read. 
-\section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
-
-This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
-
-Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
-
-\section*{}
 	
 \end{document}
