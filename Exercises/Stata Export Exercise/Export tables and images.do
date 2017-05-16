@@ -8,21 +8,19 @@
 ********************************************************************************
 
 	** OUTLINE:		Load data
-					Exercise 1, task 1: iebaltab
-					Exercise 1, task 2: Tabulate categorical variable
-					Exercise 1, task 3: Regression table
-					Exercise 2, task 1: Manually create graph and then export it
-					Exercise 2, task 2: Use iegraph to create figure
-					Exercise 6: Using a do-file to edit a .tex file after exporting it
+					Part 1, task 1: Tabulate categorical variable
+					Part 1, task 2: Regression table
+					Part 2, task 1: Manually create graph and then export it
+					Part 2, task 2: Use iegraph to create figure
+					Part 3: Using a do-file to edit a .tex file after exporting it
 				
-	** CREATES:		$output\balance_table
-					$output\categorical.tex
+	** CREATES:		$output\categorical.tex
 					$output\regression_table.tex
 					$output\regular_graph.png
 					$output\iegraph.png
 					$output\samplesizes.tex
 						
-	** NOTES:		This do-file requires ietoolkit to run
+	** NOTES:		This do-file requires ietoolkit and estout command to run
 
 
 
@@ -83,7 +81,7 @@
 	
 
 ********************************************************************************
-*				Exercise 1, task 2: Tabulate categorical variable
+*				Part 1, task 1: Tabulate categorical variable
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -101,7 +99,7 @@
 	
 	
 ********************************************************************************
-*					Exercise 1, task 3: Regression table
+*					Part 1, task 2: Regression table
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -125,7 +123,7 @@
 																				// Adds manual notes. Alternatively, you could use automatic notes by dropping the previous line
 																				
 ********************************************************************************
-*			Exercise 2, task 1: Manually create graph and then export it
+*			Part 2, task 1: Manually create graph and then export it
 ********************************************************************************
 	
 	* Generate graph
@@ -140,7 +138,7 @@
 	
 	
 ********************************************************************************
-*				Exercise 2, task 2: Use iegraph to create figure
+*				Part 2, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
 	* Clear any results already in memory
@@ -157,7 +155,7 @@
 	
 
 ********************************************************************************
-*		Exercise 6: Using a do-file to edit a .tex file after exporting it
+*		Part 3: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************
 	
 	* Clear any results alreday in memory

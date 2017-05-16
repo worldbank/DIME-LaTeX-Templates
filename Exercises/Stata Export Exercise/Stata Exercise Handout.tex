@@ -42,14 +42,20 @@ We have provided you with a do-file that has code that creates file that you can
 
 Start by opening the do-file \texttt{Export tables and images.do}, then move on with the exercise.
 
+\section*{Setting up a Folder Structure}
 
-\section*{Setting your own path directories}
+Few things should be considering while creating directories for {\LaTeX} files and Stata do-files:
 
-%Mrijan, add some text in the pragraph on organizing a folder neatly and to export to a single folder with descreptive names for it to not be too confusing when importing to LaTeX. For example, they should not export to the same folder where the do-file is. They should have an output folder with a fodler called raw, etc.
+\begin{itemize}
+	\item You should have one folder (For example - Output) which includes the main {\LaTeX} file and a subfolder which contains all the files exported from Stata. 
+	\item Exporting all the graphs and figures to the subfolder \texttt{Raw} makes it easier to reference different graphs and figures while writing the {\LaTeX} file. 
+	\item Files exported from Stata should have descriptive name. For example - Rather than \texttt{graph1.png}, \texttt{graph2.tex}, names like \texttt{treatmentEffectGraph.png} would make it easier to understand what files we are using.
+\end{itemize}
 
-Exported tables and files should be in a folder that is accessible to {\LaTeX}. This means that extra care should be put in the first time you are typing out the path of the directory where the files are put. 
+An example of this can be found at \href{https://github.com/mrimal/Dynamic-Documentation/tree/master/Exercises/Exercise\%201/LaTeX\%20files}{on Github here}\footnote{https://github.com/mrimal/Dynamic-Documentation/tree/master/Exercises/Exercise\%201/LaTeX\%20files}. You can replace the \texttt{Exercise 1.tex} with your {\LaTeX} file and have all the outputted files in the \texttt{Raw} folder. 
 
-
+\section*{Setting your path for Stata}
+Exported tables and files should be in a folder that is accessible to {\LaTeX}. This means that extra care should be put in the first time you are typing out the path of the directory where the files are put. \\
 \textbf{Path} refers to location of the directory where the files are saved. \\
 
 Before beginning the Stata exercises, we need to set our own paths to the global \texttt{main\_folder} and global \texttt{output} at the start of the do-file. This ensures that the graphs and figures are all saved in a directory {\LaTeX} can access. 
@@ -65,7 +71,8 @@ Path to a file can be found by selecting a file and pressing {\color{red}SHIFT o
 	\label{fig:pathwin3}
 \end{figure}
 
-We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then use this path when setting the path in our Stata do-file and change the path where it says \begin{verbatim}
+We can then just \texttt{Paste} the path when setting the path in our Stata do-file and change the path where it says
+	 \begin{verbatim}
 global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 \end{verbatim} 
 
@@ -80,16 +87,25 @@ The main things to consider while writing you do-file for dynamic documentation 
 The format that Stata exports should be readable by the {\LaTeX}. This means that when we export tables it will be exported in \texttt{.tex} format and when we export graphs it should be in \texttt{.png} format. 
 The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
 
-\section*{Task 1: Manually Create a Graph and then Export it}
+\section*{Part 1, Task 1: Tabulate Categorical Variables}
+
+While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$output/categorical.tex", replace| should always include a explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
+
+\section*{Part 1, Task 2: Regression table}
+
+Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$output/regression_table.tex"| part should include a explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
+
+\section*{Part 2, Task 1: Manually Create a Graph and then Export it}
 
 This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$output/regular_graph.png", width(5000) replace| 
 exports the graph in png format which {\LaTeX} can read. 
-\section*{Exercise 2, Task 2: Using \texttt{iegraph} to create a figure}
-
+\section*{Part 2, Task 2: Using \texttt{iegraph} to create a figure}
 This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
 
-Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the \texttt{output} folder. 
+Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are directly saved to the specified output folder. 
 
+\section*{Part 3: Using a do-file to edit a .tex file after exporting it}
+\newpage
 \section*{Annex 1} {\label{annex1}}
 
 \begin{figure}[H]
@@ -98,7 +114,6 @@ Using the \verb|save(``$output/iegraph.png'')| ensures that the graphs are direc
 	\caption{Finding Path on a Windows Computer}
 	\label{fig:pathwin}
 \end{figure}
-
 As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at the top of the \texttt{File Explorer} windows where our files are saved shows us the complete path to the files in a Windows computer. \\
 
 \begin{figure}[H]
