@@ -36,7 +36,7 @@
 \makeatother
 
 \section*{Introduction}
-This exercise introduces you to how to export files from Stata that can be read in {\LaTeX}. See exercise 1 and 2 for instructions on how to import file into {\LaTeX}. After this exercise and exercise 1, you will have a document that is automtically updated each time you run your Stata and your {\LaTeX} code.
+This exercise introduces you to how to export files from Stata that can be read in {\LaTeX}. See exercise 1 and 2 for instructions on how to import file into {\LaTeX}. After this exercise and exercise 1, you will have a document that is automatically updated each time you run your Stata and your {\LaTeX} code.
 
 We have provided you with a do-file that has code that creates file that you can import in a {\LaTeX} document. We will go through these examples and then we will ask you to create some tables and graphs of your own using your own data. Note that this is not an exercise on Stata, only on exporting in {\LaTeX} format from Stata, so this exercise assumes knowledge of some intermediate level Stata commands.
 
@@ -89,11 +89,11 @@ The files will not be exported in \texttt{MS Word} or \texttt{MS Excel} format.
 
 \section*{Part 1, Task 1: Tabulate Categorical Variables}
 
-While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$output/categorical.tex", replace| should always include a explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
+While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$output/categorical.tex", replace| should always include an explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
 
 \section*{Part 1, Task 2: Regression table}
 
-Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$output/regression_table.tex"| part should include a explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
+Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
 
 \section*{Part 2, Task 1: Manually Create a Graph and then Export it}
 
@@ -126,7 +126,7 @@ As shown in Figure \ref{fig:pathwin}, left clicking(normal click) on the bar at 
 	\label{fig:pathwin2}
 \end{figure}
 
-We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is show. We can then paste this path when setting the path in our Stata do-file and changing the path where it says \begin{verbatim}
+We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is shown. We can then paste this path when setting the path in our Stata do-file and changing the path where it says \begin{verbatim}
 global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 \end{verbatim} 
 	
