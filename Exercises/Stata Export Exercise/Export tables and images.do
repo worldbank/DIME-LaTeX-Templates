@@ -124,25 +124,9 @@
 																				
 
 																				
+									
 ********************************************************************************
-*			Part 5, task 1: Use iegraph to create figure
-********************************************************************************	
-	
-	* Clear any results already in memory
-	estimates 	clear
-	
-	* Run a simple regression
-	reg 	lexp treatment
-	
-	* Use iegraph to make it into a graph
-	iegraph 	treatment, noconfbars 			///
-				title	("Treatment effect")  	///
-				save	("$raw_output/iegraph.png") ///
-				yzero  grey 
-																					
-																				
-********************************************************************************
-*			Part 5, task 2: Manually create graph and then export it
+*			Part 5, task 1: Manually create graph and then export it
 ********************************************************************************
 	
 	* Generate graph
@@ -157,7 +141,23 @@
 	
 	
 
-
+********************************************************************************
+*			Part 5, task 2: Use iegraph to create figure
+********************************************************************************	
+	
+	* Clear any results already in memory
+	estimates 	clear
+	
+	* Run a simple regression
+	reg 	lexp treatment
+	
+	* Use iegraph to make it into a graph
+	iegraph 	treatment, noconfbars 			///
+				title	("Treatment effect")  	///
+				save	("$raw_output/iegraph.png") ///
+				yzero  grey 
+																					
+											
 ********************************************************************************
 *			Part 6: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************

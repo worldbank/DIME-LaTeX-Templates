@@ -105,38 +105,38 @@ While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$r
 
 Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
 
-\section*{Part 5, Task 1: Using \texttt{iegraph} to create a figure}
+\section*{Part 5, Task 1: Manually Create a Graph and then Export it}
 
-%Mirjan: Hightlight the difference between these two tasks in part 5. We are not making it easy for the user to match the main point of having these two differences.
-
-% Elaborate a bit more on the .png point
-
-This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. 
-
-
-Using the \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
-
-\section*{Part 5, Task 2: Manually Create a Graph and then Export it}
-
-This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Stata's save graph feature saves the graph in \texttt{.gph} format which only Stata can read. However, the \texttt{graph export}  feature  saves the graph in a picture format i.e. png format which can be read by not only Stata but the picture viewer on your computer, phone and also {\LaTeX}. It is \emph{absolutely critical} to export the graph in this format, so that {\LaTeX} can import it. 
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Stata's save graph feature saves the graph in \texttt{.gph} format which only Stata can read. However, the \texttt{graph export}  feature  saves the graph in a picture format i.e. png format which can be read by the photo viewer on your computer, phone and also {\LaTeX}. It is \emph{absolutely critical} to export the graph in this format, so that {\LaTeX} can import it. 
 
 Using the \verb|graph export "$raw_output/regular_graph.png", width(5000) replace| 
 exports the graph in png format which {\LaTeX} can read.
 
 \textit{Note: This is different from the \texttt{iegraph} command where save can both export the graph in \texttt{.gph} and \texttt{.png} format. For Stata's twoway graph command, export has be to be used to make it readable in {\LaTeX}}. 
 
-\section*{Part 6: Making a Dynamic Document \\ Using a do-file to edit a .tex file after exporting it}
+\section*{Part 5, Task 2: Using \texttt{iegraph} to create a figure}
 
-%Mrijan. Use this exercise to show that the tables updates automatically. But walk the user through that step by step. Ask teh user to have completed exercise 1 first. And do not use any termonology not inclided there already.
+While Stata's \texttt{graph twoway} uses the \texttt{save} feature to export pictures in a \texttt{.gph} format, and we have to use the \texttt{graph export} to export it in png format, \texttt{iegraph} can export to both formats using the same \texttt{save} command. 
 
-Here, we will produce a dynamic document. Please only do this do if you have completed up to the last Part of the exercise. 
+This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. On \texttt{iegraph}, while exporting a picture for {\LaTeX}, always make sure that the picture has the extension \texttt{.png} at the end of the filename. \textbf{Without that, \texttt{iegraph} is just going to export the picture in a format which only Stata can read!}
+
+Using the \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
+
+
+
+\section*{Part 6: Making a Dynamic Document }
+
+Here, we will produce a dynamic document. Please only do this do \textbf{if} you have completed up to \texttt{Part 5, Task 2} of the exercise. 
 
 \begin{enumerate}
-	\item Go to \texttt{line 60} of the Stata do file and change the seed from \texttt{215320} to a number different than \texttt{215320}. 
-	\item Rerun the do file with the new seed.
+	\item Save the pdf created upto now in a separate location from your \texttt{.tex} file.
+	\item Go to \texttt{line 60} of the Stata do file and change the seed from \texttt{215320} to a number different than \texttt{215320}.\\ \textit{Note: Changing seeds is not recommended for actual projects. The change in seeds here is used to highlight the change in treatment/control groups.}
+	\item Rerun the do-file with the new seed.
 	\item Now, open the earlier created {\LaTeX} file and press \textit{Build and Compile} under the \textit{Tools}.
+	\item Now if you compare the pdf file you have just generated with the one you saved earlier, you will find that the tables would have updated automatically. 
 \end{enumerate}
 
+\section*{Using a do-file to edit a .tex file after exporting it}
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
 \newpage
