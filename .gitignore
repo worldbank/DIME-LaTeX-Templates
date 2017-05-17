@@ -12,6 +12,7 @@
 *.cb2
 Test/
 Exercises/Exercise 1/*.png
+!**/img/*.png
 
 ## Intermediate documents:
 *.dvi
