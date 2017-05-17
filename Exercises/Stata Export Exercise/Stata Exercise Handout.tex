@@ -107,16 +107,16 @@ Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tabl
 
 \section*{Part 5, Task 1: Manually Create a Graph and then Export it}
 
-This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Stata's save graph feature saves the graph in \texttt{.gph} format which only Stata can read. However, the \texttt{graph export}  feature  saves the graph in a picture format i.e. png format which can be read by the photo viewer on your computer, phone and also {\LaTeX}. It is \emph{absolutely critical} to export the graph in this format, so that {\LaTeX} can import it. 
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Stata's save graph feature saves the graph in \texttt{.gph} format which only Stata can read. However, the \texttt{graph export} feature  saves the graph in a picture format i.e. png format which can be read by the photo viewer on your computer, phone and also {\LaTeX}. It is \emph{absolutely critical} to export the graph in this format, so that {\LaTeX} can import it. 
 
 Using the \verb|graph export "$raw_output/regular_graph.png", width(5000) replace| 
 exports the graph in png format which {\LaTeX} can read.
 
-\textit{Note: This is different from the \texttt{iegraph} command where save can both export the graph in \texttt{.gph} and \texttt{.png} format. For Stata's twoway graph command, export has be to be used to make it readable in {\LaTeX}}. 
+\textit{Note: This is different from the \texttt{iegraph} command where save can both export the graph in \texttt{.gph} and \texttt{.png} format. For Stata's \texttt{graph} command, export has be to be used to make it readable in {\LaTeX}}. 
 
 \section*{Part 5, Task 2: Using \texttt{iegraph} to create a figure}
 
-While Stata's \texttt{graph twoway} uses the \texttt{save} feature to export pictures in a \texttt{.gph} format, and we have to use the \texttt{graph export} to export it in png format, \texttt{iegraph} can export to both formats using the same \texttt{save} command. 
+While Stata's \texttt{graph twoway} uses the \texttt{save} feature to export pictures in a \texttt{.gph} format, and we have to use the \texttt{graph export} to export it in png format. Many commands, for example - \texttt{iegraph}, can export directly to either format using the same \texttt{save} option. 
 
 This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. On \texttt{iegraph}, while exporting a picture for {\LaTeX}, always make sure that the picture has the extension \texttt{.png} at the end of the filename. \textbf{Without that, \texttt{iegraph} is just going to export the picture in a format which only Stata can read!}
 
