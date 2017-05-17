@@ -81,7 +81,7 @@
 	
 
 ********************************************************************************
-*				Part 1, task 1: Tabulate categorical variable
+*			Part 3, task 1: Tabulate categorical variable
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -99,7 +99,7 @@
 	
 	
 ********************************************************************************
-*					Part 1, task 2: Regression table
+*			Part 3, task 2: Regression table
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -123,7 +123,7 @@
 																				// Adds manual notes. Alternatively, you could use automatic notes by dropping the previous line
 																				
 ********************************************************************************
-*			Part 2, task 1: Manually create graph and then export it
+*			Part 4, task 1: Manually create graph and then export it
 ********************************************************************************
 	
 	* Generate graph
@@ -138,7 +138,7 @@
 	
 	
 ********************************************************************************
-*				Part 2, task 2: Use iegraph to create figure
+*			Part 4, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
 	* Clear any results already in memory
@@ -155,7 +155,7 @@
 	
 
 ********************************************************************************
-*		Part 3: Using a do-file to edit a .tex file after exporting it
+*			Part 4: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************
 	
 	* Clear any results alreday in memory
