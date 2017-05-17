@@ -125,11 +125,17 @@ exports the graph in png format which {\LaTeX} can read.
 
 \textit{Note: This is different from the \texttt{iegraph} command where save can both export the graph in \texttt{.gph} and \texttt{.png} format. For Stata's twoway graph command, export has be to be used to make it readable in {\LaTeX}}. 
 
-\section*{Part 6: Making a Dynamic Document \\ \hfill Using a do-file to edit a .tex file after exporting it}
+\section*{Part 6: Making a Dynamic Document \\ Using a do-file to edit a .tex file after exporting it}
 
 %Mrijan. Use this exercise to show that the tables updates automatically. But walk the user through that step by step. Ask teh user to have completed exercise 1 first. And do not use any termonology not inclided there already.
 
+Here, we will produce a dynamic document. Please only do this do if you have completed up to the last Part of the exercise. 
 
+\begin{enumerate}
+	\item Go to \texttt{line 60} of the Stata do file and change the seed from \texttt{215320} to a number different than \texttt{215320}. 
+	\item Rerun the do file with the new seed.
+	\item Now, open the earlier created {\LaTeX} file and press \textit{Build and Compile} under the \textit{Tools}.
+\end{enumerate}
 
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
