@@ -122,23 +122,10 @@
 					addnotes(Standard errors clustered at region level are in parentheses. \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)) nonotes
 																				// Adds manual notes. Alternatively, you could use automatic notes by dropping the previous line
 																				
+
+																				
 ********************************************************************************
-*			Part 5, task 1: Manually create graph and then export it
-********************************************************************************
-	
-	* Generate graph
-	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || 	///
-			(kdensity lexp if treatment == 0, lcolor(gs12)), 		///
-			legend(order(1 "Treatment" 2 "Control")) 				///
-			title(Life expectancy distribution by treatment group) 	///
-			ytitle(Density) xtitle(Years)
-	
-	* Export graph in file format suitable for tex
-	graph export "$raw_output/regular_graph.png", width(5000) replace
-	
-	
-********************************************************************************
-*			Part 5, task 2: Use iegraph to create figure
+*			Part 5, task 1: Use iegraph to create figure
 ********************************************************************************	
 	
 	* Clear any results already in memory
@@ -152,7 +139,24 @@
 				title	("Treatment effect")  	///
 				save	("$raw_output/iegraph.png") ///
 				yzero  grey 
+																					
+																				
+********************************************************************************
+*			Part 5, task 2: Manually create graph and then export it
+********************************************************************************
 	
+	* Generate graph
+	twoway  (kdensity lexp if treatment == 1, lcolor(emidblue)) || 	///
+			(kdensity lexp if treatment == 0, lcolor(gs12)), 		///
+			legend(order(1 "Treatment" 2 "Control")) 				///
+			title(Life expectancy distribution by treatment group) 	///
+			ytitle(Density) xtitle(Years)
+	
+	* Export graph in file format suitable for tex
+	graph export "$raw_output/regular_graph.png", width(5000) replace
+	
+	
+
 
 ********************************************************************************
 *			Part 6: Using a do-file to edit a .tex file after exporting it

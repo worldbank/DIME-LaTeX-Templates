@@ -105,16 +105,26 @@ While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$r
 
 Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
 
-\section*{Part 5, Task 1: Manually Create a Graph and then Export it}
+\section*{Part 5, Task 1: Using \texttt{iegraph} to create a figure}
 
-This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$raw_output/regular_graph.png", width(5000) replace| 
-exports the graph in png format which {\LaTeX} can read. 
-\section*{Part 5, Task 2: Using \texttt{iegraph} to create a figure}
-This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
+%Mirjan: Hightlight the difference between these two tasks in part 5. We are not making it easy for the user to match the main popint of having these two differences.
+% Elaborate a bit more on the .png point
+
+This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. 
 
 Using the \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
 
+\section*{Part 5, Task 2: Manually Create a Graph and then Export it}
+
+%Mrijan: Elaboreate. Say that this can be used for any graph produced here. Talk about how twoway stores in temporary memory and export saves to disk. These are teh details not obvious to a user with no assumed previous knowledge.
+
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$raw_output/regular_graph.png", width(5000) replace| 
+exports the graph in png format which {\LaTeX} can read.
+
+
 \section*{Part 6: Using a do-file to edit a .tex file after exporting it}
+
+%Mrijan. Use this exercise to show that the tables updates automatically. But walk the user through that step by step. Ask teh user to have completed exercise 1 first. And do not use any termonology not inclided there already.
 
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
