@@ -66,7 +66,7 @@ Open the do-file \texttt{Export tables and images.do} that you find in the same 
 
 You need to enter the path to the folder you created in part 1. If you have a Windows computer and you created your \texttt{Output} folder in your Documents folder, then your file path should look similar to this:
 \begin{center}
-	\verb|global main_folder "C:\Users\JoeSmith\Documents"|
+	\verb|global main_folder "C:\Users\JoeSmith\Documents\Output"|
 \end{center}
 
 The following two sub-sections help you find the file path to the folder you just created if you are not sure how to do that. The first sub-section gives advice for Windows, and the second for Mac.
@@ -88,33 +88,33 @@ Another solution to finding the path on a Windows computer is shown in Annex 1.
 \subsection*{Finding Path on a Mac}
 
 
-\section*{Important notes on file formats}
-Not all file formats that you can chose when exporting from Stata is valid to import into {\LaTeX}. Figures must be saved in \texttt{.png} format. All figures produced in Stata can be exported in \texttt{.png}. Even if some commands are not able to export in this format, Stata can convert it for you. More about that below. 
+\section*{Part 3: File Formats and Names}
+Not all file formats that you can chose when exporting from Stata is valid to import into {\LaTeX}. Figures must be saved in \texttt{.png} format. All figures produced in Stata can be exported in \texttt{.png}. Even if some commands are not able to export in this format, you can use Stata to convert the figure for you. You will find more details on this in the parts below where we export figures. 
 
 Tables must be saved in \texttt{.tex} format. Tables cannot be converted as easily as figures, so it is usually easier to find an alternative command that produces the same table but can export to \texttt{.tex} format. Most commands that export tables are able to export to this format so it should not be difficult to find an alternative.
 
-The files will exported in for example \texttt{MS Word} or \texttt{MS Excel} formats are not valid to import to {\LaTeX}.
+Files exported in for example \texttt{MS Word} or \texttt{MS Excel} or in Stata's \texttt{.gph} format are not valid to import to {\LaTeX}.
 
-Files exported from Stata should have descriptive name. Otherwise you increase the risk for human errors, and the whole point of dynamic documents is to reduce exactly that. For example - rather than \texttt{graph1.png}, \texttt{graph2.tex}, names like \texttt{treatmentEffectGraph.png} would make it easier to understand what files we are using.
+Files exported from Stata should have a descriptive name. Otherwise you increase the risk for human errors, and the whole point of dynamic documents is to reduce exactly that. For example - rather than \texttt{graph1.png}, \texttt{graph2.tex}, names like \texttt{treatmentEffectGraph.png} would make it easier to understand what files we are using.
 
-\section*{Part 3, Task 1: Tabulate Categorical Variables}
+\section*{Part 4, Task 1: Tabulate Categorical Variables}
 
-While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$output/categorical.tex", replace| should always include an explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
+While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$raw_output/categorical.tex", replace| should always include an explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
 
-\section*{Part 3, Task 2: Regression table}
+\section*{Part 4, Task 2: Regression table}
 
-Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
+Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
 
-\section*{Part 4, Task 1: Manually Create a Graph and then Export it}
+\section*{Part 5, Task 1: Manually Create a Graph and then Export it}
 
-This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$output/regular_graph.png", width(5000) replace| 
+This task shows us how to export graphs created in Stata to export in a format that {\LaTeX} can read. Using the \verb|graph export "$raw_output/regular_graph.png", width(5000) replace| 
 exports the graph in png format which {\LaTeX} can read. 
-\section*{Part 4, Task 2: Using \texttt{iegraph} to create a figure}
+\section*{Part 5, Task 2: Using \texttt{iegraph} to create a figure}
 This exercise teaches how to use \texttt{iegraph} to create a figure and export it to the graphs folder. \\
 
-Using the \verb|save("$output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
+Using the \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
 
-\section*{Part 5: Using a do-file to edit a .tex file after exporting it}
+\section*{Part 6: Using a do-file to edit a .tex file after exporting it}
 
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
