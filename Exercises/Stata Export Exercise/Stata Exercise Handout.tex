@@ -101,11 +101,16 @@ Files exported from Stata should have a descriptive name. Otherwise you increase
 
 The code for this Part 4, 5 and 6, are all in the do file \texttt{Export tables and images.do}. The data that you will use is a sample data set that all instances of Stata alrady have. So you do not need a data file, the do-file will load this data set for you.
 
-First we want to start with exporting a simple tabulate table of frequencies. We first use the command \texttt{tabulate} to generate the statistics, and use \texttt{esttab} to export it to \texttt{.tex} format. To export in \texttt{.tex} using \texttt{esttab}, you simply set the file extension in the \texttt{using} option. Like this: \verb|using 	"$raw_output/categorical.tex", replace|. Remember to always have an explanatory file name.
+First we want to start with exporting a simple tabulate table of frequencies. We first use the command \texttt{tabulate} to generate the statistics, and use \texttt{esttab} to export it to \texttt{.tex} format. The command \texttt{estpost} that comes before the \texttt{tabulate} command takes the result for the tabulation and prepare them in a format that \texttt{esttab} can use.
+
+To export the tabulation in \texttt{.tex} format using \texttt{esttab}, you simply set the file extension in the \texttt{using} option. Like this: \verb|using 	"$raw_output/categorical.tex", replace|. Remember to always have an explanatory file name.
 
 \section*{Part 4, Task 2: Regression table}
 
-Similar to Part 1, Task 1, while using \texttt{esttab} to export regression tables, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
+Similar to Part 1, Task 1, we can use \texttt{esttab} to export regression tables. First we run the regressions we want to export the results for. The command \texttt{eststo:} before the regression commands stores the result of the 
+
+
+, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
 
 \section*{Part 5, Task 1: Manually Create a Graph and then Export it}
 

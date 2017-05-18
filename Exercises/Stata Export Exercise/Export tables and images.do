@@ -88,7 +88,7 @@
 	estimates 	clear
 	
 	* Tabulate the region variable
-	estpost 	tab region
+	estpost 	tabulate region
 	
 	* Use esttab to export the tabulation above to tex
 	esttab 		using 	"$raw_output/categorical.tex", replace 					/// 
@@ -106,12 +106,12 @@
 	estimates 	clear
 	
 	* Run regression without fixed effects
-	eststo : reg 	lexp treatment gnppc, vce(cluster region)
-	estadd	local fe "No"
+	eststo : regress 	lexp treatment gnppc, vce(cluster region)
+	estadd	 local fe "No"
 	
 	* Run regression with fixed effects
-	eststo : reg 	lexp treatment gnppc i.region, vce(cluster region)
-	estadd	local fe "Yes"
+	eststo : regress 	lexp treatment gnppc i.region, vce(cluster region)
+	estadd	 local fe "Yes"
 			
 	* Export regression results to tex using esttab 
 	esttab using 	"$raw_output/regression_table.tex", ///
