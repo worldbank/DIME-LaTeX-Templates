@@ -99,7 +99,9 @@ Files exported from Stata should have a descriptive name. Otherwise you increase
 
 \section*{Part 4, Task 1: Tabulate Categorical Variables}
 
-While exporting summary statistics table using \texttt{esttab}, \verb|using 	"$raw_output/categorical.tex", replace| should always include an explanatory file name and also the {\LaTeX} extension \texttt{.tex}.
+The code for this Part 4, 5 and 6, are all in the do file \texttt{Export tables and images.do}. The data that you will use is a sample data set that all instances of Stata alrady have. So you do not need a data file, the do-file will load this data set for you.
+
+First we want to start with exporting a simple tabulate table of frequencies. We first use the command \texttt{tabulate} to generate the statistics, and use \texttt{esttab} to export it to \texttt{.tex} format. To export in \texttt{.tex} using \texttt{esttab}, you simply set the file extension in the \texttt{using} option. Like this: \verb|using 	"$raw_output/categorical.tex", replace|. Remember to always have an explanatory file name.
 
 \section*{Part 4, Task 2: Regression table}
 
