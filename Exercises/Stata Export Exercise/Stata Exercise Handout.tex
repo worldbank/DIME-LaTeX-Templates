@@ -101,16 +101,21 @@ Files exported from Stata should have a descriptive name. Otherwise you increase
 
 The code for this Part 4, 5 and 6, are all in the do file \texttt{Export tables and images.do}. The data that you will use is a sample data set that all instances of Stata alrady have. So you do not need a data file, the do-file will load this data set for you.
 
-First we want to start with exporting a simple tabulate table of frequencies. We first use the command \texttt{tabulate} to generate the statistics, and use \texttt{esttab} to export it to \texttt{.tex} format. The command \texttt{estpost} that comes before the \texttt{tabulate} command takes the result for the tabulation and prepare them in a format that \texttt{esttab} can use.
+First we want to start with exporting a simple tabulate table of frequencies. We first use the command \texttt{tabulate} to generate the statistics, and use \texttt{esttab} to export it to \texttt{.tex} format. The command \texttt{estpost} that comes before the \texttt{tabulate} command takes the result for the tabulation and prepare them in a format that \texttt{esttab} can use. See the help files for \texttt{estpost} and \texttt{esttab} for more details on how this works. This is an exercise in {\LaTeX} and not the commands in the \texttt{estout} package so we will not go into more details about this at this point. 
 
-To export the tabulation in \texttt{.tex} format using \texttt{esttab}, you simply set the file extension in the \texttt{using} option. Like this: \verb|using 	"$raw_output/categorical.tex", replace|. Remember to always have an explanatory file name.
+To export the tabulation in \texttt{.tex} format using \texttt{esttab}, you simply set the file extension in the \texttt{using} option. Like this: \verb|using "$raw_output/categorical.tex", replace|. Remember to always have an explanatory file name.
+
+Now check your \texttt{Raw} folder to see the \texttt{categorical.tex} file you have exported.
 
 \section*{Part 4, Task 2: Regression table}
 
-Similar to Part 1, Task 1, we can use \texttt{esttab} to export regression tables. First we run the regressions we want to export the results for. The command \texttt{eststo:} before the regression commands stores the result of the 
+Similar to the previous task, we can use \texttt{esttab} to export regression tables. First we run the regressions we want to export the results for. The command \texttt{eststo:} before the regression commands stores the result of the regressions so that \texttt{esttab} can export all of them together. You can use any option to the regression that Stata allows. If Stata can run the regression and display the regression results in the Stata window, then \texttt{esttab} will be able to export those results to \texttt{.tex} format.
 
+The difference between the two regressions is that the second regression includes fixed effects for region. We can use the command \texttt{estadd} to add text to the tables. In this example we use this to indicate which regression that included fixed effects. See the help files for \texttt{estout}, \texttt{estadd} and \texttt{esttab} for more details on how this works. This is an exercise in {\LaTeX} and not the commands in the \texttt{estout} package so we will not go into more details about this at this point. 
 
-, the \verb|using "$raw_output/regression_table.tex"| part should include an explanatory file name(in this case \texttt{regression\_table.tex}) and should also have the {\LaTeX} file extension \texttt{.tex}.
+Similarly to the previous task, export the stored regression results using \texttt{esttab} to \texttt{.tex} format bys setting the file extenstion in the \texttt{using} option. Like this: \verb|using "$raw_output/regression_table.tex"|. \texttt{esttab} will export all results stored in your estimation memory. That is why it is important that we start each task with the code \texttt{estimates 	clear} in the do file. Otherwise we might add results from previous tables to this table.
+
+Now check your \texttt{Raw} folder to see the \texttt{regression\_table.tex} file you have exported.
 
 \section*{Part 5, Task 1: Manually Create a Graph and then Export it}
 
@@ -121,6 +126,8 @@ exports the graph in png format which {\LaTeX} can read.
 
 \textit{Note: This is different from the \texttt{iegraph} command where save can both export the graph in \texttt{.gph} and \texttt{.png} format. For Stata's \texttt{graph} command, export has be to be used to make it readable in {\LaTeX}}. 
 
+Now check your \texttt{Raw} folder to see the \texttt{regular\_graph.png} file you have exported.
+
 \section*{Part 5, Task 2: Using \texttt{iegraph} to create a figure}
 
 While Stata's \texttt{graph twoway} uses the \texttt{save} feature to export pictures in a \texttt{.gph} format, and we have to use the \texttt{graph export} to export it in png format. Many commands, for example - \texttt{iegraph}, can export directly to either format using the same \texttt{save} option. 
@@ -129,7 +136,7 @@ This exercise teaches how to use \texttt{iegraph} to create a figure and export 
 
 Using the \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directly saved to the specified output folder. 
 
-
+Now check your \texttt{Raw} folder to see the \texttt{iegraph.png} file you have exported.
 
 \section*{Part 6: Making a Dynamic Document }
 
@@ -143,7 +150,7 @@ Here, we will produce a dynamic document. Please only do this do \textbf{if} you
 	\item Now if you compare the pdf file you have just generated with the one you saved earlier, you will find that the tables would have updated automatically. 
 \end{enumerate}
 
-\section*{Using a do-file to edit a .tex file after exporting it}
+\section*{Part 7, Using a do-file to edit a .tex file after exporting it}
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
 \newpage
