@@ -114,12 +114,12 @@
 	estadd	 local fe "Yes"
 			
 	* Export regression results to tex using esttab 
-	esttab using 	"$raw_output/regression_table.tex", ///
-					replace label r2 nomtitles b(%9.3f) ///
-					se(%9.3f) 							///
-					keep(treatment gnppc _cons) 		///
-					scalars("fe Region fixed-effects") 	///						// Adds a line specifying which regressions used fixed effects. This line was created by "estadd local fe"
-					addnotes(Standard errors clustered at region level are in parentheses. \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)) nonotes
+	esttab 	using "$raw_output/regression_table.tex", 	///
+			replace label r2 nomtitles b(%9.3f) 		///
+			se(%9.3f) 									///
+			keep(treatment gnppc _cons) 				///
+			scalars("fe Region fixed-effects") 			///						// Adds a line specifying which regressions used fixed effects. This line was created by "estadd local fe"
+			addnotes(Standard errors clustered at region level are in parentheses. \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)) nonotes
 																				// Adds manual notes. Alternatively, you could use automatic notes by dropping the previous line
 																				
 
@@ -152,10 +152,10 @@
 	reg 	lexp treatment
 	
 	* Use iegraph to make it into a graph
-	iegraph 	treatment, noconfbars 			///
-				title	("Treatment effect")  	///
-				save	("$raw_output/iegraph.png") ///
-				yzero  grey 
+	iegraph treatment, noconfbars 			///
+			title	("Treatment effect")  	///
+			save	("$raw_output/iegraph.png") ///
+			yzero  grey 
 																					
 											
 ********************************************************************************
@@ -172,9 +172,9 @@
 	eststo : estpost	tab treatment 	if region == 3		
 	
 	* Use estab to export the tabulation to tex
-	esttab 		using	"$raw_output/samplesizes.tex", replace ///
-				mtitles ("Total" "Europe and Asia" "North America" "South America") ///	// Create column names
-				noobs nonotes compress nonumbers										// noobs prevents an additional line with number of observations to be added, nonotes prevents notes to be added
+	esttab 	using	"$raw_output/samplesizes.tex", replace ///
+			mtitles ("Total" "Europe and Asia" "North America" "South America") ///	// Create column names
+			noobs nonotes compress nonumbers										// noobs prevents an additional line with number of observations to be added, nonotes prevents notes to be added
 	
 	*Generate the table without this code first. The exercise will ask you 
 	*to use this code to format the tex file after it has been exported
