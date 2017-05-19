@@ -2,6 +2,8 @@
 \usepackage{hyperref}
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
+\usepackage{float}
+\usepackage{graphicx}
 \onehalfspacing
 %opening
 \title{Setting up {\LaTeX} on your computer}
@@ -59,4 +61,34 @@ The \texttt{HelloWorld} file is a \texttt{.tex} file that can be used to check i
 \textbf{To test it, open the file in TeXstudio and click Build and View in the Tools menu at the top. } \\
 
 If you do not get any error messages (however, you might be asked to install multiple packages the first time you try. Please press install if you get any messages.) and you can see pdf document on the right side of your screen,  then TeXstudio is properly set up for the material in this repository. 
+
+\section*{Adding spellcheck and thesaurus to your TeXStudio}
+
+\subsection*{To install spellcheck dictionary}
+To install spell check for English on your TeXStudio, please follow the following steps:
+
+\begin{itemize}
+	\item Download the dictionary file from \url{https://extensions.libreoffice.org/extensions/english-dictionaries/2017-05.01/@@download/file/dict-en-20170501.oxt}. Save this file to a folder which you will remember.
+	\item On your TeXStudio, go to the \texttt{Options} menu and click on \texttt{Configure TexStudio}.
+	\item On the \texttt{Configure TexStudio} settings box that appears, click on \texttt{Language Checking} that appears on the left hand side menu. 
+	\item On \texttt{Language Checking}, click on the small blue open button next to the Spelling Dictionaries Directory and point to the folder where you downloaded the file. See Figure 1 for illustrations.
+	\item Your dictionary installation is complete!
+\end{itemize}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale = 0.5]{img/languagetool}
+	\caption{Adding dictionaries and thesaurus to TeXStudio}
+\end{figure}
+
+\subsection*{To install thesaurus}
+ To install thesaurus on your TeXStudio, please follow the following steps:
+ \begin{itemize}
+ 	\item Download the thesaurus file from \url{http://lingucomponent.openoffice.org/MyThes-1.zip}
+ 	\item Extract the zip file to a folder which you will remember.
+ 	\item On your TeXStudio, go to the \texttt{Options} menu and click on \texttt{Configure TexStudio}.
+ 	\item On the \texttt{Configure TexStudio} settings box that appears, click on \texttt{Language Checking} that appears on the left hand side menu. 
+ 	\item On \texttt{Language Checking}, click on the small blue open buttom  next to the \texttt{Thesaurus Database} and point to the folder where you extracted the downloaded file. See figure 1 for illustrations.
+ 	\item Your thesaurus installation is complete! 
+ \end{itemize}
 \end{document}
