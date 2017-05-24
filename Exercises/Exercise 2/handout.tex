@@ -23,7 +23,9 @@
 \author{Luiza Andrade \& Mrijan Rimal} 
 \date{\today}
 
-\lfoot{\tiny{For the most recent version of the file, please check \url{https://github.com/worldbank/DIME-LaTeX-Templates/} }}
+\fancyfoot{}
+%\fancyhead[C]{\thepage}
+\cfoot{\small{For the most recent version of the file, please check \url{https://github.com/worldbank/DIME-LaTeX-Templates/} } \\ \thepage}
 
 \makeatother
 
@@ -55,7 +57,7 @@ Here, we will produce a dynamic document. Please only do this do \textbf{if} you
 \begin{enumerate}
 	\item Save the pdf created up to now in a separate location from your \texttt{.tex} file. 
 	\item Generate a new treatment for your dataset by dropping some observations, using a different metric to create treatments, etc. 
-	\item Rerun the do-file with the new treatment.
+	\item Rerun the do-file with the new treatment. Make sure that the tables and graphs you created earlier are overwritten. 
 	\item Now, open the earlier created {\LaTeX} file and press \textit{Build and Compile} under the \textit{Tools}.
 	\item Now if you compare the pdf file you have just generated with the one you saved earlier, you will find that the tables would have updated automatically. 
 \end{enumerate}
