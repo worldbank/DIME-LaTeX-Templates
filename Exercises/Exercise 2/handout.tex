@@ -34,7 +34,7 @@
 	\makeatletter
 	\begin{titlepage}
 		\begin{center}
-			\includegraphics[width=0.3\linewidth]{i2i.png}\\[10ex]
+			\includegraphics[width=0.3\linewidth]{../img/i2i.png}\\[10ex]
 			{\LARGE \bfseries  \@title }\\[2ex] 
 			{\Large  \@author}\\[20ex] 
 			{\large \@date}
@@ -42,22 +42,36 @@
 	\end{titlepage}
 	\makeatother
 	
-	\section*{Introduction}
-	This exercise
+\section*{Introduction}
+This exercise introduces some intermediate concepts in {\LaTeX} which are useful for everyday day to day life. 
 
 \section*{Exercise 2. Exporting tables}
 Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises. If you want to take a step back and review how to export tables and images from Stata, the a look at the folder called "Excercise Stata - How to export tables and graph from Stata to LaTeX".
 
-\section*{Exercise 8. (CHALLENGE) Using a do-file to edit a .tex file after exporting it}
+\section*{Making a Dynamic Document }
 
-This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. \\
+Here, we will produce a dynamic document. Please only do this do \textbf{if} you have completed up to \texttt{Part 5, Task 2} of the exercise. 
 
-\textbf{Task 1:} Run the initial code for exercise 6 in the \textcolor{red}{Add path and name of do-file} do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?\\
+\begin{enumerate}
+	\item Save the pdf created up to now in a separate location from your \texttt{.tex} file. 
+	\item Generate a new treatment for your dataset by dropping some observations, using a different metric to create treatments, etc. 
+	\item Rerun the do-file with the new treatment.
+	\item Now, open the earlier created {\LaTeX} file and press \textit{Build and Compile} under the \textit{Tools}.
+	\item Now if you compare the pdf file you have just generated with the one you saved earlier, you will find that the tables would have updated automatically. 
+\end{enumerate}
 
-\textbf{Task 2:} Open the \textcolor{red}{Add path and name of tex file} .tex file created by Stata. Can you identify the source of the extra spacing?\\
+\section*{Challenge: Using a do-file to edit a .tex file after exporting it}
+During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
-\textbf{Task 3:} Use the \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.\\
+This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. 
 
-\textbf{Task 4:} Repeat task 3 if necessary.
+\begin{description}
+	\item[Task 1:] Run the initial code for exercise 6 in the \textcolor{red}{Add path and name of do-file} do-file. This will create a table with sample sizes for control and treatment groups across regions and in the whole sample. Add this table to the .tex file you created in the previous exercises. How does that look?
+	\item[Task 2:] Open the \textcolor{red}{Add path and name of tex file} .tex file created by Stata. Can you identify the source of the extra spacing?
+	\item[Task 3:] Use the \texttt{filefilter} command in Stata to filter out the lines or characters in the fragmented file that create the extra spacing. Import the new .tex file and check how it looks.
+	\item[Task 4:] Repeat task 3 if necessary.
+\end{description}
 
+
+\newpage
 \end{document}          
