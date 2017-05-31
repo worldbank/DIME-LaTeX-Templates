@@ -54,7 +54,11 @@ Open \textcolor{red}{Export tables and images.do} and change the paths on the fi
 \subsection*{Adding Sections to your document}
 {\LaTeX} automatically formats the document and different section headers and subheaders according to predefined formats. It also automatically creates beautiful \texttt{Table of Contents} based on what has been defined as sections and subsections. 
 
-Sections can be created using \verb|\section{title}| command. {\LaTeX} automatically numbers all the sections in whichever order you put them. 
+Sections can be created using \verb|\section{title}| command. {\LaTeX} automatically numbers all the sections in the order you put them. Since, you manually don't specify chapter numbers, you can cut and paste subsections from the end to the beginning and the numbering will update automatically! 
+
+Similarly, subsections can be created using \verb|\subsection{title}| and sub-sub-sections can be created using \verb|\subsubsection{title}|. The subsections will be numbered 1.1 and the subsubsection will be number 1.1.1 if created within the first section. An example is shown in figure . 
+
+\textit{Note: Sections and subsections can be created using} \verb|\section*{title}| \textit{if you do not want your sections numbered in the document. However, these sections and subsections will not be shown in the table of contents.}
 \subsection*{Adding Table of Contents}
 
 \subsection*{Referring to your tables in a document}
@@ -115,4 +119,6 @@ This exercise requires more familiarity with {\LaTeX} than the previous. Don't w
 
 
 \newpage
+\section*{Annex 1 : Creating sections}
+
 \end{document}          
