@@ -9,13 +9,14 @@
 \usepackage{varwidth}
 \usepackage{verbatim}
 \usepackage{multicol}
-\usepackage{hyperref}
+\usepackage{float}
 \usepackage{fancyhdr}
-\usepackage{parskip}                    % This packages sets the spacing between two paragraphs
+\usepackage{parskip}    % This packages sets the spacing between two paragraphsc   
+\usepackage{hyperref}              
 \setlength{\parskip}{.5\baselineskip}   % Define spacing between two paragraphs
 
 \setlength{\parindent}{0pt}
-\setlength{\columnseprule}{1pt}
+\setlength{\columnseprule}{0pt}
 
 \pagestyle{fancy}
 % Title Page
@@ -56,10 +57,38 @@ Open \textcolor{red}{Export tables and images.do} and change the paths on the fi
 
 Sections can be created using \verb|\section{title}| command. {\LaTeX} automatically numbers all the sections in the order you put them. Since, you manually don't specify chapter numbers, you can cut and paste subsections from the end to the beginning and the numbering will update automatically! 
 
-Similarly, subsections can be created using \verb|\subsection{title}| and sub-sub-sections can be created using \verb|\subsubsection{title}|. The subsections will be numbered 1.1 and the subsubsection will be number 1.1.1 if created within the first section. An example is shown in figure . 
+Similarly, subsections can be created using \verb|\subsection{title}| and sub-sub-sections can be created using \verb|\subsubsection{title}|. The subsections will be numbered 1.1 and the subsubsection will be number 1.1.1 if created within the first section. An example is shown in Annex 1\ref{sec:Annex}. 
 
 \textit{Note: Sections and subsections can be created using} \verb|\section*{title}| \textit{if you do not want your sections numbered in the document. However, these sections and subsections will not be shown in the table of contents.}
 \subsection*{Adding Table of Contents}
+
+We can add table of contents to a {\LaTeX} document by using \verb|\tableofcontents| after beginning the document.  An example is shown below:
+
+\begin{multicols}{2}
+	
+\begin{Verbatim}[commandchars=+\(\)]
+\documentclass[12pts]{article}
+
+%opening
+\title{My Awesome Document}
+\author{John Doe}
+
+\begin{document}
++color(CornflowerBlue)\maketitle
+\tableofcontents
+\newpage
+
+\end{Verbatim}
+The above {\LaTeX} code is used to generate table of contents.
+
+\columnbreak
+\begin{figure} [H]
+	\centering
+	\includegraphics[width=1\linewidth]{../img/tableofcontents2}
+	\caption{Example table of contents generated from our document in Annex 1.}
+	\label{fig:tableofcontents}
+\end{figure}
+\end{multicols}
 
 \subsection*{Referring to your tables in a document}
 
@@ -120,5 +149,11 @@ This exercise requires more familiarity with {\LaTeX} than the previous. Don't w
 
 \newpage
 \section*{Annex 1 : Creating sections}
-
+\label{sec:Annex}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.7\linewidth]{../img/section}
+	\caption{Adding sections and subsections in a {\LaTeX} document}
+	\label{fig:adding sections}
+\end{figure}
 \end{document}          
