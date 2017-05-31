@@ -47,10 +47,47 @@
 \section*{Introduction}
 This exercise introduces some intermediate concepts in {\LaTeX} which are useful for everyday day to day life. 
 
-\section*{Exercise 2. Exporting tables}
-Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises. If you want to take a step back and review how to export tables and images from Stata, the a look at the folder called "Excercise Stata - How to export tables and graph from Stata to LaTeX".
+\section*{Exercise 1. Exporting tables}
+Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises. If you want to take a step back and review how to export tables and images from Stata, the a look at the folder called "Exercise Stata - How to export tables and graph from Stata to LaTeX".
 
-\section*{Making a Dynamic Document }
+\section*{Intermediate {\LaTeX} Exercises}
+\subsection*{Adding Sections to your document}
+{\LaTeX} automatically formats the document and different section headers and subheaders according to predefined formats. It also automatically creates beautiful \texttt{Table of Contents} based on what has been defined as sections and subsections. 
+
+Sections can be created using \verb|\section{title}| command. {\LaTeX} automatically numbers all the sections in whichever order you put them. 
+\subsection*{Adding Table of Contents}
+
+\subsection*{Referring to your tables in a document}
+
+\subsection*{Line Spacing}
+
+Now that you have created sections in your document, and added text, you might want to change the spacing between lines. This can be achieved using the \texttt{setspace} package. 
+
+The steps to change line spacing are as follows:
+\begin{itemize}
+	\item Before \verb|\begin{document}|, declare the package you will be using. In this case, \verb|\usepackage{setspace}|. This package controls the line spacing in a {\LaTeX} document.
+	\item After using the \texttt{setspace} package, you should now specify line spacing which are as follows:
+	\begin{description}
+		\item[singlespacing] This option specifies the document to use one line spacing.
+		\item[doublespacing] This option specifies the document to use two line spacing.
+		\item[onehalfspacing] This option specifies the document to use one and a half line spacing. 
+	\end{description}
+\end{itemize}
+\begin{Verbatim}[commandchars=+\(\)]
++color(CornflowerBlue)\usepackage{setspace}
++color(CornflowerBlue)\doublespacing
++color(Gray)%\onehalfspacing
++color(Gray)%\singlespacing
+\begin{document}
+\maketitle
+\listoftables
+\listoffigures
+\section{Introduction}
+This is the introduction paragraph
+\end{Verbatim}
+The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in another documents. 
+
+\section*{Making a Dynamic Document}
 
 Here, we will produce a dynamic document. Please only do this do \textbf{if} you have completed up to \texttt{Part 5, Task 2} of the exercise. 
 
@@ -63,6 +100,8 @@ Here, we will produce a dynamic document. Please only do this do \textbf{if} you
 \end{enumerate}
 
 \section*{Challenge: Using a do-file to edit a .tex file after exporting it}
+\textit{Note: This is an advanced exercise and you don't have to feel compelled to finish it. This is also best done after finishing all the other exercises in the GitHub repository.}
+ 
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very nice, sometimes they need to be tweaked a little to make them look nicer. So, in this exercise, you'll use the \texttt{filefilter} command in Stata to make small changes to the files exported by Stata. 
 
 This exercise requires more familiarity with {\LaTeX} than the previous. Don't worry if you can't complete it. 
