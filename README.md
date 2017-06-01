@@ -17,7 +17,7 @@ Feel free to use any of the LaTeX templates in the *DIME Templates* folder you d
 
 **Exercise 1 - Basic Appendix.** This exercise covers the basics of LaTeX and show you how to create a simple appendix of tables and graphs that automatically updates each time you re-run your code in, for example, Stata and R. At DIME, the Research Assistant create these appendices when producing output for the Economists. When writing the paper or report, these tables and graphs can be kept in the appendix or be moved into the text.
 
-**Exercise 2 - Advanced Appendix (Not created yet).** This exercise introduces some more advanced techniques to create the appendix, and it also discuss how you can format your tables after they have been exported by a command in, for example, Stata or R.
+**Exercise 2 - Advanced Appendix.** This exercise introduces some more advanced techniques to create the appendix, and it also discuss how you can format your tables after they have been exported by a command in, for example, Stata or R.
 
 **Exercise 3 - Full Document  (Not created yet).** This exercise introduces the topics you need to know to write a full paper or report in LaTeX that dynamically updates when you re-run your code in, for example, Stata and R.
 
