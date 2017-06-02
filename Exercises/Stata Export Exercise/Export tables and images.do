@@ -107,11 +107,11 @@
 	
 	* Run regression without fixed effects
 	eststo : regress 	lexp treatment gnppc, vce(cluster region)
-	estadd	 local fe 	"No"
+	estadd	 local fe "No"
 	
 	* Run regression with fixed effects
 	eststo : regress 	lexp treatment gnppc i.region, vce(cluster region)
-	estadd	 local fe 	"Yes"
+	estadd	 local fe "Yes"
 			
 	* Export regression results to tex using esttab 
 	esttab 	using "$raw_output/regression_table.tex", 	///
