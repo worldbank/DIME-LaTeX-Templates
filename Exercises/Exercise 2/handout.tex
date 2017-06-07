@@ -82,8 +82,8 @@ We can add table of contents to a {\LaTeX} document by using \verb|\tableofconte
 \author{John Doe}
 
 \begin{document}
-+color(CornflowerBlue)\maketitle
-\tableofcontents
+\maketitle
++color(CornflowerBlue)\tableofcontents
 \newpage
 
 \end{Verbatim}
@@ -98,8 +98,40 @@ The above {\LaTeX} code is used to generate table of contents.
 \end{figure}
 \end{multicols}
 
-\subsection*{Referring to your tables, sections, and figures in a document}
+\subsection*{Referring to your tables, and figures in a document}
 
+In this subsection, we will learn how to reference to a table, or a figure. 
+
+To reference tables, or figures, we must give them a label to which we can refer to later. In Exercise 1, we learnt how to import a table/graph. We will now give the table and graph we imported in the previous exercise a label to make it easy to refer in the document. 
+
+\subsubsection*{Referring to Figures in a document}
+To add a label to the imported iegraph figure, we just add the lines \verb|\label{fig:Figurename}| inside the \texttt{begin} and \texttt{end} figure in our codes. 
+
+\begin{Verbatim}[commandchars=+\(\)]
+	\begin{figure}[H]
+	\includegraphics[width=\textwidth]{../Raw/iegraph.png}
+	\caption{Add figure title here}
+	+color(CornflowerBlue)\label{fig:iegraph}
+	\end{figure}
+\end{Verbatim}
+
+Now to refer to the figure anywhere in the document, you can type \verb|\ref{fig:iegraph}| and it will automatically refer to the figure using the correct number in the document. In our example, if the \texttt{iegraph}	figure is the fourth one in the document, \verb|As you can see in figure \ref{fig:iegraph}| will appear as \texttt{As you can see in figure 4,} in the document. 
+
+\subsubsection*{Referring to Tables in a document}
+
+Similarly for tables, we can also refer to them anywhere in the document using the same method.
+
+First, we need to add a label to the table that has been imported to the document by adding \verb|\label{tab:Tablename}| inside the \texttt{begin} and \texttt{end} table in our code. 
+
+\begin{Verbatim}[commandchars=+\(\)]
+\begin{table}[H]
+\caption{Add a title to this table}
+\input{../Raw/sample_sizes.tex}
++color(CornflowerBlue)\label{tab:samplesize}
+\end{table}
+\end{Verbatim}
+
+Now we can refer to the above table in our document by typing \verb|\ref{tab:samplesize}| which will automatically refer to the table using the correct number in the document. 
 
 \subsection*{Line Spacing}
 
@@ -128,6 +160,30 @@ The steps to change line spacing are as follows:
 This is the introduction paragraph
 \end{Verbatim}
 The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in another documents. 
+
+\subsection*{Rotating a table landscape}
+
+Sometimes the tables are very wide and need to be in landscape format. This can be adjusted using the \texttt{adjustbox} package which we have been using for importing tables. 
+
+\begin{Verbatim}
+\begin{table}[H]
+	\caption{Add table title}
+	\input{sample_sizes.tex}
+	\label{tab:samplesize}
+\end{table}
+\end{Verbatim}
+To rotate the table to landscape, we can use the \texttt{adjustbox} feature with the \texttt{angle = 90} option as shown in blue in the code below.
+\begin{Verbatim}[commandchars=+\(\)]
+\begin{table}[H]
+	\caption{Add table title}
++color(CornflowerBlue)	\begin{adjustbox}{angle = 90} 
+		\input{sample_sizes.tex}
++color(CornflowerBlue)	\end{adjustbox}
+\label{tab:samplesize}
+\end{table}
+\end{Verbatim}
+
+This will rotate the table to the specified degree in the final document. 
 
 \section*{Making a Dynamic Document}
 
