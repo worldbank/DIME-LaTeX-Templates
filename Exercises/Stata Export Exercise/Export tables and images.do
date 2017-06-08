@@ -3,16 +3,17 @@
 *																 			   *
 *  PURPOSE:  			Export tables and images							   *		  
 *  WRITEN BY:  			Luiza Andrade [lcardosodeandrad@worldbank.org]		   *
-*  Last time modified:  May 2017											   *
+*  Last time modified:  June 2017											   *
 *																			   *
 ********************************************************************************
 
 	** OUTLINE:		Load data
-					Part 1, task 1: Tabulate categorical variable
-					Part 1, task 2: Regression table
-					Part 2, task 1: Manually create graph and then export it
-					Part 2, task 2: Use iegraph to create figure
-					Part 3: Using a do-file to edit a .tex file after exporting it
+					Part 5, task 1: Tabulate categorical variable
+					Part 5, task 2: Balance table
+					Part 5, task 3: Regression table
+					Part 6, task 1: Manually create graph and then export it
+					Part 6, task 2: Use iegraph to create figure
+					Part 7: Using a do-file to edit a .tex file after exporting it
 				
 	** CREATES:		$raw_output\categorical.tex
 					$raw_output\regression_table.tex
@@ -30,7 +31,7 @@
 
 	* Change these file paths to match yours
 	global main_folder 	"<<<ENTER YOUR FOLDER PATH HERE>>>"
-	global raw_output	"$main_folder/Raw"
+	global raw_output	"$main_folder/Output/Raw"
 	
 
 /*******************************************************************************
@@ -81,7 +82,7 @@
 	
 
 ********************************************************************************
-*			Part 4, task 1: Tabulate categorical variable
+*			Part 5, task 1: Tabulate categorical variable
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -99,7 +100,18 @@
 	
 	
 ********************************************************************************
-*			Part 4, task 2: Regression table
+*			Part 5, task 2: Balance table
+********************************************************************************
+
+	iebaltab	popgrowth lexp gnppc, ///
+				grpvar(treatment) ///
+				vce(cluster region) ///
+				rowvarlabels pftest ///
+				savetex("$raw_output/balance_test") replace
+				
+	
+********************************************************************************
+*			Part 5, task 3: Regression table
 ********************************************************************************
 	
 	* Clear any results already in memory
@@ -126,7 +138,7 @@
 																				
 									
 ********************************************************************************
-*			Part 5, task 1: Manually create graph and then export it
+*			Part 6, task 1: Manually create graph and then export it
 ********************************************************************************
 	
 	* Generate graph
@@ -142,7 +154,7 @@
 	
 
 ********************************************************************************
-*			Part 5, task 2: Use iegraph to create figure
+*			Part 6, task 2: Use iegraph to create figure
 ********************************************************************************	
 	
 	* Clear any results already in memory
@@ -159,7 +171,7 @@
 																					
 											
 ********************************************************************************
-*			Part 6: Using a do-file to edit a .tex file after exporting it
+*			Part 7: Using a do-file to edit a .tex file after exporting it
 ********************************************************************************
 	
 	* Clear any results alreday in memory
