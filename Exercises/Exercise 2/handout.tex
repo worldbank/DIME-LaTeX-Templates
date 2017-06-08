@@ -171,21 +171,23 @@ The \texttt{setspace} package can also be used to specify more particular linesp
 Sometimes the tables are very wide and need to be in landscape format. This can be adjusted using the \texttt{adjustbox} package which we have been using for importing tables. 
 
 \begin{Verbatim}
-\begin{table}[H]
-	\caption{Add table title}
-	\input{sample_sizes.tex}
-	\label{tab:samplesize}
-\end{table}
-\end{Verbatim}
-To rotate the table to landscape, we can use the \texttt{adjustbox} feature with the \texttt{angle = 90} option as shown in blue in the code below.
-\begin{Verbatim}[commandchars=+\(\)]
-\begin{table}[H]
-	\caption{Add table title}
-+color(CornflowerBlue)	\begin{adjustbox}{angle = 90} 
+	\begin{table}[H]
+		\caption{Add table title}
 		\input{sample_sizes.tex}
-+color(CornflowerBlue)	\end{adjustbox}
-\label{tab:samplesize}
-\end{table}
+		\label{tab:samplesize}
+	\end{table}
+\end{Verbatim}
+
+To rotate the table to landscape, we can use the \texttt{adjustbox} feature with the \texttt{angle = 90} option as shown in blue in the code below.
+
+\begin{Verbatim}[commandchars=+\(\)]
+	\begin{table}[H]
+		\caption{Add table title}
+		+color(CornflowerBlue)\begin{adjustbox}{angle = 90} 
+		\input{sample_sizes.tex}
+		+color(CornflowerBlue)\end{adjustbox}
+	\label{tab:samplesize}
+	\end{table}
 \end{Verbatim}
 
 This will rotate the table to the specified degree in the final document. 
