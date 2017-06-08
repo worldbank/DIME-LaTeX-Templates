@@ -108,7 +108,14 @@ To copy the path on a Mac, please follow the following steps:
 	\label{fig:filepathmac}
 \end{figure}
 
-If you're using an older MAC computer and the option to ``Copy file as pathname'' does not show up, please follow  the steps in Annex 2 to copy your path. 
+If you're using an older MAC computer and the option to ``Copy file as pathname'' does not show up, please follow  the following steps:
+
+\begin{itemize}
+	\item Right click(or control-click or two finger click) on your file or folder you want to copy the path of.
+	\item Click on \texttt{Get Info} option that appears in the drop down menu.
+	\item In the \texttt{Info} window, copy the part that appears after \textbf{Where:} and before \textbf{Created:}.
+	\item Paste that part anywhere to paste the path name. 
+\end{itemize}
 
 \section*{Part 3: File Formats and Names}
 Not all file formats that you can chose when exporting from Stata can be imported into {\LaTeX}. Figures must be saved in \texttt{.png} format. All figures produced in Stata can be exported in \texttt{.png}. Even if some commands are not able to export in this format, you can use Stata to convert the figure for you. You will find more details on this below, when we export figures. 
@@ -197,6 +204,4 @@ We can see in Figure \ref{fig:pathwin2}, that the complete path to the folder is
 global main_folder ``<<<ENTER YOUR FOLDER PATH HERE>>>''
 \end{verbatim} 
 
-\section*{Annex 2} {\label{annex2}}
-	
 \end{document}
