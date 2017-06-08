@@ -80,7 +80,7 @@ Similarly, subsections can be created using \verb|\subsection{title}| and sub-su
 \clearpage
 \subsection*{Part 2.2. Adding Table of Contents}
 
-After we have set up sections, sub-sections and sub-sub-sections you can easily add a table of contents to your {\LaTeX} document by using \verb|\tableofcontents| in your docuemnt. You can create this any where you want, but typically this is created directly after \verb|\begin{document}| or after \verb|\maketitle| if you have a title.  An example is shown below:
+After we have set up sections, sub-sections and sub-sub-sections you can easily add a table of contents to your {\LaTeX} document by using \verb|\tableofcontents| in your document. You can create this any where you want, but typically this is created directly after \verb|\begin{document}| or after \verb|\maketitle| if you have a title.  An example is shown below:
 
 \begin{Verbatim}[commandchars=+\(\)]
 	\documentclass[12pts]{article}
@@ -105,7 +105,7 @@ The above {\LaTeX} code is used to generate table of contents below.
 
 \subsection*{Part 2.3. Referring to your tables, and figures in a document}
 
-Just like the numbering of sectiona and sub-sections, {\LaTeX} uses a dynamic referencing system for tables and figures etc. In the text in your docuemnt where you describe your tables and figures you are likely to want to refer to them on a format similar to "\textit{As you can see in figure 2...}". Since the numbering of tables and figures is updated automatically, you need a way for your references in your text to be updated automatically as well.
+Just like the numbering of sections and sub-sections, {\LaTeX} uses a dynamic referencing system for tables and figures etc. In the text in your document where you describe your tables and figures you are likely to want to refer to them on a format similar to "\textit{As you can see in figure 2...}". Since the numbering of tables and figures is updated automatically, you need a way for your references in your text to be updated automatically as well.
 
 In {\LaTeX} that is solved by giving tables and graphs a unique name using the \verb|\label{}| command. In the text where you want to reference a figure or a table, you reference the name used in the label and {\LaTeX} will update the numbering for you as your documents grows and changes.
 
@@ -151,7 +151,7 @@ Now that you have created sections in your document, and added text, you might w
 \subsubsection*{Part 2.4.2 Color}
 
 \subsubsection*{Part 2.4.3 Line Spacing}
-It is common that differnt publication standards require different line spacing. This can be achieved using the \texttt{setspace} package. 
+It is common that different publication standards require different line spacing. This can be achieved using the \texttt{setspace} package. 
 
 The use this package you need to start by importing it. To do import the package you add \verb|\usepackage{setspace}| next to where a lot of other packages are imported using the same command \verb|\usepackage{}|. Next you simply to tell {\LaTeX} which linespacing you want and you need to do this before \verb|begin{document}|. \verb|\singlespacing| makes {\LaTeX} use single line space throughtout the document. Similarly, \verb|\doublespacing| and \verb|\onehalfspacing| set the docuemtn to double line space and one half line space respectively. See example below:
 
@@ -164,7 +164,7 @@ The use this package you need to start by importing it. To do import the package
 	This is the introduction paragraph
 \end{Verbatim}
 
-The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in this exercise.
+The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in the advanced exercise.
 
 \subsection*{Part 2.5. Rotating a table landscape}
 
@@ -195,7 +195,7 @@ Here, we will produce a dynamic document. Please only do this do \textbf{if} you
 	\item Now if you compare the pdf file you have just generated with you new data with the one you saved in a different folder in the beginning of this section, you will find that the tables have updated automatically without you having to do any manual edits. 
 \end{enumerate}
 
-In this part you updated your tables and figures in the final document wihout having to copy any results or files manually. Such manual updates are by far the most common reason for errors while generating and sharing reserach results. This is the most important reason why we at DIME are promoting {\LaTeX} as manual errors causes us to lose a lot of time and in the worst case leads to mistakes in results that are published.
+In this part you updated your tables and figures in the final document without having to copy any results or files manually. Such manual updates are by far the most common reason for errors while generating and sharing research results. This is the most important reason why we at DIME are promoting {\LaTeX} as manual errors causes us to lose a lot of time and in the worst case leads to mistakes in results that are published.
 
 \section*{Part 4. Challenge: Using a do-file to edit a .tex file after exporting it}
 \textit{Note: This is an advanced exercise and you don't have to feel compelled to finish it. This is also best done after finishing all the other exercises in the GitHub repository.}
