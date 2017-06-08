@@ -20,7 +20,7 @@
 
 \pagestyle{fancy}
 % Title Page
-\title{DIME DYNAMIC DOCUMENTATION TRAINING \\ Intermediate Exercise }
+\title{DIME DYNAMIC DOCUMENTATION TRAINING \\ Exercise 2}
 \author{Luiza Andrade \& Mrijan Rimal} 
 \date{\today}
 
@@ -46,7 +46,11 @@
 	\makeatother
 	
 \section*{Introduction}
-This exercise introduces some intermediate concepts in {\LaTeX} which are useful for everyday day to day life. 
+Exercise 1 introduced you to the basics of how to import tables and figures to a {\LaTeX} document. This exercise will introduce you to some intermediate topics commonly used to make your document look even more professional.
+
+We will also show how {\LaTeX} can be used to create a dynamic document that updates automatically once your output from, for example, Stata or R is updated without any error prone manual copy-and-pasting.
+
+ 
 
 \section*{Exercise. Exporting tables}
 Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises.  \\
@@ -70,7 +74,7 @@ Similarly, subsections can be created using \verb|\subsection{title}| and sub-su
 \textit{Note: Sections and subsections can be created using} \verb|\section*{title}| \textit{if you do not want your sections numbered in the document. However, these sections and subsections will not be shown in the table of contents.}
 \subsection*{Adding Table of Contents}
 
-We can add table of contents to a {\LaTeX} document by using \verb|\tableofcontents| after beginning the document.  An example is shown below:
+After we have set up sections, sub-sections and sub-sub-sections you can easily add a table of contents to your {\LaTeX} document by using \verb|\tableofcontents| in your docuemnt. You can create this any where you want, but typically this is created directly after \verb|\begin{document}| or after \verb|\maketitle| if you have a title.  An example is shown below:
 
 \begin{multicols}{2}
 	
