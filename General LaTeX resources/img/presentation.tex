@@ -14,14 +14,14 @@
 
 \title{DIME Dynamic Documentation}
 \author{Luiza Andrade \& Mrijan Rimal}
-\institute{DIME}
+\institute{}
 \date{\today}
 
 \begin{document}
 \begin{frame}
 	\titlepage \vspace{-0.2cm}
-	\includegraphics[scale=0.25]{img/wbg.png} \qquad
-	\includegraphics[scale=0.25]{img/i2i.png} 
+	\includegraphics[scale=0.25]{wbg.png} \qquad
+	\includegraphics[scale=0.25]{i2i.png} 
 \end{frame}
 %\frame{\titlepage \vspace{-0.2cm}
 
@@ -32,7 +32,7 @@
 
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{100mm}(.5\textwidth,8cm)
-		\includegraphics[height=0.5cm,width=1cm]{img/i2i.png}
+		\includegraphics[height=0.5cm,width=1cm]{i2i.png}
 \end{textblock*}}
 
 \frame{
@@ -68,14 +68,14 @@
 			\end{itemize}
 }
 \frame{
-\frametitle{How does TeX work ?}
+\frametitle{How does {\LaTeX} work ?}
 \begin{figure}
 	\centering
-	\includegraphics[scale = 0.5]{img/howdoestexwork.png}
+	\includegraphics[scale = 0.5]{howdoestexwork.png}
 \end{figure}
 }
 \frame{
-	\frametitle{DIME LaTeX template}
+	\frametitle{DIME {\LaTeX} template}
 	\begin{itemize}
 		\item<1->Our LaTeX template allows you to display your results by just editing the path to your file.
 		\item<2->Template 1 shows how to import tables.
@@ -87,7 +87,7 @@
 	\frametitle{Preamble}
 	\begin{figure}
 		\centering
-		\includegraphics[scale=0.5]{img/preamble.png}
+		\includegraphics[scale=0.5]{preamble.png}
 	\end{figure}
 }
 
@@ -113,7 +113,7 @@
 	\frametitle{Headers}
 	\begin{figure}
 		\centering
-		\includegraphics[width=1\linewidth]{img/header}
+		\includegraphics[width=1\linewidth]{header}
 	\end{figure}
 	\begin{multicols}{2}
 		[]
@@ -124,12 +124,11 @@
 		\item[newpage] Insert a page break.
 		\item[listoffigures] Prints a list of all the figures in the document.
 		\item[listoftables] Prints a list of all the tables in the document.\
-		\item[Comments] Adding "\%" before text comments it out.
 	\end{description}
 	\columnbreak
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.8\linewidth]{img/preamble12}
+		\includegraphics[width=0.8\linewidth]{preamble12}
 	\end{figure}
 	
 	\end{multicols}
@@ -138,11 +137,11 @@
 \begin{frame}[fragile]
 	\frametitle{Creating Sections}
 	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{img/sections1}
+		\includegraphics[width=0.7\linewidth]{sections1}
 	\end{figure}
  \begin{figure}
  	\centering
- 	\includegraphics[width=0.7\linewidth]{img/sections2}
+ 	\includegraphics[width=0.7\linewidth]{sections2}
  \end{figure}
 \end{frame}
 
@@ -150,63 +149,63 @@
 	\frametitle{Writing in your document}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\linewidth]{img/writing}
+		\includegraphics[width=0.7\linewidth]{writing}
 	\end{figure}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{img/writing1}
+	\includegraphics[width=0.7\linewidth]{writing1}
 \end{figure}
 \end{frame}
 
 \begin{frame}[fragile]
 	\frametitle{Importing images to your document}
 	\begin{figure}
-		\includegraphics[width=0.7\linewidth]{img/import}
+		\includegraphics[width=0.7\linewidth]{import}
 	\end{figure}
 \begin{itemize}
 	\tiny
-	\item Each figure starts with \verb|\begin{figure}| and \verb|\end{figure}|
-	\item \textbf{[H]} prints the figure as close as possible from where it appears in the text
-	\item \verb|\centering| centers the figure (oh, really?)
-	\item \verb|\includgraphics| is what actually imports your image:
+	\item <1-> Each figure starts with \verb|\begin{figure}| and \verb|\end{figure}|
+	\item <2-> \textbf{[H]} prints the figure as close as possible from where it appears in the text
+	\item <3-> \verb|\centering| centers the figure (oh, really?)
+	\item <4-> \verb|\includgraphics| is what actually imports your image:
 	\begin{itemize}
 		\tiny
-		\item \verb|[width=\textwidth]| adjusts the size of the figure to the page. Alternatively, \verb|[width=0.x\textwidth]| makes it smaller.
-		\item \color{red}{The path to your figure must begin from the same folder where your .tex file is!}
+		\item <5-> \verb|[width=\textwidth]| adjusts the size of the figure to the page. Alternatively, \verb|[width=0.x\textwidth]| makes it smaller.
+		\item <6-> \color{red}{The path to your figure must begin from the same folder where your .tex file is!}
 	\end{itemize}
-	\item \verb|\caption{Name of your figure}|
-	\item \verb|\label{fig:my_label}| allows you to cross-reference the figure on the text by typing \verb|\ref{fig:my_label}|
+	\item <7-> \verb|\caption{Name of your figure}|
+	\item <8-> \verb|\label{fig:my_label}| allows you to cross-reference the figure on the text by typing \verb|\ref{fig:my_label}|
 \end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Importing tables into the document}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\linewidth]{img/import1}
+		\includegraphics[width=0.7\linewidth]{import1}
 	\end{figure}
 	\begin{itemize}
 		\tiny
-		\item Each tables starts with \verb|\begin{table}| and ends with \verb|\end{table}|
-		\item \verb|\begin{adjustbox}{max width = \textwidth}| adjusts the size of the table to the page. Alternatively, \verb|{max width = 0.x\textwidth}| makes it smaller.
-		\item \verb|\input| is what actually imports you table
+		\item <1-> Each tables starts with \verb|\begin{table}| and ends with \verb|\end{table}|
+		\item <2-> \verb|\begin{adjustbox}{max width = \textwidth}| adjusts the size of the table to the page. Alternatively, \verb|{max width = 0.x\textwidth}| makes it smaller.
+		\item <3-> \verb|\input| is what actually imports you table
 			\begin{itemize}
 				\tiny
 				\item \color{red}{The path to your figure must begin from the same folder where your .tex file is!}
 			\end{itemize}
-		\item You can also use \verb|\caption| and \verb|\label| here.  Typing \verb|\caption{}| will print “Table \#”, with no title.
-		\item If \verb|\caption| comes before the table itself, the title is above it. If it comes after, the title is printed below the table.
+		\item <4-> You can also use \verb|\caption| and \verb|\label| here.  Typing \verb|\caption{}| will print “Table \#”, with no title.
+		\item <5-> If \verb|\caption| comes before the table itself, the title is above it. If it comes after, the title is printed below the table.
 	\end{itemize}
 \end{frame}
 \begin{frame}[fragile]
 	\frametitle{Fragmented documents}
 	\begin{figure}
 		\centering
-		\includegraphics[width=0.7\linewidth]{img/fragm}
+		\includegraphics[width=0.7\linewidth]{fragm}
 	\end{figure}
 \begin{itemize}
-\item The tables we export from Stata are actually fragmented documents
-\item These are TeX files with no \verb|\begin{document}| or \verb|\end{document}|, so they will not compile on their own
-\item We could simply copy and paste this document into our main LaTeX file, but then they would not be automatically updated
+\item <1-> The tables we export from Stata are actually fragmented documents
+\item <2-> These are .tex files with no \verb|\begin{document}| or \verb|\end{document}|, so they will not compile on their own
+\item <3-> We could simply copy and paste this document into our main {\LaTeX} file, but then they would not be automatically updated
 \end{itemize}
 \end{frame}
 	
