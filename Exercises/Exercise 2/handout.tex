@@ -168,17 +168,7 @@ The \texttt{setspace} package can also be used to specify more particular linesp
 
 \subsection*{Part 2.5. Rotating a table landscape}
 
-Sometimes the tables are very wide and need to be in landscape format. This can be adjusted using the \texttt{adjustbox} package which we have been using for importing tables. 
-
-\begin{Verbatim}
-	\begin{table}[H]
-		\caption{Add table title}
-		\input{sample_sizes.tex}
-		\label{tab:samplesize}
-	\end{table}
-\end{Verbatim}
-
-To rotate the table to landscape, we can use the \texttt{adjustbox} feature with the \texttt{angle = 90} option as shown in blue in the code below.
+Sometimes the tables are very wide and need to be in landscape format. This can be adjusted using the \texttt{adjustbox} package which we have been using for importing tables. To rotate the table to landscape, we can use the \texttt{adjustbox} feature with the \texttt{angle = 90} option as shown in blue in the code below.
 
 \begin{Verbatim}[commandchars=+\(\)]
 	\begin{table}[H]
@@ -194,16 +184,18 @@ This will rotate the table to the specified degree in the final document.
 
 \section*{Part 3. Making a Dynamic Document}
 
-Here, we will produce a dynamic document. Please only do this do \textbf{if} you have completed up to \texttt{Part 2.5} of this exercise document. 
+Here, we will produce a dynamic document. Please only do this do \textbf{if} you have completed all tasks up to \texttt{Part 2.5} of this exercise document and generated a document. This part will show you how easily {\LaTeX} is updating your formatted documents without having to make any manual changes or manually copy and paste any files, code or results.
 
 \begin{enumerate}
-	\item Generate a pdf document by compiling the document and save the pdf created up to now in a separate location from the \texttt{.tex} document where you have input the codes to import the tables and graphs. 
-	\item Generate a new treatment for your dataset by dropping a subset of your data set. 
+	\item Make sure that the you have generated a pdf document by compiling the your {\LaTeX} code. Now copy the pdf created in a separate location from where {\LaTeX} is exporting it. You will only need this second copy of your pdf document temporarily, so you can copy it to your desktop for example. 
+	\item Make a significant change to your dataset by for example dropping a large subset of your data set. You want to make such a large change to your dataset that when you re-run your do-file or your R script, your outputs should look very different.
 	\subitem If you are using the Stata do-file template provided in the Dynamic Documentation Folder, then only keep observations from Europe and Central Asia, and drop observations from North America and South America. This can be done by using the Stata codes \texttt{drop if region!= 1}. 
-	\item Rerun the do-file . Make sure that the tables and graphs you created earlier are overwritten i.e. save them without updating any paths so they save and replace the tables and graphs created earlier. 
-	\item Now, open the {\LaTeX} file\footnote{The one where you imported all your graphs and figures.} you created earlier and press \textit{Build and Compile} under the \textit{Tools}.
-	\item Now if you compare the pdf file you have just generated with you new data with the one you saved earlier, you will find that the tables would have updated automatically. 
+	\item Rerun the do-file or R script you used to generate the tables and files you imported to {\LaTeX} in this exercise. Make sure to not change any file paths to where your tables and graphs were exported. You want your own tables and graphs to be replaced and overwritten.
+	\item Now, go back to the {\LaTeX} code where you have imported the tables and graphs for this exercise and generate the pdf document again. Press \textit{Build and Compile} under the \textit{Tools}.
+	\item Now if you compare the pdf file you have just generated with you new data with the one you saved in a differnt folder in the beginning of this section, you will find that the tables have updated automatically without you having to do any manual edits. 
 \end{enumerate}
+
+In this part you updated your tables and figures in the final document wihout having to copy any results or files manually. Such manual updates are by far the most common reason for errors while generating and sharing reserach results. This is the most important reason why we at DIME are promoting {\LaTeX} as manual errors causes us to lose a lot of time and in the worst case leads to mistakes in results that are published.
 
 \section*{Part 4. Challenge: Using a do-file to edit a .tex file after exporting it}
 \textit{Note: This is an advanced exercise and you don't have to feel compelled to finish it. This is also best done after finishing all the other exercises in the GitHub repository.}
