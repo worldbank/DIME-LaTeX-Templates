@@ -53,13 +53,16 @@ We will also show how {\LaTeX} can be used to create a dynamic document that upd
  
 
 \section*{Part 1. Exporting tables}
-Open \textcolor{red}{Export tables and images.do} and change the paths on the first section of the do-file so that it matches the folder structure you just created. Then run the do-file. This will export a few tables and graphs to the Raw folder that will be used in the following exercises.  \\
+In this section, you have the option of using the template do file provided in \textcolor{red}{Dynamic-Documentation/Exercises/Stata Export Exercise/Export tables and images.do} to export graphs and figures OR using your own data and generating tables and graphs that can be imported into {\LaTeX}.
 
-The following should be completed in this exercise: 
+If you're using the do files provided, change the folder paths in the do file to your directory structure and run the do-file. This will export two tables and two graphs to the Raw folder that will be used in the exercises that follow.  
+
+If you would like to work with your own data, please follow the following steps. 
+
 \begin{itemize}
 	\item Make sure that you export \textbf{two tables} and \textbf{two graphs} using your own data. For help, you can look at the folder called ``Exercise Stata - How to export tables and graph from Stata to LaTeX''.
 	\item Make sure that all the exporting is done using Stata do-files, or R scripts so you can easily export them again by just running the code. 
-	\item Import all the tables and figures you have created in step 1 into your {\LaTeX} document using the templates provided in the \textbf{DIME Templates} sub-folder.
+	\item Import all the tables and figures you have created in step 1 into your {\LaTeX} document. Sample code to import tables and figures can be found in the \textbf{DIME Templates} sub-folder. Make sure to use the  code in \texttt{Template 1 - Importing tables.tex} file to import figures(not tables), and the code in \texttt{Template 2 - Importing figures.tex} file template to import graphs(not tables). It will not work if it is the other way around.
 	\item Make sure you give a caption to your tables. 
 \end{itemize}
 
@@ -105,14 +108,13 @@ The above {\LaTeX} code is used to generate table of contents.
 
 \subsection*{Part 2.3. Referring to your tables, and figures in a document}
 
-{\LaTeX} uses a dynamic referencing system for all our tables, figures, sections, subsections, etc. This means that they will be numbered in whatever order you put them in. For example - if you cut(as in cut paste) and paste a table that was the ninth table in the document and put it first, the table number will automatically update to 1 for that table. So, rather than telling the user to look at a table by referring it with a number, you can give your tables and graphs a name, and reference it using the commands you'll learn in part 2.3.1 and 2.3.2, so if you move the tables around, the numbers that they will see in the pdf document will still correspond to the actual number of the table. \\
+{\LaTeX} uses a dynamic referencing system for all our tables, figures, sections, subsections, etc. This means that they will be numbered in whatever order you put them in. For example - if you cut(as in cut paste) and paste a table that was the ninth table in the document and put it first, the table number will automatically update to 1 for that table. So, rather than telling the user to look at a table by referring it with a number, you can give your tables and graphs a name, and reference it using the commands you'll learn in part 2.3.1 and 2.3.2, so if you move the tables around, the numbers that they will see in the pdf document will still correspond to the actual number of the table. 
 
-In this subsection, we will learn how to reference to a table, or a figure. 
-
-To reference tables, or figures, we must give them a label to which we can refer to later. In Exercise 1, we learnt how to import a table/graph. We will now give the table and graph we imported in the Exercise 1 a label to make it easy to refer in the document. 
+In this subsection, we will learn how to reference to a table, or a figure. Figures and tables have different referencing system that we will learn in part 2.3.1 and 2.3.2 respectively.
 
 \subsubsection*{Part 2.3.1 Referring to Figures in a document}
-To add a label to the imported iegraph figure, we just add the lines \verb|\label{fig:Figurename}| inside the \texttt{begin} and \texttt{end} figure in our codes. 
+To refer to figures, we will use \verb|\label{fig:figurename}| command inside our begin and end figure like the example below. 
+To add a label to the imported \texttt{iegraph} figure, we just add the lines \verb|\label{fig:Figurename}| inside the \texttt{begin} and \texttt{end} figure in our codes. 
 
 \begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
@@ -126,7 +128,7 @@ Now to refer to the figure anywhere in the document, you can type \verb|\ref{fig
 
 \subsubsection*{Part 2.3.2 Referring to Tables in a document}
 
-Similarly for tables, we can also refer to them anywhere in the document using the same method.
+Similarly for tables, we can also refer to them anywhere in the document using the same method. To refer to tables, we will use \verb|\label{tab:tablename}| command inside our \verb|\begin{table}| and \verb|\end{figure}| like the example below. 
 
 First, we need to add a label to the table that has been imported to the document by adding \verb|\label{tab:Tablename}| inside the \texttt{begin} and \texttt{end} table in our code. 
 
