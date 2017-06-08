@@ -151,31 +151,20 @@ Now that you have created sections in your document, and added text, you might w
 \subsubsection*{Part 2.4.2 Color}
 
 \subsubsection*{Part 2.4.3 Line Spacing}
-Now that you have created sections in your document, and added text, you might want to change the spacing between lines. This can be achieved using the \texttt{setspace} package. 
+It is common that differnt publication standards require different line spacing. This can be achieved using the \texttt{setspace} package. 
 
-The steps to change line spacing are as follows:
-\begin{itemize}
-	\item Before \verb|\begin{document}|, declare the package you will be using. In this case, \verb|\usepackage{setspace}|. This package controls the line spacing in a {\LaTeX} document.
-	\item After using the \texttt{setspace} package, you should now specify line spacing which are as follows:
-	\begin{description}
-		\item[singlespacing] This option specifies the document to use one line spacing.
-		\item[doublespacing] This option specifies the document to use two line spacing.
-		\item[onehalfspacing] This option specifies the document to use one and a half line spacing. 
-	\end{description}
-\end{itemize}
+The use this package you need to start by importing it. To do import the package you add \verb|\usepackage{setspace}| next to where a lot of other packages are imported using the same command \verb|\usepackage{}|. Next you simply to tell {\LaTeX} which linespacing you want and you need to do this before \verb|begin{document}|. \verb|\singlespacing| makes {\LaTeX} use single line space throughtout the document. Similarly, \verb|\doublespacing| and \verb|\onehalfspacing| set the docuemtn to double line space and one half line space respectively. See example below:
+
 \begin{Verbatim}[commandchars=+\(\)]
-+color(CornflowerBlue)\usepackage{setspace}
-+color(CornflowerBlue)\doublespacing
-+color(Gray)%\onehalfspacing
-+color(Gray)%\singlespacing
-\begin{document}
-\maketitle
-\listoftables
-\listoffigures
-\section{Introduction}
-This is the introduction paragraph
+	+color(CornflowerBlue)\usepackage{setspace}
+	+color(CornflowerBlue)\doublespacing
+	\begin{document}
+	\maketitle
+	\section{Introduction}
+	This is the introduction paragraph
 \end{Verbatim}
-The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in another documents. 
+
+The \texttt{setspace} package can also be used to specify more particular linespacing i.e. 1.7 lines, 2.4 lines etc using the \texttt{setstretch} feature but that will be covered in this exercise.
 
 \subsection*{Part 2.5. Rotating a table landscape}
 
