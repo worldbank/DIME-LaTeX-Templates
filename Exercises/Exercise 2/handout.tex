@@ -76,45 +76,45 @@ Similarly, subsections can be created using \verb|\subsection{title}| and sub-su
 
 \textit{Note: Sections and subsections can be created using} \verb|\section*{title}| \textit{if you do not want your sections numbered in the document. However, these sections and subsections will not be shown in the table of contents.}
 
+
+\clearpage
 \subsection*{Part 2.2. Adding Table of Contents}
 
 After we have set up sections, sub-sections and sub-sub-sections you can easily add a table of contents to your {\LaTeX} document by using \verb|\tableofcontents| in your docuemnt. You can create this any where you want, but typically this is created directly after \verb|\begin{document}| or after \verb|\maketitle| if you have a title.  An example is shown below:
 
-\begin{multicols}{2}
-	
 \begin{Verbatim}[commandchars=+\(\)]
-\documentclass[12pts]{article}
-
-%opening
-\title{My Awesome Document}
-\author{John Doe}
-
-\begin{document}
-\maketitle
-+color(CornflowerBlue)\tableofcontents
-\newpage
+	\documentclass[12pts]{article}
+	
+	\title{My Awesome Document}
+	\author{John Doe}
+	
+	\begin{document}
+	\maketitle
+	+color(CornflowerBlue)\tableofcontents
+	\newpage
 
 \end{Verbatim}
-The above {\LaTeX} code is used to generate table of contents.
+The above {\LaTeX} code is used to generate table of contents below.
 
-\columnbreak
 \begin{figure} [H]
 	\centering
-	\includegraphics[width=1\linewidth]{../img/tableofcontents2}
+	\includegraphics[width=.8\linewidth]{../img/tableofcontents2}
 	\caption{Example table of contents generated from our document in Annex 1.}
 	\label{fig:tableofcontents}
 \end{figure}
-\end{multicols}
 
 \subsection*{Part 2.3. Referring to your tables, and figures in a document}
 
-{\LaTeX} uses a dynamic referencing system for all our tables, figures, sections, subsections, etc. This means that they will be numbered in whatever order you put them in. For example - if you cut(as in cut paste) and paste a table that was the ninth table in the document and put it first, the table number will automatically update to 1 for that table. So, rather than telling the user to look at a table by referring it with a number, you can give your tables and graphs a name, and reference it using the commands you'll learn in part 2.3.1 and 2.3.2, so if you move the tables around, the numbers that they will see in the pdf document will still correspond to the actual number of the table. 
+Just like the numbering of sectiona and sub-sections, {\LaTeX} uses a dynamic referencing system for tables and figures etc. In the text in your docuemnt where you describe your tables and figures you are likely to want to refer to them on a format similar to "\textit{As you can see in figure 2...}". Since the numbering of tables and figures is updated automatically, you need a way for your references in your text to be updated automatically as well.
 
-In this subsection, we will learn how to reference to a table, or a figure. Figures and tables have different referencing system that we will learn in part 2.3.1 and 2.3.2 respectively.
+In {\LaTeX} that is solved by giving tables and graphs a unique name using the \verb|\label{}| command. In the text where you want to reference a figure or a table, you reference the name used in the label and {\LaTeX} will update the numbering for you as your documents grows and changes.
+
+The labels are categorized into the type of item you are referencing, so you label tables and figures slightly differntly. We will show how it is done in the following sub-sections.
 
 \subsubsection*{Part 2.3.1 Referring to Figures in a document}
-To refer to figures, we will use \verb|\label{fig:figurename}| command inside our begin and end figure like the example below. 
-To add a label to the imported \texttt{iegraph} figure, we just add the lines \verb|\label{fig:Figurename}| inside the \texttt{begin} and \texttt{end} figure in our codes. 
+To refer to figures, we will use the \verb|\label{fig:figurename}| command. Inside the brackets in the \verb|\label{}| command you see two parts seperated by a colon. The first part  \texttt{fig} indicates that this is a figure that we are assigning a label to. The second part  \texttt{figurename}, you should replace with the unique name you want to use to refer to this figure.
+  
+We must add the \verb|\label{fig:Figurename}| line inside the \verb|\begin{figure}| and \verb|\end{figure}| in our codes. See below:
 
 \begin{Verbatim}[commandchars=+\(\)]
 	\begin{figure}[H]
@@ -128,19 +128,19 @@ Now to refer to the figure anywhere in the document, you can type \verb|\ref{fig
 
 \subsubsection*{Part 2.3.2 Referring to Tables in a document}
 
-Similarly for tables, we can also refer to them anywhere in the document using the same method. To refer to tables, we will use \verb|\label{tab:tablename}| command inside our \verb|\begin{table}| and \verb|\end{figure}| like the example below. 
+Similarly for tables, we can also refer to them anywhere in the document using the same method. To refer to tables, we will use \verb|\label{tab:tablename}| command inside our \verb|\begin{table}| and \verb|\end{table}| like the example below. 
 
-First, we need to add a label to the table that has been imported to the document by adding \verb|\label{tab:Tablename}| inside the \texttt{begin} and \texttt{end} table in our code. 
+First, we need to add a label to the table that has been imported to the document by adding \verb|\label{tab:tablename}| inside the \texttt{begin} and \texttt{end} table in our code. 
 
 \begin{Verbatim}[commandchars=+\(\)]
-\begin{table}[H]
-\caption{Add a title to this table}
-\input{../Raw/sample_sizes.tex}
-+color(CornflowerBlue)\label{tab:samplesize}
-\end{table}
+	\begin{table}[H]
+	\caption{Add a title to this table}
+	\input{../Raw/sample_sizes.tex}
+	+color(CornflowerBlue)\label{tab:samplesize}
+	\end{table}
 \end{Verbatim}
 
-Now we can refer to the above table in our document by typing \verb|\ref{tab:samplesize}| which will automatically refer to the table using the correct number in the document. 
+Now we can refer to the above table in our document by typing \verb|\ref{tab:samplesize}| which will automatically refer to the table using the correct number in the text in your document. 
 
 \subsection*{Part 2.4. Line Spacing}
 
