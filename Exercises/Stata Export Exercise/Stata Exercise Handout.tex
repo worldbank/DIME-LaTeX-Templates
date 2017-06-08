@@ -43,12 +43,16 @@
 \end{titlepage}
 \makeatother
 
+\tableofcontents
+
+\newpage
+
 \section*{Introduction}
 This exercise introduces you to how to export files from Stata that can be read in {\LaTeX}. See exercises 1 and 2 for instructions on how to import files into {\LaTeX}. After this exercise and exercise 1, you will have a document that is automatically updated each time you run your Stata and your {\LaTeX} code.
 
 We have provided you with a do-file that creates files you can import to a {\LaTeX} document. Note that this is not an exercise on creating graphs and tables in Stata, only on exporting Stata outputs into format that {\LaTeX} can read, so this exercise assumes knowledge of some intermediate level Stata commands.
 
-\section*{Part 1: Setting up a Folder Structure}
+\section{Setting up a Folder Structure}
 Do not rush over this part. You will be forced to write an unecessarily complicated {\LaTeX} code unless you set up a simple but well organized folder structure where you'll save tables and figures created in Stata. We strongly recommend that you start by setting up the following folder structure. 
 
 Create one folder called \texttt{Output}, and inside this folder, create one folder called \texttt{Raw} and one folder called \texttt{Final}. You will export tables and graphs from Stata to the \texttt{Raw} folder and then import them to your {\LaTeX} document. When you start a new {\LaTeX}, you must save the \texttt{.tex} file in the \texttt{Final} folder before compiling it, so {\LaTeX} knows where the file paths specified lead.
@@ -63,7 +67,7 @@ See the example below. As your project grows bigger, it is common that sub-folde
 \end{figure} 
 
 
-\section*{Part 2: Setting your path for Stata}
+\section{Setting your path for Stata}
 We now need to tell Stata to save the tables and figures they export to the \texttt{Raw} folder. Using a global with the file path to this folder instead of typing out its location in all commands makes the code simpler and easier to update if you happened to make changes to the folder structure.
 
 You will find a do-file called \texttt{Export tables and images.do} in the same folder as this handout. Open it and look for the part that says:
@@ -73,7 +77,7 @@ You will find a do-file called \texttt{Export tables and images.do} in the same 
 
 You need to enter the path to the folder you created in part 1 here. Assuming you are using Windows and following the folder structure in figure \ref{fig:folder_structure}, this means that the global called \verb|main_folder| should point to your \emph{Stata Export Exercise} folder.\footnote{Note that the global created in line 34 will only lead to the right folder if you create the folders \emph{Output} and \emph{Raw} manually.} If you don't know how to find the file path to your folder, there are two annexes to this document showing how to do it. Annex 1 gives advice for Windows, and Annex 2, for Mac.
 
-\section*{Part 3: File Formats and Names}
+\section{File Formats and Names}
 Not all file formats that you can chose when exporting from Stata can be imported into {\LaTeX}. Figures must be saved in \texttt{.png} format. All figures produced in Stata can be exported in \texttt{.png}. Even if some commands are not able to export in this format, you can use Stata to convert the figure for you. You will find more details on this below, when we export figures. 
 
 Tables must be saved in \texttt{.tex} format. Tables cannot be converted as easily as figures, so it is usually easier to find an alternative command that produces the same table but can export to \texttt{.tex} format. Most commands that export tables are able to export to this format so it should not be difficult to find an alternative.
@@ -82,7 +86,7 @@ Files saved in \texttt{MS Word}, \texttt{MS Excel}, or Stata's \texttt{.gph} for
 
 Files exported from Stata should have a descriptive name. Otherwise, you increase the risk for human errors, and the whole point of dynamic documents is to reduce exactly that. For example -- rather than \texttt{graph1.png}, \texttt{graph2.tex}, names like \texttt{treatmentEffectGraph.png} would make it easier to understand what files we are using.
 
-\section*{Part 4: Install packages and load data}
+\section{Install packages and load data}
 
 \begin{enumerate}
 	\item Install Stata package \emph{iebaltab}. This package will be used to create and export balance tables.
@@ -91,13 +95,14 @@ Files exported from Stata should have a descriptive name. Otherwise, you increas
 \end{enumerate}
 
 
-\section*{Part 5, Task 1: Tabulate Categorical Variables}
+\section{Exporting tables}
+\subsection{Descriptive statistics}
 
 First we want to start by exporting a simple frequencies table for a categorical variable. 
 
 \begin{enumerate}
 	\item You should always start a new table export by typing \texttt{estimates clear}. This will clear any results already in memory so you only export the desired content.
-	\item Use the command \texttt{tabulate} to generate the frenquency table for variable \texttt{region}.
+	\item Use the command \texttt{tabulate} to generate the frequency table for variable \texttt{region}.
 	\item Type \texttt{estpost} before tabulate to adjust the result of the tabulation to an easily exported format. Type \texttt{help estpost} for more details on this command.
 	\item Use \texttt{esttab} to export this table to \texttt{.tex} format. Remember to always have an explanatory file name. This is an exercise in {\LaTeX} and not in the \texttt{estout} package, so we will not go into more details about \texttt{esttab} options, but you can look into it's help file for options. The only difference between using \texttt{esttab} to export a table to excel and {\LaTeX} is the file name. If you'd type 
 	
@@ -114,12 +119,12 @@ First we want to start by exporting a simple frequencies table for a categorical
 	\item Check your \texttt{Raw} folder to see the \texttt{categorical.tex} file you have exported.
 \end{enumerate}
 
-\section*{Part 5, Task 2: Balance table}
+\subsection{Balance table}
 
 Now we will use \emph{iebaltab} to export a balance table. You can look at the balance table section of do file \texttt{Export tables and images.do} to see a basic code using this command. To export this table to {\LaTeX}, you should use option \texttt{savetex()} and add the desired file path. Check your output folder to see that the file was created.
 
 
-\section*{Part 5, Task 3: Regression table}
+\subsection{Regression table}
 
 \begin{enumerate}
 	\item Clear any results already in memory by typing \texttt{estimates clear}
@@ -135,7 +140,8 @@ Now we will use \emph{iebaltab} to export a balance table. You can look at the b
 \end{enumerate}
 
  
-\section*{Part 6, Task 1: Manually Create a Graph and then Export it}
+\section{Exporting graphs}
+\subsection{Manually Create a Graph and then Export it}
 
  Stata's save graph feature saves the graph in \texttt{.gph} format, which only Stata can read. However, the \texttt{graph export} feature  saves the graph in a picture format, i.e. png format, which can be read by the photo viewer on your computer, phone and also by {\LaTeX}. It is \emph{absolutely critical} to export the graph to this format, so that {\LaTeX} can import it.
 
@@ -152,7 +158,7 @@ Now check your \texttt{Raw} folder to see the \texttt{regular\_graph.png} file y
 \end{center}	
  
 
-\section*{Part 6, Task 2: Using \texttt{iegraph} to create a figure}
+\subsection{Using \texttt{iegraph} to create a figure}
 
 Stata's \texttt{graph twoway} uses the \texttt{save} feature to export pictures in a \texttt{.gph} format, and we have to use \texttt{graph export} to export it to \texttt{.png} format. However, many commands, \texttt{iegraph} for example, can export directly to either format using the same \texttt{save} option. 
 
@@ -163,7 +169,7 @@ Using \verb|save("$raw_output/iegraph.png")| ensures that the graphs are directl
 Now check your \texttt{Raw} folder to see the \texttt{iegraph.png} file you have exported.
 
 
-\section*{Part 7, Using a do-file to edit a .tex file after exporting it}
+\section{Using a do-file to edit a .tex file after exporting it}
 \textit{Note: This is an advanced exercise and you don't have to feel compelled to finish it. This is also best done after finishing all the other exercises in the GitHub repository.}
 
 During this part of the exercise, you will learn how to use commands in Stata to format your tables. While tables exported from Stata to {\LaTeX} are generally very well formated, sometimes they need to be tweaked a little to look nicer.
