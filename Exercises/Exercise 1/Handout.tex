@@ -19,7 +19,7 @@
 
 \usepackage{fancyhdr}
 
-\title{DIME DYNAMIC DOCUMENTATION TRAINING }
+\title{DIME DYNAMIC DOCUMENTATION TRAINING \\ Exercise 1}
 \author{Luiza Andrade \& Mrijan Rimal} 
 \date{\today}
 
@@ -192,7 +192,7 @@
 	Update the text in \verb|\caption{Add figure title here}| and compile the document. See that the title of the table is above the table. When we used \verb|\caption{}| for the figure earlier the title was below the table. That has nothing to do with tables and figures, it all depends if you enter the line with \verb|\caption{}| before or after the line when you are importing a file to your document. To test this, move the line with the caption to after \verb|\end{adjustbox}| and before \verb|\end{table}|, and compile the document again. Note that the caption line must come before the adjustbox environment begins, otherwise the document will not compile.
 	
 	\section{Centering imported objects}
-	Until now, we imported object into our document that were too wide for our document margins, so we had to adjust their sizes. Next, we are going to see what happens when you import a narrower object. To do this, create a table environment, import and create a title for the table in \emph{sampl\_sizes.tex}. This table can also be found in the \emph{Raw} folder:
+	Until now, we imported object into our document that were too wide for our document margins, so we had to adjust their sizes. Next, we are going to see what happens when you import a narrower object. To do this, create a new table environment (\verb|\begin{table}| and \verb|\end{table}|) in the document you have been working in, import and create a title for the table in \emph{sampl\_sizes.tex}. This can be done by typing the following lines:
 	
 	\begin{center}
 		\begin{Verbatim}[commandchars=+\(\)]
