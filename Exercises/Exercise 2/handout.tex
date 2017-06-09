@@ -47,18 +47,18 @@
 	\begin{minipage}{\textwidth}
 		
 	\section*{Introduction}
-	Exercise 1 introduced you to the basics of how to import tables and figures to a {\LaTeX} document. This exercise will introduce you to some intermediate topics commonly used to make your document look even more professional.
+	Exercise 1 introduced you to the basics of how to import tables and figures to a {\LaTeX} document. This exercise will introduce you to some intermediate topics commonly used to make your document look even more professional.\\
 	
 	We will also show how {\LaTeX} can be used to create a dynamic document that updates automatically once your output from, for example, Stata or R is updated without any error prone manual copy-and-pasting.
 	
 	
 	
 	\section{Exporting tables}
-	In this section, you have the option of using the template do file provided in \textcolor{red}{Dynamic-Documentation/Exercises/Stata Export Exercise/Export tables and images.do} to export graphs and figures OR using your own data and generating tables and graphs that can be imported into {\LaTeX}. 
+	In this section, you have the option of using the template do file provided in \textcolor{red}{Dynamic-Documentation/Exercises/Stata Export Exercise/Export tables and images.do} to export graphs and figures OR using your own data and generating tables and graphs that can be imported into {\LaTeX}. \\
 	
-	If you're using the do file provided, change the folder paths in the do file to your directory structure and run the do-file. This will export two tables and two graphs to the Raw folder that will be used in the exercises that follow.  
+	If you're using the do file provided, change the folder paths in the do file to your directory structure and run the do-file. This will export two tables and two graphs to the Raw folder that will be used in the exercises that follow.  \\
 	
-	If you would like to work with your own data, please follow the following steps. 
+	If you would like to work with your own data, please follow the following steps. \\
 	
 	\begin{itemize}
 		\item Make sure that you export \textbf{two tables} and \textbf{two graphs} using your own data. For help, you can look at the folder called ``Exercise Stata - How to export tables and graph from Stata to LaTeX''.
@@ -66,7 +66,7 @@
 		\item Import all the tables and figures you have created in step 1 into your {\LaTeX} document. Sample code to import tables and figures can be found in the \textbf{DIME Templates} sub-folder. Make sure to use the  code in \texttt{Template 1 - Importing tables.tex} file to import tables (not graphs), and the code in \texttt{Template 2 - Importing figures.tex} file template to import graphs (not tables). It will not work if it is the other way around.
 		\item Make sure you give a caption to your tables. 
 	\end{itemize}
-
+	%KB: why do we ask them to use differnt templates for figures and tables and then in the next section ask them to create one section for tables and one for figures in the same document?
 	\end{minipage}
 	
 	
@@ -221,7 +221,7 @@
 	\subsection{Line Spacing}
 	It is common that different publication standards require different line spacing. This can be achieved using the \texttt{setspace} package. 
 	
-	The use this package you need to start by importing it. To do import the package you add \verb|\usepackage{setspace}| next to where a lot of other packages are imported using the same command \verb|\usepackage{}|. Next you simply to tell {\LaTeX} which linespacing you want and you need to do this before \verb|begin{document}|. \verb|\singlespacing| makes {\LaTeX} use single line space throughtout the document. Similarly, \verb|\doublespacing| and \verb|\onehalfspacing| set the docuemtn to double line space and one half line space respectively. See example below:
+	To use this package you need to start by importing it. To import the package you add \verb|\usepackage{setspace}| next to where a lot of other packages are imported using the  \verb|\usepackage{}| command. Next you simply tell {\LaTeX} which line spacing you want and you need to do this before \verb|begin{document}|. \verb|\singlespacing| makes {\LaTeX} use single line space throughout the document. Similarly, \verb|\doublespacing| and \verb|\onehalfspacing| set the document to double line space and one half line space respectively. See example below:
 	
 	\begin{Verbatim}[commandchars=+\(\)]
 	+color(CornflowerBlue)\usepackage{setspace}
@@ -277,12 +277,12 @@
 	
 	\begin{multicols}{2}
 		\begin{Verbatim}
-		Here's a numbered list:
-		\begin{enumerate}
+		Here's an unnumbered list:
+		\begin{itemize}
 		\item Item one
 		\item Item two
 		\item Item three
-		\end{enumerate}
+		\end{itemize}
 		\end{Verbatim}
 		
 		\columnbreak	
