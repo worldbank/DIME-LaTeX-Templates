@@ -191,10 +191,10 @@
 	*Generate the table without this code first. The exercise will ask you 
 	*to use this code to format the tex file after it has been exported
 	/*
-	filefilter 	"$raw_output/samplesizes.tex" "$raw_output\sample_sizes.tex", 	///				// Remove extra spacing
+	filefilter 	"$raw_output/samplesizes.tex" "$raw_output/sample_sizes.tex", 	///				// Remove extra spacing
 				from("\n[1em]") to("") 	replace
 				
-	filefilter 	"$raw_output/sample_sizes.tex" "$raw_output\samplesizes.tex", 	///				// Remove extra spacing
+	filefilter 	"$raw_output/sample_sizes.tex" "$raw_output/samplesizes.tex", 	///				// Remove extra spacing
 				from("          &                  &                  &                  &                  \BS\BS") to ("") ///
 				replace	
 	*/
