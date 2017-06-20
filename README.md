@@ -1,5 +1,7 @@
 This repository contains resources that will help you make your research more reproducible. This will save you a substantial amount of time, significantly reduce the risk for human errors when exporting results to your papers, and make your research more transparent. We have prepared exercises that will make it easy for you to start using these resources.
 
+All code is MIT licensed, and the text content is CC-BY. Please feel free to send edits and updates via Pull Requests.
+
 ## How to get started
 ### Step 1. Download the material
 Click the green ***Clone or Download*** button on this page, then click ***Download ZIP***, and save all the content of this repository to your computer.
