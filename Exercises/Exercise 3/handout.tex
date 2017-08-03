@@ -16,6 +16,11 @@
 \usepackage{hyperref}              
 \setlength{\parskip}{.5\baselineskip}   % Define spacing between two paragraphs
 
+% Bibliography packages
+\usepackage[numbers]{natbib}
+\bibliographystyle{chicago}
+\usepackage{bibentry} 
+
 \setlength{\parindent}{0pt}
 \setlength{\columnseprule}{0pt}
 
@@ -165,5 +170,92 @@ In this exercise, you will explore some intermediate-level tools for text editin
 	\section{Using math symbols}
 	\section{Document types}
 	\section{Managing references}
+	
+	\subsection{Creating a bibtex file}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{../img/scholar_cite}
+	\end{figure}
 
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=.8\linewidth]{../img/scholar_bibtex}
+	\end{figure}
+
+	\begin{Verbatim}
+		@article{dupas2013savings,
+		title={Savings constraints and microenterprise development: Evidence 
+		from a field experiment in Kenya},
+		author={Dupas, Pascaline and Robinson, Jonathan},
+		journal={American Economic Journal: Applied Economics},
+		volume={5},
+		number={1},
+		pages={163--192},
+		year={2013},
+		publisher={American Economic Association}
+		}
+	\end{Verbatim}
+	
+	\subsection{Using the natbib package}
+	
+	\begin{verbatim}
+		\usepackage{natbib}
+		\bibliographystyle{chicago}
+	\end{verbatim}
+	
+	\begin{verbatim}
+		\bibliography{Bibliography}
+	\end{verbatim}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{../img/Chicago}
+	\end{figure}
+
+	\begin{verbatim}
+		\usepackage[numbers]{natbib}
+		\bibliographystyle{chicago}
+	\end{verbatim}
+	
+	\begin{verbatim}
+		\bibliography{Bibliography}
+	\end{verbatim}
+	
+	\begin{figure}[H]
+		\centering
+		\includegraphics[width=\linewidth]{../img/Chicago_numbers}
+	\end{figure}
+	
+	
+	\subsection{Citing papers in your text}
+	
+	Citation 2 \citet{dupas2013savings} \\
+	Citation 2 \citep{dupas2013savings} \\
+	
+	Citation 1 \citet[p.~215]{dupas2013savings} \\
+	Citation 1 \citep[p.~215]{dupas2013savings} \\
+	
+	
+	Citation 1 \citep[see][]{dupas2013savings} \\
+	Citation 1 \citep[see][p.~215]{dupas2013savings} \\
+	
+	Citation 2 \citep{alix2012forest} \\
+	Citation 3 \citep*{alix2012forest}
+	
+	\citeauthor{de2008returns} \\
+	\citeauthor*{de2008returns} \\
+	\citeyear{de2008returns} \\ 
+	\citeyearpar{de2008returns} \\ 
+	
+	
+	\subsection{Other natbib options}
+
+	\begin{verbatim}
+	\usepackage[comma]{natbib}
+	\bibliographystyle{chicago}
+	\end{verbatim}
+
+	\bibliography{Bibliography}
+	
 \end{document}   
