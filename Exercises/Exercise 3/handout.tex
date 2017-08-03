@@ -1,0 +1,169 @@
+\documentclass[12pts]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{setspace}
+\usepackage{graphicx}
+\doublespacing
+\usepackage{fancyvrb}
+\usepackage{varwidth}
+\usepackage{verbatim}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{parskip}    % This packages sets the spacing between two paragraphsc   
+\usepackage{hyperref}              
+\setlength{\parskip}{.5\baselineskip}   % Define spacing between two paragraphs
+
+\setlength{\parindent}{0pt}
+\setlength{\columnseprule}{0pt}
+
+% Title Page
+\title{DIME DYNAMIC DOCUMENTATION TRAINING \\ Exercise 3}
+\author{Luiza Andrade} 
+\date{\today}
+
+\makeatother
+
+
+\begin{document}
+	
+	
+	\makeatletter
+	\begin{titlepage}
+		\begin{center}
+			\includegraphics[width=0.3\linewidth]{../img/i2i.png}\\[10ex]
+			{\LARGE \bfseries  \@title }\\[2ex] 
+			{\Large  \@author}\\[20ex] 
+			{\large \@date}
+		\end{center}
+	\textcolor{red}{For the most recent version of the file, please check \url{https://github.com/worldbank/DIME-LaTeX-Templates/}}
+	\end{titlepage}
+	\makeatother
+	
+	\tableofcontents
+	
+	\newpage			
+	\section*{Introduction}
+	
+On Exercises 1 and 2, you learned to use {\LaTeX} to import tables and graphs. This will allow you to create an easily updated file with descriptive statistics and analysis results. However, {\LaTeX} has plenty of other features you can explore to create different types of documents. 
+
+In this exercise, you will explore some intermediate-level tools for text editing and formatting. You will also learn a little bit more about how {\LaTeX} works. Once you're done with it, you should have enough knowledge of {\LaTeX} to write a full paper or report.
+	
+	
+	\section{Text Formatting}
+	
+	Now that you have created sections in your document, and added text, you might want to change some of the formatting of your text. In {\LaTeX} you format your text using packages and code. We will here include a few topics.
+	
+	\subsection{Bold, italic and underlined}
+	
+	You can make part of your text bold using \verb|\textbf{text}|. To 	underline part of your text, use \verb|\underline{text}|. To make part of your text italic use \verb|\textit{text}|. Here's how it looks:
+	
+	\begin{center}
+		\begin{multicols}{2}
+			\verb|\textbf{This is a bold text.}| \\
+			\verb|\underline{This is an underlined text.}| \\
+			\verb|\textit{This is an italic text.}| \\
+			
+			\columnbreak
+			
+			\textbf{This is a bold text.} \\
+			\underline{This is an underlined text.} \\
+			\textit{This is an italic text.}
+		\end{multicols}
+	\end{center}
+	
+	\textcolor{BurntOrange}{\textbf{Task 6:}} Choose some words in your text paragraph to be turned into bold, italic and underline. If you're using TeXStudio, you can use the shortcuts \texttt{CTRL+B} for bold and \texttt{CTRL+I} for italic.
+	
+	\subsection{Text color}
+	Font color can be changed using \verb|\textcolor{color}{text}|. You can find a list of color options in the \href{https://en.wikibooks.org/wiki/LaTeX/Colors}{{\LaTeX} WikiBook}, but here are a few examples:
+	
+	% TO-DO: say that you need to type usepackage in the preamble
+	
+	\clearpage
+	\begin{center}
+		\begin{multicols}{2}
+			\verb|\textcolor{red}{This is a read text.}| \\
+			\verb|\textcolor{Gray}{This is a gray text.}| \\
+			\verb|\textcolor{Cyan}{This is a Cyan text.}| \\
+			\verb|\textcolor{RoyalPurple}{This is a RoyalPurple text.}|
+			
+			\columnbreak
+			
+			\textcolor{red}{This is a read text.} \\
+			\textcolor{Gray}{This is a gray text.} \\
+			\textcolor{Cyan}{This is a Cyan text.} \\
+			\textcolor{RoyalPurple}{This is a RoyalPurple text.}
+		\end{multicols}
+	\end{center}
+	
+	\textcolor{BurntOrange}{\textbf{Task 7:}} Change the color of a sentence in your paragraph. Try combining \verb|\textcolor| with \verb|textbf|.
+	
+	\section{Line Spacing}
+	It is common that different publication standards require different line spacing. This can be achieved using the \texttt{setspace} package. 
+	
+	To use this package you need to start by importing it. To import the package you add \verb|\usepackage{setspace}| next to where a lot of other packages are imported using the  \verb|\usepackage{}| command. Next you simply tell {\LaTeX} which line spacing you want and you need to do this before \verb|begin{document}|. \verb|\singlespacing| makes {\LaTeX} use single line space throughout the document. Similarly, \verb|\doublespacing| and \verb|\onehalfspacing| set the document to double line space and one half line space respectively. See example below:
+	
+	\begin{Verbatim}[commandchars=+\(\)]
+	+color(CornflowerBlue)\usepackage{setspace}
+	+color(CornflowerBlue)\doublespacing
+	
+	\begin{document}
+	\end{Verbatim}
+	
+	\section{Creating lists}
+	
+	As you have probably noticed in this document, it is also possible to make lists. The \texttt{enumerate} environment created numbered lists, while the \texttt{itemize} environment only creates items.
+	
+	To make a list, you must first create the environment by typing \verb|\begin{itemize}| and \verb|\end{itemize}|, then type \verb|\item| before each of the items in your list, as shown below:
+	
+	\begin{multicols}{2}
+		\begin{Verbatim}
+		Here's a numbered list:
+		\begin{enumerate}
+		\item Item one
+		\item Item two
+		\item Item three
+		\end{enumerate}
+		\end{Verbatim}
+		
+		\columnbreak	
+		
+		Here's a numbered list:
+		\begin{enumerate}
+			\item Item one
+			\item Item two
+			\item Item three
+		\end{enumerate}
+	\end{multicols}
+	
+	\begin{multicols}{2}
+		\begin{Verbatim}
+		Here's an unnumbered list:
+		\begin{itemize}
+		\item Item one
+		\item Item two
+		\item Item three
+		\end{itemize}
+		\end{Verbatim}
+		
+		\columnbreak	
+		
+		Here's an unnumbered list:
+		\begin{itemize}
+			\item Item one
+			\item Item two
+			\item Item three
+		\end{itemize}
+	\end{multicols}
+	
+	\section{Adjusting margins}
+	\section{Floats}
+	\section{Creating environments}
+	\section{Using packages}
+	\section{Using math symbols}
+	\section{Document types}
+	\section{Managing references}
+
+\end{document}   
