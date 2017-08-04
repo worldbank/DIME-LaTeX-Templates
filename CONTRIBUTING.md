@@ -7,6 +7,8 @@ If you have an idea for a new command, or a new feature on an existing command, 
 
 ## How to contribute using Github:
 
+**Important:** Do not include pdf-files in any pull request apart from when merging to the _Master_ branch. Pdf-files are of binary type which as not shared efficeintly over GitHub. Instead, include only the LaTeX code when merging across branches, and then compile the merged LaTeX file to a pdf file locally on your computer only.
+
 ### Opening and organizaing a new issue
 1. Open issues for all edits you make that are not trivial, such as typos in text etc.
 1. If your issue is related to any of the projects we have ([see projects here](https://github.com/worldbank/DIME-LaTeX-Templates/projects)) then click on that project, then click _*Add cards*_ and drag your issue to the todo column
