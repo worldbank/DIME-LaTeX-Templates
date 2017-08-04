@@ -3,7 +3,7 @@
 ### Feature request, bug reporst and general comments
 An easy but still very helpful way to provide feedback on this resource is to create an issue in GitHub. You can read issues submitted by other users or create a new issue [here](https://github.com/worldbank/ietoolkit). While the word issue has a negative connotation outside GitHub, a GitHub-issue can be used for any kind of feedback. Even a question on how to use the resource.
 
-If you have an idea for a new command, or a new feature on an existing command, creating an issue is a great tool for suggesting that. Please read already existing issues to check whether someone else has made the same suggestion or reported the same error before creating a new issue. You can use the search bar in case the number of issues is large.
+If you have an idea for a new template or exercise, or a specific need that isn't covered here, creating an issue is a great tool for suggesting that. Please read already existing issues to check whether someone else has made the same suggestion or reported the same error before creating a new issue. You can use the search bar in case the number of issues is large.
 
 ## How to contribute using Github:
 
@@ -20,7 +20,7 @@ If you have an idea for a new command, or a new feature on an existing command, 
 1. Unless the solution is simple, create a new brach of the develop branch and name it after the issue. Include the issue number and a word or two describing the issue. (If the solution is simple then make your change directly to the _develop_ branch and skip to step 8 when you are done.)
 1. If you at any point need help with the solution, ask for that in the comment thread for this issue. Tag one of the admins (or both) by writing `@luizaandrade` or `@mrimal` anywhere in your comment to make sure someone is notified.
 1. When you are done create a pull request from your branch to the develop branch.
-1. If your issue is storted under a project, then go to that project and drag the issue to the _Done - Waiting to be merged to develop-branch_ column.
+1. If your issue is sorted under a project, then go to that project and drag the issue to the _Done - Waiting to be merged to develop-branch_ column.
 1. If you feel confident in your solution you can yourself merge your branch to the _develop_ branch. 
-1. If you confirm yout own pull request (or made the change derectly to the _develop_ branch) and your issue is part of a project, then drag your issue to the column _Done - Waiting to be merged to master-branch_ 
+1. If you confirm your own pull request (or made the change directly to the _develop_ branch) and your issue is part of a project, then drag your issue to the column _Done - Waiting to be merged to master-branch_ 
 1. Only admin can merge to the master branch, and only then will the issue be closed.
