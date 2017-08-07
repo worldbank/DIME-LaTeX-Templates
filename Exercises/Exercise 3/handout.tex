@@ -17,7 +17,7 @@
 \setlength{\parskip}{.5\baselineskip}   % Define spacing between two paragraphs
 
 % Bibliography packages
-\usepackage[numbers]{natbib}
+\usepackage[]{natbib}
 \bibliographystyle{chicago}
 \usepackage{bibentry} 
 
@@ -171,17 +171,27 @@ In this exercise, you will explore some intermediate-level tools for text editin
 	\section{Document types}
 	\section{Managing references}
 	
+	{\LaTeX} offers an easy way to create a list of references and to cite people's work in your text. This is done by creating an auxiliary BiBTeX file, which is basically a {\TeX} file saved with a .bib extension that contains information on all of your references. 
+	
+	In this section, you will learn how to create a BiBTeX file, how to cite works, how to create a list of references and how to change the formatting of this list. 
+	
 	\subsection{Creating a bibtex file}
+	
+	If you want to cite a paper in your text, the first thing you have to do is upload the information about this paper. Fortunately, google can help you with that: go to \href{https://scholar.google.com.br/}{Google Scholar} and look for ``dupas robinson 2013". You should get the screen below.
 	
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=\linewidth]{../img/scholar_cite}
 	\end{figure}
 
+	Now, if you click in \texttt{Cite}, you will see the options below, which are different formats used for citation. If you wanted to cite this papers in a word document, you should copy the format you want to display. However, if you copy the BibTeX entry, you can later choose to display your bibliogrpahy list in any of these formats.
+
 	\begin{figure}[H]
 		\centering
 		\includegraphics[width=.8\linewidth]{../img/scholar_bibtex}
 	\end{figure}
+
+	So click on the \texttt{BibTeX} option and you will see the following code. 	You will notice that this entry indicates the type of work (article, book, chapter), the title, authors and other information that will appear in the bibliography. In its first line, it also specifies a label for the paper, \texttt{dupas2013savings}. This is the shortcut you will use to reference this paper whenever you want to cite it.
 
 	\begin{Verbatim}
 		@article{dupas2013savings,
@@ -195,6 +205,24 @@ In this exercise, you will explore some intermediate-level tools for text editin
 		year={2013},
 		publisher={American Economic Association}
 		}
+	\end{Verbatim}
+	
+	Copy this text, go to TeXstudio, and start a new file. Note that this should be a completely blank file, with no preamble, no document class and no document environment. Paste the text you copied to the blank file and save it in the same folder as your .tex document under the name \texttt{Bibliogrpahy.bib}.
+	
+	Now do the same for a couple of other papers. In this example, we will use \citeauthor*{de2008returns} \citeyearpar{de2008returns} and \citeauthor*{alix2012forest} \citeyearpar{alix2012forest}. Note that you can alter the label used to reference for each entry by just editing the entry's first line in your BibTeX file. Let's do that by labeling \citeauthor*{alix2012forest} \citeyearpar{alix2012forest} \texttt{mexicoPES}:
+	
+	\begin{Verbatim}[commandchars=+\(\)]
+@article{+color(CornflowerBlue)mexicoPES+color(black),
+	title={Forest conservation and slippage: Evidence from Mexico’s national payments 
+		for ecosystem services program},
+	author={Alix-Garcia, Jennifer M and Shapiro, Elizabeth N and Sims, Katharine RE},
+	journal={Land Economics},
+	volume={88},
+	number={4},
+	pages={613--638},
+	year={2012},
+	publisher={University of Wisconsin Press}
+}
 	\end{Verbatim}
 	
 	\subsection{Using the natbib package}
