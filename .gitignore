@@ -1,5 +1,5 @@
 ## Ignore pdf files. Only include them manually in the Master branch. In all other branches compile the latex locally
-.pdf
+*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
