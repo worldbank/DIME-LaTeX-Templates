@@ -2,7 +2,8 @@
 % This is the preamble. It sets the main options for your document and load the packages used.
 
 % Load packages: making changes here can cause errors.
-\documentclass{article}                 % Define document class. Shouldn't change.   
+\documentclass{article}            % Define document class. Shouldn't change.   
+\usepackage[margin=1in]{geometry}
 \usepackage{adjustbox}                  % This package allows you to adapt table and figure sizes to fit the page and is required by iebaltab
 \usepackage{float}
 \usepackage{setspace}       
@@ -22,6 +23,19 @@
 \maketitle
 \newpage
 
-\section*{Typing math symbols in {\LaTeX}}
+\section*{{\LaTeX} environments}
+Environments in {\LaTeX} are blocks of code which have special formatting rules. In a {\LaTeX} document, environments are defined by \verb|\begin{}| and an \verb|\end{}| tag and everything in those \textit{environment} is formatted in the manner predefined by the environment. For example - between the \verb|\begin{center}| and \verb|\end{center}|, content(tables, figures, text) is centered as the formatting rule for the center environment is used. Similarly for things in a figure environment i.e. between \verb|\begin{table}| and \verb|\end{table}|, content is formatted as a table as predefined as the table environment. 
 
+Environments can be anything ranging from very simple like using a certain text justification(i.e. center, left, right justified) to something more complex like math mode, tables, or figures. 
+
+Some of the more common {\LaTeX} environments we have seen in Exercise 1 and 2 are listed below with a short explanation of what they do: 
+
+\begin{description}
+	\item[figure] This environment is used to import figures and graphs into {\LaTeX}. 
+	\item[table] This environment is used to create, or import a table into a {\LaTeX} document.
+	\item[adjustbox] This environment helps in adjusting the tables we created to fit the page we are working on. This environment is also generally used inside the \texttt{table} or \texttt{figure} environments.
+	
+\end{description} 
+\section*{Typing math symbols in {\LaTeX}}
+While writing papers in {\LaTeX}, there might be a need to type up math symbols and equations. Math equations and symbols can be typed using the ma
 \end{document}      % Will not compile without this line

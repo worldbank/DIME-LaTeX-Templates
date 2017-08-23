@@ -223,3 +223,4 @@ TSWLatexianTemp*
 ##Ignoring pdf files and then uploading them only when everything is finalised in the MASTER branch.
 *.pdf
 **/*.pdf
+*.pdf
