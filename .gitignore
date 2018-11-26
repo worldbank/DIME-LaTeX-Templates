@@ -219,5 +219,7 @@ TSWLatexianTemp*
 
 # expex forward references with \gathertags
 *-tags.tex
+
+##Ignoring pdf files and then uploading them only when everything is finalised in the MASTER branch.
 *.pdf
-*.pdf
+**/*.pdf

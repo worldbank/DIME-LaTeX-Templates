@@ -238,6 +238,51 @@
 	
 	
 	This will rotate the table to the specified degree in the final document. 
-
+	
+	\subsection{Creating items (bullet points and numbered lists)}
+	
+	As you have probably noticed in this document, it is also possible to make lists. The \texttt{enumerate} environment created numbered lists, while the \texttt{itemize} environment only creates items.
+	
+	To make a list, you must first create the environment by typing \verb|\begin{itemize}| and \verb|\end{itemize}|, then type \verb|\item| before each of the items in your list, as shown below:
+	
+	\begin{multicols}{2}
+		\begin{Verbatim}
+		Here's a numbered list:
+		\begin{enumerate}
+		\item Item one
+		\item Item two
+		\item Item three
+		\end{enumerate}
+		\end{Verbatim}
+		
+		\columnbreak	
+		
+		Here's a numbered list:
+		\begin{enumerate}
+			\item Item one
+			\item Item two
+			\item Item three
+		\end{enumerate}
+	\end{multicols}
+	
+	\begin{multicols}{2}
+		\begin{Verbatim}
+		Here's an unnumbered list:
+		\begin{itemize}
+		\item Item one
+		\item Item two
+		\item Item three
+		\end{itemize}
+		\end{Verbatim}
+		
+		\columnbreak	
+		
+		Here's an unnumbered list:
+		\begin{itemize}
+			\item Item one
+			\item Item two
+			\item Item three
+		\end{itemize}
+	\end{multicols}
 	
 \end{document}   
