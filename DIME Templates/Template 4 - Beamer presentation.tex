@@ -1,13 +1,13 @@
 % ---------------------------- Preamble starts here ----------------------------
 
-\documentclass{beamer}
+\documentclass[aspectratio=169]{beamer} %Remove [aspectratio=169] to get non-wide 4:3 slide aspect ratio
 
 % --- Set beamer theme
 \usetheme{Boadilla}
 \setbeamertemplate{footline}{}				% Remove automatic footer
 \setbeamertemplate{navigation symbols}{}	% Comment this line to display navigation symbols
 
-% Load i2i symbol 
+% Load i2i symbol
 \addtobeamertemplate{frametitle}{}{%
 \begin{textblock*}{\linewidth}(0cm,8cm)
 		\includegraphics[width=\linewidth]{img/Footer.png}
@@ -27,7 +27,7 @@
 % ---------------------------- Preamble ends here ----------------------------
 
 \begin{document}
-	
+
 \begin{frame}
 	\includegraphics[width=\textwidth]{img/Header.png}
 	\vspace{-0.2cm}
@@ -63,7 +63,7 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 \begin{frame}
 \frametitle{Multiple Columns}
 \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
-	
+
 	\column{.45\textwidth} % Left column and width
 	\textbf{Heading}
 	\begin{enumerate}
@@ -71,36 +71,36 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 		\item Explanation
 		\item Example
 	\end{enumerate}
-	
+
 	\column{.5\textwidth} % Right column and width
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
-	
+
 \end{columns}
 \end{frame}
 
 \subsection{Items}
-\begin{frame}{Add items}	
+\begin{frame}{Add items}
 
 \begin{itemize}
-	\item Currently, a lot of us, export tables from Stata and then copy paste the tables on to Excel and then to Word or something similar. 
+	\item Currently, a lot of us, export tables from Stata and then copy paste the tables on to Excel and then to Word or something similar.
 	\item {\LaTeX} allows us to create a document once and every time a do-file is run, the tables are automatically updated in our {\LaTeX} document.
-	\item This saves us a lot of time in the long run even though the learning curve for {\LaTeX} is a bit complicated compared to MS Word. 
-	
+	\item This saves us a lot of time in the long run even though the learning curve for {\LaTeX} is a bit complicated compared to MS Word.
+
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Add items sequentially}	
+\begin{frame}{Add items sequentially}
 
 	\begin{itemize}
-		\item<1->Currently, a lot of us, export tables from Stata and then copy paste the tables on to Excel and then to Word or something similar. 
+		\item<1->Currently, a lot of us, export tables from Stata and then copy paste the tables on to Excel and then to Word or something similar.
 		\item<2->{\LaTeX} allows us to create a document once and every time a do-file is run, the tables are automatically updated in our {\LaTeX} document.
-		\item<3->This saves us a lot of time in the long run even though the learning curve for {\LaTeX} is a bit complicated compared to MS Word. 
-		
+		\item<3->This saves us a lot of time in the long run even though the learning curve for {\LaTeX} is a bit complicated compared to MS Word.
+
 	\end{itemize}
 \end{frame}
 
 \section{Images}
-\begin{frame}{Add image}	
+\begin{frame}{Add image}
 
 	\begin{figure}
 		\centering
@@ -108,7 +108,7 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 		\caption{World map}
 		\label{fig:world-map}
 	\end{figure}
-	
+
 \end{frame}
 
 \begin{frame}{Add more than one image}
@@ -116,7 +116,7 @@ Sed diam enim, sagittis nec condimentum sit amet, ullamcorper sit amet libero. A
 You can also display two images side by side
 
 	\begin{multicols}{2}
-		
+
 		\begin{figure}
 			\centering
 			\includegraphics[width=\linewidth]{img/world-map}
@@ -129,7 +129,7 @@ You can also display two images side by side
 			\caption{World map 2}
 			\label{fig:world-map2}
 		\end{figure}
-	
+
 	\end{multicols}
 
 \end{frame}
@@ -139,7 +139,7 @@ You can also display two images side by side
 Lorem ipsum dolor sit amet, consectetur adipiscing elit
 
 	\begin{multicols}{2}
-		
+
 		\begin{itemize}
 			\item Mauris ut justo aliquam, consequat diam vitae, hendrerit felis
 			\item Suspendisse ullamcorper tincidunt posuere
@@ -151,7 +151,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit
 			\caption{World map 3}
 			\label{fig:world-map3}
 		\end{figure}
-		
+
 	\end{multicols}
 
 \end{frame}
