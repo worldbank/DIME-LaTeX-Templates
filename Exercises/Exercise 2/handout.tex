@@ -242,20 +242,20 @@
 
 	If you want to display two tables next to each other you can create a one-row table where you put each table in a cell each. Note that this is not making the two tables one table, it just neatly puts two tables next to each other. Since it is still two separate tables it only looks good if the two tables are on similar format. For example, if the same table is generated from two subset (male/female, control/treatment etc.) of data set. If you include notes in the .tex files imported in \verb|\input{}| then neither of those notes will be for the same table, instead put the note in the one-row table like in the example below.
 	
-	\begin{minipage}{\textwidth}
-		\begin{Verbatim}[commandchars=+\(\)]
-		\begin{table}[H]
-			\begin{center}
-				\begin{tabular}{cc}
-					\input{"../Output/Raw/tab1_female.tex"}
-					&
-					\input{"../Output/Raw/tab1_male.tex"}
-				\end{tabular}
-				#LUIZA IS THIS WHERE A COMMON NOTE SHOULD GO?
-			\end{center}
-		\end{table}
-		\end{Verbatim}
-	\end{minipage} 	
+\begin{minipage}{\textwidth}
+	\begin{Verbatim}[commandchars=+\(\)]
+\begin{table}[H]
+	\centering
+	\begin{tabular}{cc}
+		\input{"../Output/Raw/tab1_female.tex"}
+		&
+		\input{"../Output/Raw/tab1_male.tex"}
+		\\
+		\multicolumn{2}{l}{\footnotesize \textit{Note:} This is a common note.}
+	\end{tabular}
+\end{table}
+	\end{Verbatim}
+\end{minipage} 	
 	
 	
 	\subsection{Creating items (bullet points and numbered lists)}
