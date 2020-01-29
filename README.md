@@ -26,3 +26,9 @@ Feel free to use any of the LaTeX templates in the *DIME Templates* folder you d
 **Exercise Stata - How to export tables and graph from Stata to LaTeX.** This exercise covers how you can use Stata to export tables and graphs that can be read by LaTeX.
 
 **Exercise R - How to export tables and graph from Stata to LaTeX (Not created yet).** This exercise covers how you can use R to export tables and graphs that can be read by LaTeX.
+
+## Other resources
+
+The ambition of these resources are to be an easy getting started guide with the most basic concepts of LaTeX used in our field. It is not meant to be a comprehensive resource. They already exist but can be a bit intimidating to someone completely new to LaTeX. Examples of comprehensive resources are:
+
+* https://www.maths.tcd.ie/~dwilkins/LaTeXPrimer/GSWLaTeX.pdf
