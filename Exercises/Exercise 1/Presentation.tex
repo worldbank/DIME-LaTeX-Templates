@@ -1,0 +1,551 @@
+
+\documentclass[aspectratio=169]{beamer}
+
+\usetheme{metropolis}           % Use metropolis theme
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{eso-pic}
+\usepackage{graphics}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[export]{adjustbox}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{helvet}
+\usepackage{booktabs}
+\usepackage{threeparttable}
+\usepackage{marvosym}
+\usepackage{hyperref}
+\usepackage{soul}	% For strike-through
+\usepackage{tcolorbox} % For color box
+
+\title{Intro to {\LaTeX}}
+\date{}
+\author{Luiza Andrade} % Name of author(s) of session here
+\institute{Development Impact Evaluation (DIME) \newline The World Bank }
+\setbeamercolor{background canvas}{bg=white}	% Sets background color
+
+% The below command places the World Bank logo and DIME logo to the right corner
+\titlegraphic{%
+	\begin{picture}(0,0)
+	\put(330,-180){\makebox(0,0)[rt]{\includegraphics[width=3cm]{../img/WB_logo}}}
+	\end{picture}%
+	\begin{picture}(0,0)
+	\put(390,-180){\makebox(0,0)[rt]{\includegraphics[width=1.5cm]{../img/i2i}}}
+	\end{picture}%
+}
+
+%%% Section page with picture of Light bulb
+\makeatletter
+\defbeamertemplate*{section page}{mytheme}[1][]{
+	\centering
+	\begin{minipage}{22em}
+		\raggedright
+		\usebeamercolor[fg]{section title}
+		\usebeamerfont{section title}
+		\par
+		\ifx\insertsubsectionhead\@empty\else%
+		\usebeamercolor[fg]{subsection title}%
+		\usebeamerfont{subsection title}%
+		\fi
+		\ifstrempty{#1}{}{%
+			\includegraphics[width=100mm, height=60mm]{#1}%
+		}
+		\\
+		\insertsectionhead\\[-1ex]
+		\insertsubsectionhead
+		\usebeamertemplate*{progress bar in section page}
+		
+	\end{minipage}
+	\par
+	\vspace{\baselineskip}
+}
+\makeatother
+
+%%% Define a command to include picture in section, 
+%%% make section, and revert to old template
+\newcommand{\sectionpic}[2]{
+	\setbeamertemplate{section page}[mytheme][#2]
+	\section{#1}
+	\setbeamertemplate{section page}[mytheme]
+}
+
+%%% The command below allows for the text that contains Stata code
+\lstset{ %
+	backgroundcolor=\color{white},
+	basicstyle=\tiny,
+	breakatwhitespace=false,
+	breaklines=true,
+	captionpos=b,
+	commentstyle=\color{green},
+	escapeinside={\%*}{*)},
+	extendedchars=true,
+	frame=single,
+	numbers=left,
+	numbersep=5pt,
+	numberstyle=\tiny\color{gray},
+	rulecolor=\color{black},
+	showspaces=false,
+	showstringspaces=false,
+	showtabs=false,
+	stringstyle=\color{mauve},
+	tabsize=2,
+	title=\lstname,
+	morekeywords={not,\},\{,preconditions,effects },
+	deletekeywords={time}
+}
+
+\definecolor{munsell}{rgb}{0.0, 0.5, 0.69}
+
+%% The below command creates the ligh bulb logos in the top right corner of the 
+\begin{document}
+	
+	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title slide
+	{
+		\usebackgroundtemplate{\includegraphics[height=55mm,right]{../img/top_right_corner.pdf}} 
+		\maketitle
+	}
+
+\begin{frame}
+	\frametitle{Overview} % Table of contents slide, comment this block out to remove it
+	\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Introduction}{../img/section_slide}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Regular slides
+\begin{frame}{Introduction}
+	\begin{itemize}
+		\item This session will introduce you to some basic concepts of {\LaTeX}
+		\item {\LaTeX} documents will be compiled with the latest version of the files it uses as inputs
+		\item At the end of this session, you will have a template document that incorporates updates to tables and figures exported from statistical software without the need to copy and paste them
+		\item The document we will create is very simple, as the full features of {\LaTeX} cannot be explored in an hour and a half
+		\item If you want to have a more broad understanding of {\LaTeX} or explore other functionalities, the \textcolor{blue}{\href{https://en.wikibooks.org/wiki/LaTeX}{{\LaTeX} Wikibook}} is a great resource. 
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Get started}
+	Using a desktop version of \LaTeX:
+	\begin{enumerate}
+		\item Make sure you have both {\LaTeX} and a {\LaTeX} editor installed in your computer. Installation instructions can be found \textcolor{blue}{\href{https://github.com/worldbank/DIME-LaTeX-Templates/blob/master/Set\%20up\%20LaTeX\%20on\%20your\%20computer/How\%20to\%20set\%20up\%20TeXstudio.pdf}{here}}
+		\item Go to \url{https://osf.io/8sgrh/files/}
+		\item Click on \textit{2020\_12 - RA Continuing Education ({\LaTeX})} and then \texttt{Download as zip}
+		\item Unzip the \textit{2020\_12 - RA Continuing Education ({\LaTeX})} folder
+		\item Navigate to the folder \textit{2020\_12 - RA Continuing Education ({\LaTeX})/Output/Final} and open the file \textit{appendix.tex}
+	\end{enumerate}
+\end{frame}
+
+\begin{frame}{Get started}
+	Using Overleaf:
+	\begin{enumerate}
+		\item Create an account at \url{https://www.overleaf.com}
+		\item Go to \url{https://www.overleaf.com/read/zfgkzgfkybxs}
+		\item Click on the arrow next to \emph{Menu} on the top left corner to see your projects
+		\item On the rightmost column of the line for the project \textit{Intro to \LaTeX}, click on the \textit{Copy} icon
+		\item Open the project \textit{Intro to \LaTeX(Copy)} and navigate to \textit{Final/appendix.tex} under the file-tree on the left menu
+	\end{enumerate}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Folders and relative file paths}{../img/section_slide}
+
+\begin{frame}{Folders and relative file paths}
+	\begin{tcolorbox}[colback=white,colframe=orange,title=\textbf{Important!}]
+		{\LaTeX} uses relative file paths, so to import any graphs or figures to \textit{appendix.tex}, your path reference starts in the folder where it is saved.
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Folders and relative file paths}
+	\begin{itemize}
+		\item An absolute or full path points to the same location in a file system, regardless of the current working directory. To do that, it must include the root directory.
+		\item A relative path, on the other hand, starts from some given working directory, avoiding the need to provide the full absolute path.
+		\item For any given {\LaTeX} document, we must use relative file paths starting in the same directory where that document is save.
+		\item For this session purposes, all file paths will start in the folder where \textit{appendix.tex} is.
+		\item From this location, we can go to a parent directory using \texttt{..} or to a child directory using \texttt{child-directory-name/}
+		\item The relative file path from \textit{appendix.tex} to, for example, image \textit{iegraph.png} in the \textit{Raw} folder is \textit{../Raw/iegraph.png}
+	\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Compiling a PDF file from  {\LaTeX} code}{../img/section_slide}
+
+\begin{frame}{Compiling a pdf file from  {\LaTeX} code}
+	\begin{tcolorbox}[colback=white,colframe=orange,title=\textbf{Important!}]
+		The \textit{.tex} file is not your final document. The \textit{.tex} file is used to create your final document. For that, you need to compile your code. The keyboard shortcut to that is \textit{F5}.
+	\end{tcolorbox}
+\end{frame}
+
+\begin{frame}{Compiling a pdf file from  {\LaTeX} code}
+\begin{itemize}
+	\item ``Compiling'' means that you run your code to create and save a PDF version of your document
+	\item It is similar to running a do-file in Stata or an R-script in R, but it creates a PDF instead of running computations. 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Compiling a pdf file from  {\LaTeX} code}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	\begin{enumerate}
+		\item Open the file \textit{appendix.tex}
+		\item To compile it in TeXstudio, click the green double forward arrow or hit \texttt{F5}. 
+				The pdf file was saved in the same folder as where the file \textit{appendix.tex} is saved. {\LaTeX} exports a lot of auxiliary files as well here. You do not need these files.
+		\item To compile it in Overleaf, click the \textit{Recompile} button. The compiled file will show on the right side of the screen
+	\end{enumerate} 
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Compiling a pdf file from  {\LaTeX} code}
+	\begin{itemize}
+		\item Note that the content included in the PDF is what is shown between \verb|\begin{document}| and \verb|\end{document}|
+		\item The preamble at the top of the document loads different functionalities, but how to use these settings is beyond the scope of this session
+	\end{itemize} 
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Using TeXstudio interface to import an image into \LaTeX}{../img/section_slide}
+
+\begin{frame}{Using TeXstudio interface to import an image into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=orange,title=\textbf{Take-away}]
+	The easiest way to import a figure to {\LaTeX} is to simply drag and drop it. This is also an easy way to find out the relative path to your file. However, drag and drop is a feature of TeXstudio, and may not work in other editors, including Overleaf.
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Using TeXstudio interface to import an image into \LaTeX}
+\begin{itemize}
+	\item Note that the content included in the PDF is what is shown between \verb|\begin{document}| and \verb|\end{document}|
+	\item The preamble at the top of the document loads different functionalities, but how to use these settings is beyond the scope of this session
+\end{itemize} 
+\end{frame}
+
+\begin{frame}{Using TeXstudio interface to import an image into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	\begin{enumerate}
+		\item While you keep \textit{appendix.tex} open in TeXstudio, open the \textit{Raw} folder in regular file explorer
+		\item Now drag and drop figure \textit{take\_up.png} it to the part of \textit{appendix.tex}  that says ``This is a blank document''
+		\item Click ``OK'' in the window that pops up
+		\item Compile your document again
+	\end{enumerate} 
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Using TeXstudio interface to import an image into \LaTeX}
+The previous exercise will create a section of code that should look similar to the code below. 
+\begin{center}
+	\begin{verbatim}
+	\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{../Raw/take_up}
+	\caption{}
+	\label{fig:take_up}
+	\end{figure}
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Using TeXstudio interface to import an image into \LaTeX}
+	Note that the relative file path to your \emph{Raw} folder was created in end of this line:
+\begin{center}
+	\begin{verbatim}
+	\includegraphics[width=0.7\linewidth]{../Raw/take_up}
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Using TeXstudio interface to import an image into \LaTeX}
+\begin{itemize}
+	\item You will see \verb|\begin{}| and \verb|\end{}| a lot in {\LaTeX}
+	\item The define where one object start and end, and the lines of code in between \verb|\begin{}| and \verb|\end{}| is called an environment -- in this case, a figure environment
+	\item These delimiters tell {\LaTeX} that you are importing a figure and any other code in that environment in addition to the line with the relative path to the figure is a setting or provide some meta information to that figure.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Using code to import an image into \LaTeX}{../img/section_slide}
+
+\begin{frame}[fragile]{Using code to import an image into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Below the code that was generated when you imported the first figure (but before \verb|\end{document}|), create a figure environment and import \emph{iegraph.png} into it. You will find that graph in the \emph{Raw} folder. You import that figure by typing the following lines of code:
+	\begin{center}
+		\begin{verbatim}
+		\begin{figure}[H]
+		\includegraphics{../Raw/iegraph.png}
+		\end{figure}
+		\end{verbatim}
+	\end{center}
+	Remember to include \verb|../Raw/| as this is the relative path to the \emph{Raw} folder where the graph is saved. Compile your document. How does it look? 
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Using code to import an image into \LaTeX}
+	\begin{figure}[H]
+	\includegraphics{Output/Raw/iegraph.png}
+	\end{figure}
+\end{frame}
+
+\begin{frame}[fragile]{Using code to import an image into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Adjust the size of your figure using the \verb|\width| option of \verb|\includegraphics{}|:
+	\begin{center}
+		\begin{verbatim}
+		\begin{figure}[H]
+		\includegraphics[width=\textwidth]{../Raw/iegraph.png}
+		\end{figure}
+		\end{verbatim}
+	\end{center}
+\end{tcolorbox}
+
+The property \verb|=\textwidth| means that the figure will be as wide as the margins of the text in your document
+
+\end{frame}
+
+\begin{frame}[fragile]{Using code to import an image into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Add a title to your figure using the \verb|\caption| command:
+	\begin{center}
+		\begin{verbatim}
+		\begin{figure}[H]
+		\includegraphics[width=\textwidth]{../Raw/iegraph.png}
+		\caption{Add figure title here}
+		\end{figure}
+		\end{verbatim}
+	\end{center}
+
+Change the caption from \verb|{Add figure title here}| to any title of your choice and compile the document again.
+\end{tcolorbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Using code to import an image into \LaTeX}{../img/section_slide}
+
+\begin{frame}[fragile]{ Importing tables into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	\begin{enumerate}
+		\item Create a table environment by using \verb|\begin{}| and \verb|\end{}| underneath the two figures you already imported
+		\begin{itemize}
+			 \item Instead of writing \verb|figure| in \verb|\begin{}| and \verb|\end{}| as you did above, write \verb|table| 
+			 \item This tells {\LaTeX} to expect a table instead if a figure
+		\end{itemize}
+		\item Import \emph{regression\_table.tex} into the table environment using \verb|\input{}|.
+		\begin{itemize}
+			\item Inside input, add the relative file path to the table
+		\end{itemize}
+	\end{enumerate}
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{ Importing tables into \LaTeX}
+
+	The code should look like this:
+	
+	\begin{center}
+	\begin{verbatim}
+	\begin{table}[H]
+	\input{../Raw/regression_table}
+	\end{table}
+	\end{verbatim}
+	\end{center}
+
+	Now compile the document and look at the table. 
+\end{frame}
+
+\begin{frame}[fragile]{ Importing tables into \LaTeX}
+
+\begin{center}
+	\begin{table}[H]
+	\input{Output/Raw/regression_table}
+	\end{table}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+\begin{itemize}
+	\item To adjust the table size, we will use the \verb|\adjustbox| environment
+	\item This environment can be created \textbf{inside a table environment} using the following code:
+	\begin{verbatim}
+	\begin{table}[H]
+	\begin{adjustbox}{max width=\textwidth}
+	\input{}
+	\end{adjustbox}
+	\end{table}
+	\end{verbatim}
+	\item All the content added between \verb|\begin{adjustbox}| and \verb|\end{adjustbox}| will have the property \verb|{max width=\textwidth}|.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Edit the code to import your table so the \verb|\input{}| line is inside an \verb|\end{adjustbox}| environment
+\end{tcolorbox}
+
+\begin{center}
+	\begin{verbatim}
+	\begin{table}[H]
+	\begin{adjustbox}{max width=\textwidth}
+	\input{../Raw/regression_table.tex}
+	\end{adjustbox}
+	\end{table}
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+	\begin{table}[H]
+	\begin{adjustbox}{max width=\textwidth}
+	\input{Output/Raw/regression_table.tex}
+	\end{adjustbox}
+	\end{table}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+\begin{itemize}
+	\item Similar to figures, you can add a caption to your table. 
+	\item This is done by adding the same lines as for figures. 
+	\item Note that the caption needs to be outside of the \texttt{adjustbox} environment, but inside the \texttt{table} environment.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	\begin{enumerate}
+		\item Update the text in \verb|\caption{Add figure title here}| and compile the document
+		\begin{itemize}
+			\item Note the title of the table is above the table
+			\item When we used \verb|\caption{}| for the figure earlier, it was below 
+			\item That has nothing to do with tables and figures, it all depends if you enter the line with \verb|\caption{}| before or after the line when you are importing a file to your document. 
+		\end{itemize}
+		\item Move the line with the caption to after \verb|\end{adjustbox}| and before \verb|\end{table}| and compile the document again. 
+		\begin{itemize}
+			\item The caption line must come before the \texttt{adjustbox} environment begins, otherwise the document will not compile.
+		\end{itemize}
+	\end{enumerate}
+\end{tcolorbox}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Centering imported objects}{../img/section_slide}
+
+\begin{frame}[fragile]{Centering imported objects}
+\begin{itemize}
+	\item Until now, we imported object into our document that were too wide for our document's margins, so we had to adjust their sizes. 
+	\item Next, we are going to see what happens when we import a narrower object. 
+\end{itemize}	
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	\begin{enumerate}
+		\item Create a new table environment (\verb|\begin{table}| and \verb|\end{table}|)
+		\item Use \verb|input{}| to import the table \textit{sample\_sizes.tex} into the document
+		\item Add a title to your table
+	\end{enumerate}
+\end{tcolorbox}
+\end{frame}
+
+\begin{frame}[fragile]{Centering imported objects}
+\begin{center}
+	\begin{verbatim}
+	\begin{table}[H]
+	\caption{Add a title to this table}
+	\input{../Raw/sample_sizes.tex}
+	\end{table}
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Centering imported objects}
+As you can see, this table is not yet centered: 
+
+\begin{center}
+	\begin{table}[H]
+	\caption{Add a title to this table}
+	\input{Output/Raw/sample_sizes.tex}
+	\end{table}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Centering imported objects}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Center the table by writing \verb|\centering| inside the \texttt{table} environment.
+\end{tcolorbox}
+
+\begin{itemize}
+	\item Adding \verb|\centering| to the beginning of an environment centers whatever is in that environment.
+	\item That means that if the same line was added after a \verb|\begin{figure}|, that figure would also be centered.
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Centering imported objects}
+\begin{center}
+	\begin{verbatim}
+	\begin{table}[H]
+	\centering
+	\caption{Add a title to this table}
+	\input{../Raw/sample_sizes.tex}
+	\end{table}
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Adding a document title}{../img/section_slide}
+
+\begin{frame}[fragile]{Adding a title to your document}
+\begin{itemize}
+	\item To add a title to your document, add \verb|\maketitle| on a new line immediately below \verb|\begin{document}|
+	\item Compile the document
+	\item You can see the information we already added
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Importing tables into \LaTeX}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Update the title information with a title of your own and with you name in the preamble
+	\begin{enumerate}
+		\item Go to your document's preamble and look for the \verb|\title{}| information
+		\item Change the title to one of your choosing
+		\item Find the \verb|\author{}| information and update it as well
+		\item Compile the document and see your changes
+	\end{enumerate}
+\end{tcolorbox}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Adding a list of tables and a list of figures}{../img/section_slide}
+
+\begin{frame}[fragile]{Adding a list of tables and a list of figures}
+\begin{tcolorbox}[colback=white,colframe=munsell,title=\textbf{Exercise}]
+	Immediately after where you added \verb|\maketitle|, on a new line, add \verb|\listoftables| and, on a second new line, add \verb|\listoffigures|.
+\end{tcolorbox}
+
+\begin{center}
+	\begin{verbatim}
+	\begin{document}
+	\maketitle
+	\listoftables
+	\listoffigures
+	\end{verbatim}
+\end{center}
+\end{frame}
+
+\begin{frame}[fragile]{Adding a list of tables and a list of figures}
+\begin{itemize}
+	\item Compile your document
+	\item The titles shown in these lists are those defined by the \verb|\caption| you added to each table and figure
+	\item You can go to any of your figures or tables, change the caption and compile the document again to see how the list of tables and figures is updated
+	\item While it is common practice, you do not need to add \verb|\maketitle| and \verb|\listoftables| in the beginning of the document. You can add them anywhere.
+\end{itemize}
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Section title slide
+\sectionpic{Useful resources}{../img/section_slide}
+
+\begin{frame}[fragile]{Useful resources}
+\begin{itemize}
+	\item LaTeX Wikibook: \url{https://en.wikibooks.org/wiki/LaTeX }
+	\item More LaTeX tutorials: \url{https://github.com/worldbank/DIME-LaTeX-Templates }
+	\item Exporting tables from Stata to LaTeX: \url{https://github.com/worldbank/stata-tables}
+	\item Packages to export tables from R to LaTeX: \textcolor{blue}{\href{https://cran.r-project.org/web/packages/stargazer/vignettes/stargazer.pdf}{stargazer}} and \textcolor{blue}{\href{https://cran.r-project.org/web/packages/huxtable/vignettes/huxtable.html}{huxtable}}
+\end{itemize}
+\end{frame}
+
+\end{document}
